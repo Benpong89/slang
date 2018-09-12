@@ -8,35 +8,23 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: rgb(50, 54, 72);
+  margin: 0;
+}
+
+#root {
+  margin: 0;
 }
 
 .splash-container {
   margin: 0 50px 0 50px;
+  border-bottom: 5px;
 }
 
 .splash-header {
   display: flex;
   justify-content: space-between;
-}
-
-.logo-nav {
-  display: flex;
-}
-
-.text-logo {
-  font-size: 32px;
-  font-weight: bold;
-  margin: 2px 0 0 5px;
-}
-
-.img-logo {
-  margin-top: 6px;
-  margin-left: 5px;
-  height: 35px;
-}
-
-.signin-signup {
-  margin: 10px 0px;
+  border-width: thick;
+  border-color: red;
 }
 
 .splash-body-container {
@@ -60,6 +48,65 @@ body {
   color: rgb(91, 94, 109);
 }
 
+.logo-nav {
+  display: flex;
+}
 
+.text-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 2px 0 0 5px;
+}
 
-// background-image: url('images/slack_logo.jpg');
+.img-logo {
+  margin-top: 6px;
+  margin-left: 5px;
+  height: 35px;
+}
+
+.session-form-container {
+  text-align: center;
+}
+
+.signin-signup {
+  margin: 10px 0px;
+}
+
+.signin-form-container {
+  border-bottom: thin solid lightgray;
+}
+
+.signin-form-box{
+  display: inline-block;
+  text-align: center;
+  border: thin solid black;
+  padding: 20px 140px 20px 140px;
+  margin-top: 40px;
+  border-radius: 5px;
+}
+
+.signin-form {
+}
+
+.signin-input {
+  min-width: 100%;
+  padding: 10px;
+  margin: 5px 0 5px -12px;
+  border-radius: 5px;
+  border-style: solid;
+}
+
+.signin-title {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.session-submit {
+  min-width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  background: #008952;
+  color: #fff;
+  border-radius: 5px;
+}

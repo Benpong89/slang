@@ -8,7 +8,7 @@ const Greeting = ({ currentUser, signout }) => {
       &nbsp;or&nbsp;
       <Link to="/signup">Sign up!</Link>
       &nbsp;or&nbsp;
-      <Link to="/main">Main test</Link>
+      <Link to="/main">Message page test</Link>
     </nav>
   );
 

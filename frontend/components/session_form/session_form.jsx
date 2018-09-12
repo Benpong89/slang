@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-    <div className="splash-container">
+    <div className='session-form-container'>
       <div className="signin-form-container">
         <header className="splash-header">
           <div className='logo-nav'>
@@ -61,30 +61,32 @@ class SessionForm extends React.Component {
 
         <form onSubmit={this.handleSubmit} className="signin-form-box">
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
+          <label className='signin-title'>Sign in to your workspace</label>
           {this.renderErrors()}
           <div className="signin-form">
             <br/>
-            <label>Username:
+            <label >
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
+                placeholder="username goes here"
                 className="signin-input"
               />
             </label>
             <br/>
-            <label>Password:
+            <label >
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
+                placeholder="password goes here"
                 className="signin-input"
               />
             </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <button className="session-submit" type="submit">{this.props.formType}</button>
+            <button className="session-submit" onClick={this.guestSignin}>Be my guest!</button>
           </div>
         </form>
-        <button onClick={this.guestSignin}>login as guest</button>
       </div>
     );
   }
