@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import GreetingContainer from '.././greeting/greeting_container';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -37,9 +39,19 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+
       <div className="signin-form-container">
+        <header className="splash-header">
+          <div className='logo-nav'>
+            <Link to="/" >
+              <img className='img-logo' src={window.logoURL} />
+            </Link>
+            <h1 className='text-logo'>slang</h1>
+          </div>
+          <GreetingContainer />
+        </header>
+
         <form onSubmit={this.handleSubmit} className="signin-form-box">
-          <label>Where Work Happens</label>
           <br/>
           Please {this.props.formType} or {this.props.navLink}
           {this.renderErrors()}
