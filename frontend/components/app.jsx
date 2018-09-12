@@ -7,20 +7,26 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+
 import GreetingContainer from './greeting/greeting_container';
-import SignupFormContainer from './session_form/signup_form_container.jsx';
-import SigninFormContainer from './session_form/signin_form_container.jsx';
-// import logo from './slack_logo.jpg'
+import SignUpFormContainer from './session_form/signup_form_container';
+import SignInFormContainer from './session_form/signin_form_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
+// import signo from './slack_signo.jpg'
 
 const App = () => (
   <div>
-    <header className="header">
-      <h1>Slang</h1>
+    <header>
+      <Link to="/" className="header-link">
+        <h1>Bench BnB</h1>
+      </Link>
       <GreetingContainer />
     </header>
-
-    <Route path="/signin" component={SigninFormContainer} />
-    <Route path="/signup" component={SignupFormContainer} />
+    <Switch>
+      <AuthRoute exact path="/signin" component={SignInFormContainer} />
+      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+    </Switch>
   </div>
 );
 
