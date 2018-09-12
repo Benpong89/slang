@@ -18,20 +18,31 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 const App = () => (
-  <div className="greeting-container">
-    <header className="greeting-header">
-      <div className='left-nav'>
+  <div className="splash-container">
+    <header className="splash-header">
+      <div className='logo-nav'>
         <Link to="/" >
-          <img className='logo' src={window.logoURL} />
+          <img className='img-logo' src={window.logoURL} />
         </Link>
-        <h1 className='header-logo'>slang</h1>
+        <h1 className='text-logo'>slang</h1>
       </div>
       <GreetingContainer />
     </header>
-    <div className='splash-container'>
-      <div className='splash-pic'></div>
-        <img src={window.splashPhotoURL} />
-      <div className='splash-message'></div>
+    <div className='splash-body-container'>
+
+      <div className='splash-pic-container'>
+        <img className='splash-photo' src={window.splashPhotoURL} />
+      </div>
+
+      <div className='splash-message-container'>
+        <div className='splash-title'>
+          Where Work Happens
+        </div>
+        <div className='splash-message'>
+          When your team needs to kick off a project, hire a new employee, deploy some code, review a sales contract, finalize next year's budget, measure an A/B test, plan your next office opening, and more, Slang has you covered!
+        </div>
+      </div>
+
     </div>
     <Switch>
       <AuthRoute exact path="/signin" component={SignInFormContainer} />

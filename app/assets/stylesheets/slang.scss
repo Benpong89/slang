@@ -3,38 +3,62 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.greeting-container {
-  // display: flex
+.splash-container {
+  margin: 0 50px 0 50px;
 }
 
-.greeting-header {
+.splash-header {
   display: flex;
   justify-content: space-between;
 }
 
-.header-logo {
-  margin: -5px 0 0 5px;
+.logo-nav {
+  display: flex;
+}
+
+.text-logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 2px 0 0 5px;
+}
+
+.img-logo {
+  margin-top: 6px;
+  margin-left: 5px;
+  height: 35px;
 }
 
 .signin-signup {
   margin: 10px 0px;
-
 }
 
-.logo {
-  margin-top: 6px;
-  margin-left: 5px;
-  height: 25px;
-}
-
-.left-nav {
+.splash-body-container {
   display: flex;
+  margin: 100px 0 0 80px;
 }
+
+.splash-pic-container {
+  margin: 0 60px 0 0
+}
+
+.splash-title {
+  font-size: 68px;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+  margin: 0 0 40px 0
+}
+
+.splash-message {
+  font-size: 20px;
+  color: gray;
+}
+
 
 
 // background-image: url('images/slack_logo.jpg');
