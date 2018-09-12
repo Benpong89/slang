@@ -10,11 +10,12 @@ import {
 import GreetingContainer from './greeting/greeting_container';
 import SignupFormContainer from './session_form/signup_form_container.jsx';
 import SigninFormContainer from './session_form/signin_form_container.jsx';
+// import logo from './slack_logo.jpg'
 
 const App = () => (
   <div>
-    <header>
-      <h1>Slang, how the cool kids communicate</h1>
+    <header className="header">
+      <h1>Slang</h1>
       <GreetingContainer />
     </header>
 
