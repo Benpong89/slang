@@ -9,6 +9,7 @@ const Greeting = ({ currentUser, signout }) => {
       <Link to="/signup">Sign up!</Link>
     </nav>
   );
+
   const personalGreeting = () => (
     <hgroup className="header-group">
       <h2 className="header-name">Hi, {currentUser.username}!</h2>

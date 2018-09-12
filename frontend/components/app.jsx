@@ -13,16 +13,26 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import SignInFormContainer from './session_form/signin_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-// import signo from './slack_signo.jpg'
+// import logo from './slack_logo.jpg'
+// import logo from './slack_logo.jpg'
+
 
 const App = () => (
-  <div>
-    <header>
-      <Link to="/" className="header-link">
-        <h1>Bench BnB</h1>
-      </Link>
+  <div className="greeting-container">
+    <header className="greeting-header">
+      <div className='left-nav'>
+        <Link to="/" >
+          <img className='logo' src={"/assets/slack_logo.jpg"} />
+        </Link>
+        <h1 className='header-logo'>slang</h1>
+      </div>
       <GreetingContainer />
     </header>
+    <div className='splash-container'>
+      <div className='splash-pic'></div>
+        <img src={"/assets/splash_photo2.jpg"} />
+      <div className='splash-message'></div>
+    </div>
     <Switch>
       <AuthRoute exact path="/signin" component={SignInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

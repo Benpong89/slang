@@ -2,13 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.header img {
-  float: left;
-  width: 100px;
-  height: 100px;
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.class {
+.greeting-container {
+  // display: flex
+}
+
+.greeting-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+  margin: 0;
+}
+
+.signin-signup {
+  margin: 10px 0px;
+
+}
+
+.logo {
+  margin-top: 6px;
+  margin-left: 5px;
+  height: 30px;
+}
+
+.left-nav {
+  display: flex;
 }
 
 
