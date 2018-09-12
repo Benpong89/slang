@@ -22,7 +22,7 @@ const App = () => (
     <header className="greeting-header">
       <div className='left-nav'>
         <Link to="/" >
-          <img className='logo' src={"/assets/slack_logo.jpg"} />
+          <img className='logo' src={window.logoURL} />
         </Link>
         <h1 className='header-logo'>slang</h1>
       </div>
@@ -30,7 +30,7 @@ const App = () => (
     </header>
     <div className='splash-container'>
       <div className='splash-pic'></div>
-        <img src={"/assets/splash_photo2.jpg"} />
+        <img src={window.splashPhotoURL} />
       <div className='splash-message'></div>
     </div>
     <Switch>
