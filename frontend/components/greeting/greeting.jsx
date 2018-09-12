@@ -16,6 +16,8 @@ const Greeting = ({ currentUser, signout }) => {
     <hgroup className="header-group">
       <h2 className="header-name">Hi, {currentUser.username}!</h2>
       <button className="header-button" onClick={signout}>Sign Out</button>
+      &nbsp;or&nbsp;
+      <Link to="/main">Main page</Link>
     </hgroup>
   );
 
