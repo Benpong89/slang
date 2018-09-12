@@ -3,16 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900');
+@import url('https://fonts.googleapis.com/css?family=Lato:700|Open+Sans:600|Raleway:800|Source+Sans+Pro:700');
+
+
+html, body, main {
+  height: 100%;
+  width: 100%;
+}
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: rgb(50, 54, 72);
   margin: 0;
 }
 
 #root {
   margin: 0;
+}
+
+.nav-session-link {
+  text-decoration: none;
+  color: #717274;
+  font-weight: bold;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 2px #717274;
+
 }
 
 .splash-container {
@@ -23,8 +41,7 @@ body {
 .splash-header {
   display: flex;
   justify-content: space-between;
-  border-width: thick;
-  border-color: red;
+  margin: 10px 5px 5px 0;
 }
 
 .splash-body-container {
@@ -41,11 +58,14 @@ body {
   font-weight: bold;
   font-family: 'Merriweather', serif;
   margin: 0 0 40px 0;
+  line-height: 1.1;
 }
 
 .splash-message {
   font-size: 20px;
-  color: rgb(91, 94, 109);
+  color: #5b5e6d;
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .logo-nav {
@@ -56,6 +76,7 @@ body {
   font-size: 32px;
   font-weight: bold;
   margin: 2px 0 0 5px;
+  letter-spacing: -1.5px;
 }
 
 .img-logo {
@@ -66,6 +87,9 @@ body {
 
 .session-form-container {
   text-align: center;
+  background: #f9f9f9;
+  height: 100%;
+  width: 100%;
 }
 
 .signin-signup {
@@ -74,39 +98,47 @@ body {
 
 .signin-form-container {
   border-bottom: thin solid lightgray;
+  background-color: #fff;
 }
 
 .signin-form-box{
   display: inline-block;
   text-align: center;
-  border: thin solid black;
-  padding: 20px 140px 20px 140px;
+  border: 1px solid #e8e8e8;
+  padding: 20px 100px 20px 100px;
   margin-top: 40px;
-  border-radius: 5px;
+  border-radius: .25rem;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .25)
+
 }
 
 .signin-form {
 }
 
 .signin-input {
-  min-width: 100%;
+  text-align: right;
+  min-width: 75%;
   padding: 10px;
-  margin: 5px 0 5px -12px;
+  margin: 5px 0 5px 0px;
   border-radius: 5px;
   border-style: solid;
+  border: thin solid lightgray;
 }
 
 .signin-title {
-  font-size: 20px;
-  font-weight: bolder;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  letter-spacing: -2px;
 }
 
 .session-submit {
-  min-width: 100%;
+  min-width: 75%;
   font-size: 16px;
   padding: 10px;
   margin: 5px 0 5px 0;
   background: #008952;
   color: #fff;
   border-radius: 5px;
+  font-family: 'Lato', sans-serif;
 }
