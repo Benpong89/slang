@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-
+    <div className="splash-container">
       <div className="signin-form-container">
         <header className="splash-header">
           <div className='logo-nav'>
@@ -50,6 +50,7 @@ class SessionForm extends React.Component {
           </div>
           <GreetingContainer />
         </header>
+      </div>
 
         <form onSubmit={this.handleSubmit} className="signin-form-box">
           <br/>
