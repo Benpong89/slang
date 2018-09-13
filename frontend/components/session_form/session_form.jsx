@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestSignin = this.guestSignin.bind(this);
+    this.props.resetErrors();
   }
 
   update(field) {
@@ -30,6 +31,12 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = { username: 'guest', password: '123456' }
     this.props.processForm(user)
+  }
+
+  resetErrors() {
+    this.setState({
+      errors: [],
+    })
   }
 
   renderErrors() {

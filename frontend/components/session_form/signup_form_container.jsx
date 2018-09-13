@@ -14,7 +14,10 @@ const mapStateToProps = ({ errors }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: (user) => dispatch(signup(user))
+    processForm: (user) => dispatch(signup(user)),
+    resetErrors: () => dispatch({
+      type: 'REMOVE_SESSION_ERRORS'
+    })
   };
 };
 
