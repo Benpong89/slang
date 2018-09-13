@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id               :bigint(8)        not null, primary key
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  body             :string
+#  author_id        :integer
+#  messageable_id   :integer
+#  messageable_type :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

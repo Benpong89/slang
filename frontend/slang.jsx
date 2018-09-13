@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root.jsx';
 import configureStore from './store/store';
+import actionCable from 'actioncable'
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
+
   if (window.currentUser) {
     const preloadedState = {
       session: { id: window.currentUser.id },
@@ -17,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
   const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store}/>, root);
+
+  ReactDOM.render(<Root store={store} />, root)
 });

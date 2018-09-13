@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900');
 @import url('https://fonts.googleapis.com/css?family=Lato:700|Open+Sans:600|Raleway:800|Source+Sans+Pro:700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 
 
@@ -279,4 +280,31 @@ body {
 
 .session-errors-list {
   text-align: left;
+}
+
+.message-list {
+
+}
+
+.message {
+  list-style: none;
+}
+
+.message-user {
+
+}
+
+.message-body {
+  font-weight: lighter;
+  font-family: 'Roboto', sans-serif;
+}
+
+.chatbox {
+  width: 360px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, .7);
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3)
 }

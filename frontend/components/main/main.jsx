@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import GreetingContainer from '.././greeting/greeting_container';
+import Chatbox from '.././chatbox/chatbox.jsx'
 
 class Main extends React.Component {
 
@@ -21,6 +22,8 @@ class Main extends React.Component {
         </div>
         Test Message Page yay
       </div>
+
+      <Chatbox />
     </div>
     );
   }

@@ -8,13 +8,21 @@ import MainContainer from './main/main_container';
 import Splash from './splash'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-const App = () => (
-    <Switch>
-      <Route exact path="/" component={Splash} />
-      <AuthRoute exact path="/signin" component={SignInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <Route exact path="/main" component={MainContainer} />
-    </Switch>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <Switch>
+        <Route exact path="/" component={Splash} />
+        <AuthRoute exact path="/signin" component={SignInFormContainer} />
+        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+        <Route exact path="/main" component={MainContainer} />
+      </Switch>
+    );
+  }
+}
 
 export default App;
