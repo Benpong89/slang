@@ -83,7 +83,10 @@ class Splash  extends React.Component {
             <div className='splash-message'>
               When your team needs to kick off a project, hire a new employee, deploy some code, review a sales contract, finalize next year's budget, measure an A/B test, plan your next office opening, and more, Slang has you covered!
             </div>
-            <Link to="/signin" className='get-started-button'>Get Started</Link>
+            <Link to="/signup" className='get-started-button'>Get Started</Link>
+              <br />
+             <label className='get-started-text'>Already using Slang? </label>
+            <Link className='get-started-signin' to="signin">Sign in.</Link>
           </div>
         </div>
 

@@ -186,7 +186,7 @@ body {
   display: inline-block;
   text-decoration: none;
   padding: 19px 40px 20px;
-  margin: 30px 0 0 0;
+  margin: 20px 0 10px 0;
   background-color: #3f46ad;
   color: #fff;
   border-radius: 4px;
@@ -198,6 +198,22 @@ body {
 .get-started-button:hover {
   cursor: pointer;
   background-color: #1c299d;
+}
+
+.get-started-text {
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+  font-size: .875rem;
+  color: #5b5e6d;
+}
+
+.get-started-signin {
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+  font-size: .875rem;
+  color: #3f46ad;
 }
 
 .session-form-container {
