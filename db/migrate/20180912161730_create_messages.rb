@@ -11,6 +11,5 @@ class CreateMessages < ActiveRecord::Migration[5.2]
 
     add_index :messages, :author_id
     add_index :messages, :messeageable_id
-    add_index :messages, :messeageable_type
   end
 end
