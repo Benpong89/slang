@@ -13,8 +13,6 @@
 
 class Message < ApplicationRecord
 
-  validates :body, presence: true
-
-  belongs_to :user
+  validates :body, :author_id, :messageable_id, :messageable_type, presence: true
 
 end

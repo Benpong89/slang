@@ -11,7 +11,7 @@ class Chatbox extends React.Component {
   render() {
     return (
         <div className="chatbox">
-
+          <AddMessageForm />
         </div>
     );
   }
@@ -22,4 +22,3 @@ export default Chatbox;
 //
 // <Sidebar />
 // <MessagesList />
-// <AddMessageForm />

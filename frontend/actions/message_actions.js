@@ -1,16 +1,14 @@
 // import * as APIUtil from '../util/session_api_util';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
-export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+export const SET_MESSAGES = 'SET_MESSAGES';
 
 
-export const addMessage = (author, body) => ({
+export const addMessage = (message) => ({
   type: ADD_MESSAGE,
-  author,
-  body,
+  message,
 });
 
-export const receiveMessage = (author, body) => ({
-  type: RECEIVE_MESSAGE,
-  author,
-  body,
+export const setMessages = (messages) => ({
+  type: SET_MESSAGES,
+  messages
 });

@@ -23,7 +23,7 @@ class Main extends React.Component {
         Test Message Page yay
       </div>
 
-      <Chatbox />
+
     </div>
     );
   }

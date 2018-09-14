@@ -1,10 +1,13 @@
-import { ADD_MESSAGE, RECEIVE_MESSAGE } from '.././actions/message_actions';
+import { ADD_MESSAGE, SET_MESSAGES } from '.././actions/message_actions';
+import { merge } from 'lodash'
 
-const messagesReducer = (state = [], action) => {
+const messagesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case ADD_MESSAGE:
-    case RECEIVE_MESSAGE:
+      return merge({}, state, action.message)
+    case SET_MESSAGES:
+      return action.messages;
     default:
       return state;
   }
