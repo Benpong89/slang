@@ -1,5 +1,6 @@
 import React from 'react'
 import Cable from 'actioncable';
+import { receiveMessage } from '../../actions/message_actions'
 
 
 class MessagesList extends React.Component {
@@ -9,9 +10,17 @@ class MessagesList extends React.Component {
     }
 
     componentDidMount() {
-      App.cable.subscriptions.create( { channel: 'LineChannel', room: "Test Room" }, {received: (data) => { console.log(data )} } )
+      App.cable.subscriptions.create(
+        { channel: 'LineChannel', room: "Test Room" },
+        {received: (data) => { dispatch(receiveMessage({body: data.body})) }} )
+
       this.props.requestAllMessages();
     }
+
+    // {received: (data) => { console.log({body: data.body} )} } )
+    // this is the data {id: 32, created_at: "2018-09-14T23:20:54.547Z", updated_at: "2018-09-14T23:20:54.547Z", body: "Ok this is the best test", author_id: null, …}
+
+    //I want to return this {body: "debugger test”}
 
     render() {
       const messages = this.props.messages.map((message, idx) => {
