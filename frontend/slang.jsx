@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root.jsx';
 import configureStore from './store/store';
-import actionCable from 'actioncable'
-import { ActionCableProvider } from 'react-actioncable-provider';
+import actionCable from 'actioncable';
+import { fetchAllMessages, fetchMessage } from './util/messages_api_util';
+// import { requestMessage, createMessage } from './actions/message_actions;'
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  // //
+  // window.requestMessage = requestMessage;
+  window.fetchAllMessages = fetchAllMessages;
+  window.fetchMessage = fetchMessage;
+  window.getState = store.getState
+  window.dispatch = store.dispatch
 
   const root = document.getElementById('root');
 

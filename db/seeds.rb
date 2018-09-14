@@ -10,9 +10,9 @@ User.destroy_all
 Message.destroy_all
 
 users = User.create([
+  {username: 'guest', password: '123456' },
   {username: 'Vincent Vega', password: '123456' },
   {username: 'Jules Winnfield', password: '123456' },
-  {username: 'guest', password: '123456' },
 ])
 
 messages = Message.create([

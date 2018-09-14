@@ -1,3 +1,5 @@
-json.messages(Message.limit(10).order("created_at DESC").load.reverse) do |message|
-  json.partial! 'messages/message', message: message
+@messages.each do |message|
+  json.set! message.id do
+    json.extract! message, :body
+  end
 end

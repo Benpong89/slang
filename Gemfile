@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.1'
 
+gem 'rack-cors'
 gem 'jquery-rails'
 gem 'binding_of_caller'
 gem 'better_errors'

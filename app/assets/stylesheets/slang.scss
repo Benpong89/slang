@@ -282,8 +282,15 @@ body {
   text-align: left;
 }
 
-.message-list {
+.messages_list_container {
+  display: inline-block;
+  text-align: right;
+}
 
+.messages_list {
+  height: 200px;
+  width: 200px;
+  border: thin solid red;
 }
 
 .message {
@@ -300,11 +307,7 @@ body {
 }
 
 .chatbox {
-  width: 360px;
-  height: 600px;
-  background-color: rgba(0, 0, 0, .7);
-  border-radius: 5px;
-  overflow: hidden;
-  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3);
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3)
+  width: auto;
+  height: auto;
+  background-color: lightgray;
 }

@@ -1,40 +1,41 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react'
 
-class Chat extends Component {
+class AddMessageForm extends React.Component {
+    constructor(props) {
+      super(props);
 
-  render() {
+      this.state = { body: '' };
 
-    const { messages, addMessage } = this.props;
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    const handleSubmit = (e) => {
+    update(field) {
+      return e => this.setState({
+        [field]: e.currentTarget.value
+      });
+    }
+
+    handleSubmit(e) {
       e.preventDefault();
-    };
+      const message = Object.assign({}, this.state);
+      this.props.createMessage(message)
+    }
 
-    const handleKeyUp = (e) => {
-      if(e.keyCode == 13){
-        if (typeof App !== 'undefined'){
-          App.room.speak(e.target.value);
-        }else{
-          addMessage({id: messages.length + 1, content: e.target.value})
-        }
-        e.target.value = "";
-      };
-    };
+    render () {
+        return (
+            <div className ='messages_submit_container'>
 
-    return (
-      <div>
-        <ul>
-          {messages.map((msg) => {
-              return <li key={`chat.msg.${msg.id}`}>{msg.content}</li>;
-            })
-          }
-        </ul>
-        <form onSubmit={handleSubmit}>
-          <input type="text" onKeyUp={handleKeyUp}/>
-        </form>
-      </div>
-    );
-  }
+              <form onSubmit={this.handleSubmit}>
+                <input type="text"
+                  value={this.state.body}
+                  onChange={this.update('body')}
+                  placeholder="your message goes here"/>
+                <button type="submit">Create a new message...?</button>
+              </form>
+
+            </div>
+        )
+    }
 }
 
-export default Chat;
+export default AddMessageForm

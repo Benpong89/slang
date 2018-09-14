@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './sidebar.jsx';
-import MessagesList from './messages_list.jsx';
-import AddMessageForm from './add_message_form.jsx';
+import MessagesList from './messages_list_container.jsx';
+import AddMessageForm from './add_message_form_container.jsx';
 
 class Chatbox extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Chatbox extends React.Component {
   render() {
     return (
         <div className="chatbox">
+          <MessagesList />
           <AddMessageForm />
         </div>
     );
