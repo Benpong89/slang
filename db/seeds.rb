@@ -16,11 +16,11 @@ users = User.create([
 ])
 
 messages = Message.create([
-  { body: 'Please work...',
+  { body: 'Welcome to Slang! This might not work yet...',
     author_id: '1',
     messageable_id: '2',
     messageable_type: 'Channel' },
-  { body: 'Say action cables, one more time!',
+  { body: '#action cables...',
     author_id: '2',
     messageable_id: '2',
     messageable_type: 'Channel' }
