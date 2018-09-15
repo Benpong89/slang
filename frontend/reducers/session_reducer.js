@@ -2,10 +2,9 @@ import {
   RECEIVE_CURRENT_USER,
   SIGNOUT_CURRENT_USER,
 } from '../actions/session_actions';
+import { merge } from "lodash"
 
-const _nullUser = Object.freeze({
-  id: null
-});
+const _nullUser = Object.freeze({ id: null });
 
 const sessionReducer = (state = _nullUser, action) => {
   Object.freeze(state);

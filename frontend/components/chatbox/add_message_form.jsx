@@ -1,10 +1,15 @@
 import React from 'react'
+import { merge } from 'lodash'
 
 class AddMessageForm extends React.Component {
     constructor(props) {
       super(props);
 
-      this.state = { body: '' };
+      this.state = {
+        body: '',
+        author_id: this.props.currentUser.id,
+        messageable_type: 'main test channel',
+        messageable_id: 7 };
 
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -17,7 +22,7 @@ class AddMessageForm extends React.Component {
 
     handleSubmit(e) {
       e.preventDefault();
-      const message = Object.assign({}, this.state);
+      const message = merge({}, this.state);
       this.props.createMessage(message)
     }
 

@@ -288,8 +288,9 @@ body {
 }
 
 .messages_list {
-  height: 190px;
-  width: 190px;
+  display: flex;
+  height: auto;
+  width: auto;
   border: thin solid red;
 }
 

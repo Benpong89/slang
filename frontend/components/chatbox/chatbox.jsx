@@ -1,5 +1,4 @@
 import React from 'react';
-import Sidebar from './sidebar.jsx';
 import MessagesList from './messages_list_container.jsx';
 import AddMessageForm from './add_message_form_container.jsx';
 
