@@ -24,6 +24,11 @@ class AddMessageForm extends React.Component {
       e.preventDefault();
       const message = merge({}, this.state);
       this.props.createMessage(message)
+      this.setState({
+        body: '',
+        author_id: this.props.currentUser.id,
+        messageable_type: 'main test channel',
+        messageable_id: 7 })
     }
 
     render () {
