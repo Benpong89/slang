@@ -34,8 +34,9 @@ class AddMessageForm extends React.Component {
                 <input type="text"
                   value={this.state.body}
                   onChange={this.update('body')}
-                  placeholder="your message goes here"/>
-                <button type="submit">Create a new message...?</button>
+                  placeholder="your message goes here"
+                  className ='message-input'/>
+                <button type="submit" className='message-submit'></button>
               </form>
 
             </div>

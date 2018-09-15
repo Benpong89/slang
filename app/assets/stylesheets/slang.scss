@@ -8,16 +8,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 
-
-html, body, main {
-  // min-width: 1135px;
-  // max-width: 1250px;
-  // max-height: 100%;
-}
-
 html {
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
 
 body {
@@ -288,18 +280,14 @@ body {
 }
 
 .messages_list {
+  margin-top: auto;
   display: flex;
   height: auto;
   width: auto;
-  border: thin solid red;
 }
 
 .message {
   list-style: none;
-}
-
-.message-user {
-
 }
 
 .message-body {
@@ -307,8 +295,51 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.message-input {
+  width: 99%;
+  height: 35px;
+  border: 2px solid rgba(145,145,147,.7);
+  border-radius: 4px;
+  margin: 20px 0 0 0;
+  padding: 2px 2px 2px 8px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.message-submit {
+  display: none;
+}
+
 .chatbox {
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: auto;
-  background-color: lightgray;
+  background-color: #fff;
+  margin: 20px 15px 20px 18px;
+
+}
+
+.sidebar-container {
+  height: 100%;
+  width: 278px;
+  background: #4d394b;
+}
+
+.main-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.sidebar-title {
+  color: #fff;
+  margin: 11px 0 0 14px;
+  font-size: 16px;
+}
+
+.sidebar-username {
+  color: #ab9ba9;
+  margin: 2px 0 0 30px;
 }

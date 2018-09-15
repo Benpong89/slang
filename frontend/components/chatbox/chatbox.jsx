@@ -18,7 +18,3 @@ class Chatbox extends React.Component {
 }
 
 export default Chatbox;
-
-//
-// <Sidebar />
-// <MessagesList />
