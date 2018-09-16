@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%=ENV['REDISTOGO_URL']%>
+  url: redis://:aebfBuCCNT7Ko4aMs4Y7B0br4dJBnC1i@redis-18836.c52.us-east-1-4.ec2.cloud.redislabs.com:18836
   channel_prefix: slang_production
