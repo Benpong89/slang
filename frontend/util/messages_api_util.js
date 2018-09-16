@@ -1,21 +1,18 @@
-export const fetchMessage = id => (
+export const fetchMessage = id =>
   $.ajax({
-    method: 'GET',
-    url: `api/messages/${id}`,
-  })
-)
+    method: "GET",
+    url: `api/messages/${id}`
+  });
 
-export const fetchAllMessages = () => (
+export const fetchAllMessages = () =>
   $.ajax({
-    method: 'GET',
-    url: `api/messages`,
-  })
-)
+    method: "GET",
+    url: `api/messages`
+  });
 
-export const createMessage = message => (
+export const createMessage = message =>
   $.ajax({
-    method: 'POST',
+    method: "POST",
     url: `api/messages/`,
-    data: { message },
-  })
-)
+    data: { message }
+  });
