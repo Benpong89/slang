@@ -27,10 +27,6 @@ class AddMessageForm extends React.Component {
     e.preventDefault();
     const message = merge({}, this.state);
 
-    //need to replace createMessage (Post request with a speak action)
-    // this.props.createMessage(message);
-    //Should be able to broadcast to LineChannel but need to define LineChannel..
-    // LineChannel.broadcast_to("line_channel", message);
     App.cable.subscriptions.subscriptions[0].speak(message);
 
     this.setState({

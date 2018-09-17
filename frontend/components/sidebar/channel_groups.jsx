@@ -10,6 +10,7 @@ class ChannelGroups extends React.Component {
     return (
       <div className="conversation-container">
         Channels
+        <button className="create_new_channel">+</button>
         <ul className="conversation-ul">
           <li className="conversation-li"># I have a dream</li>
           <li className="conversation-li"># That one day</li>

@@ -8,24 +8,64 @@
 }
 
 .messages_list_container {
-  display: inline-block;
-  text-align: right;
 }
 
-.messages_list {
+.messages_list_container {
   margin-top: auto;
   display: flex;
   height: auto;
   width: auto;
 }
 
-.message {
+.messages_list {
   list-style: none;
+  margin: 10px 5px 5px 5px;
 }
 
-.message-body {
+.default_user_img {
+  height: 35px;
+  border-radius: 4px;
+}
+
+.message_authors_list {
+  height: 100%;
+  width: 300px;
+}
+
+.messages_authors {
+  display: flex;
   font-weight: lighter;
+  list-style: none;
+  margin: 25px 10px 10px 10px;
+  padding: 0px;
+}
+
+.messages_author {
+  margin: 0 0 0 5px;
+  padding: 0px;
+}
+
+.messages_time {
+  font-family: "Montserrat", sans-serif;
+  color: #ab9ba9;
+  font-size: 11px;
+  padding: 4px 0 0 5px;
+}
+
+.message_body_list {
+  margin-top: auto;
+  margin-left: -240px;
+  height: 100%;
+  width: 100%;
+}
+
+.message_body {
   font-family: "Roboto", sans-serif;
+  list-style: none;
+  display: flex;
+  font-weight: lighter;
+  margin: 40px 10px 10px 10px;
+  padding: 0px;
 }
 
 .message-input {
@@ -33,7 +73,7 @@
   height: 35px;
   border: 2px solid rgba(145, 145, 147, 0.7);
   border-radius: 4px;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
   padding: 2px 2px 2px 8px;
   font-size: 16px;
   font-weight: 100;
