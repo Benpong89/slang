@@ -24,7 +24,7 @@ class ChannelGroups extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    this.props.openModal("createChannel");
     //this snippet below is to create a channel. User inside the modal Not here.
     // const channel = merge({}, this.state);
     // this.props.createChannel(channel);
@@ -54,11 +54,7 @@ class ChannelGroups extends React.Component {
             onChange={this.update("name")}
             placeholder="channel name goes here"
           />
-          <button
-            onClick={() => this.props.openModal("createChannel")}
-            type="submit"
-            className="create_new_channel"
-          >
+          <button type="submit" className="create_new_channel">
             +
           </button>
         </form>
