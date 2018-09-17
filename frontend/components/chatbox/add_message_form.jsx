@@ -14,6 +14,7 @@ class AddMessageForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.updateScroll = this.updateScroll.bind(this);
   }
 
   update(field) {
@@ -22,6 +23,12 @@ class AddMessageForm extends React.Component {
         [field]: e.currentTarget.value
       });
   }
+
+  //to update scroll to the bottom?
+  // updateScroll() {
+  //   var element = document.getElementById("yourDivID");
+  //   element.scrollTop = element.scrollHeight;
+  // }
 
   handleSubmit(e) {
     e.preventDefault();

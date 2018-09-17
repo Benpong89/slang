@@ -6,9 +6,11 @@ import Timestamp from "react-timestamp";
 class MessagesList extends React.Component {
   constructor(props) {
     super(props);
+  }
 
-    this.props.requestAllMessages();
+  componentWillMount() {
     this.props.requestAllUsers();
+    this.props.requestAllMessages();
   }
 
   componentDidMount() {
@@ -32,9 +34,6 @@ class MessagesList extends React.Component {
       }
     );
   }
-
-  //map through messages slice of state including body and author_id, or entire message for time stamp too.
-  // return li {this.props.user.img_url} {this.props.users[message.author_id].username} {message.body} {message.created_at}
 
   render() {
     const messages = this.props.messages.map((message, idx) => {

@@ -7,6 +7,7 @@ import SignInFormContainer from "./session_form/signin_form_container";
 import MainContainer from "./main/main_container";
 import Splash from "./splash";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import Modal from "./modal/modal";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,12 +16,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Splash} />
-        <AuthRoute exact path="/signin" component={SignInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-        <Route exact path="/main" component={MainContainer} />
-      </Switch>
+      <div>
+        <Modal />
+        <Switch>
+          <Route exact path="/" component={Splash} />
+          <AuthRoute exact path="/signin" component={SignInFormContainer} />
+          <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+          <Route exact path="/main" component={MainContainer} />
+        </Switch>
+      </div>
     );
   }
 }
