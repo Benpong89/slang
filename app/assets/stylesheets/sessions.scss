@@ -1,3 +1,68 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-form-container {
+  text-align: center;
+  background: #f9f9f9;
+  height: 100%;
+  width: 100%;
+}
+
+.signin-signup {
+  margin: 10px 0px;
+}
+
+.signin-form-container {
+  width: 100%;
+  border-bottom: thin solid lightgray;
+  background-color: #fff;
+}
+
+.signin-form-box {
+  max-width: none;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+  padding: 20px 100px 20px 100px;
+  margin: 40px 0 100px 0;
+  border-radius: 0.25rem;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.signin-input {
+  text-align: right;
+  min-width: 75%;
+  padding: 10px;
+  margin: 5px 0 5px 0px;
+  border-radius: 4px;
+  border-style: solid;
+  border: thin solid lightgray;
+  font-size: 15px;
+}
+
+.signin-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  letter-spacing: -2px;
+}
+
+.session-submit {
+  min-width: 75%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  background: #008952;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+}
+
+.session-submit.hidden {
+  display: none;
+}
+
+.session-errors-list {
+  text-align: left;
+}

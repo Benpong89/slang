@@ -1,0 +1,41 @@
+.sidebar-container {
+  height: 100%;
+  width: 278px;
+  background: #4d394b;
+}
+
+.img-logo-sidebar {
+  background: purple;
+}
+
+.sidebar-title {
+  color: #fff;
+  margin: 11px 0 0 14px;
+  font-size: 16px;
+}
+
+.sidebar-username {
+  font-family: "Montserrat", sans-serif;
+  color: #ab9ba9;
+  margin: 2px -5px 0 30px;
+  font-size: 12px;
+}
+
+.conversation-container {
+  color: rgb(202, 196, 201);
+  font-family: "PT Sans", sans-serif;
+  margin: 20px 0 0 10px;
+}
+
+.conversation-ul {
+  padding: 0 0 0 0;
+  margin: 10px 0 0 15px;
+  color: #ab9ba9;
+}
+
+.conversation-li {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  margin: 0 0 0 0;
+  list-style: none;
+}
