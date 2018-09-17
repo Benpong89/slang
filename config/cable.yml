@@ -6,7 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['REDIS'] %>
+  url: <%= ENV['REDIS_URL'] %>
   channel_prefix: slang_production
 
 
