@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ChannelGroups from "./channel_groups_container.jsx";
+import DMGroups from "./dm_groups_container.jsx";
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -10,10 +12,20 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar-container">
         <h3 className="sidebar-title">Slang Workspace</h3>
-        <h6 className="sidebar-username">{this.props.currentUser.username}</h6>
-        <Link className="sidebar-username" to="/" onClick={this.props.signout}>
-          Sign Out
-        </Link>
+        <div className="greeting-container">
+          <h6 className="sidebar-username">
+            {this.props.currentUser.username}
+          </h6>
+          <Link
+            className="sidebar-username"
+            to="/"
+            onClick={this.props.signout}
+          >
+            Sign Out
+          </Link>
+        </div>
+        <ChannelGroups />
+        <DMGroups />
       </div>
     );
   }

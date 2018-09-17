@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
           <header className="splash-header">
             <div className="logo-nav">
               <Link to="/">
-                <img className="img-logo" src={window.logoURL} />
+                <img className="img-logo-signin" src={window.logoURL} />
               </Link>
               <h1 className="text-logo">slang</h1>
             </div>
