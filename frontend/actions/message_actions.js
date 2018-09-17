@@ -31,9 +31,3 @@ export const requestAllMessages = () => dispatch =>
   MessagesAPIUtil.fetchAllMessages().then(messages =>
     dispatch(receiveAllMessages(messages))
   );
-
-// then( message => (
-//   dispatch(receiveMessage(message))
-// ), err => (
-//   dispatch(receiveErrors(err.responseJSON))
-// )));
