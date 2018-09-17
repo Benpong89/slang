@@ -1,11 +1,17 @@
 import { connect } from "react-redux";
 import ChannelGroups from "./channel_groups.jsx";
-import { createChannel } from "../../actions/channel_actions.js";
+import {
+  createChannel,
+  requestAllChannels
+} from "../../actions/channel_actions.js";
 
-const mapStateToProps = state => ({});
+const mapStateToProps = ({ entities: { channels } }) => ({
+  channels: Object.keys(channels).map(id => channels[id].name)
+});
 
 const mapDispatchToProps = dispatch => ({
-  createChannel: channel => dispatch(createChannel(channel))
+  createChannel: channel => dispatch(createChannel(channel)),
+  requestAllChannels: channels => dispatch(requestAllChannels(channels))
 });
 
 export default connect(

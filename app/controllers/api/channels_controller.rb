@@ -7,7 +7,6 @@ class Api::ChannelsController < ApplicationController
   def create
     @channel = Channel.new(channel_params)
     if @channel.save
-      LineChannel.broadcast_to('line_channel', @channel)
       render :show
     else
       render json: ["invalid channel"], status: 401

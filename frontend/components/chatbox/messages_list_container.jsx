@@ -8,9 +8,8 @@ const mapStateToProps = ({
   entities: { users },
   entities: { messages }
 }) => ({
-  messages: Object.keys(messages).map(id => messages[id].body),
-  messagesAuthorId: Object.keys(messages).map(id => messages[id].author_id),
-  users: Object.keys(users).map(id => ({ [users[id].id]: users[id].username }))
+  users,
+  messages: Object.values(messages)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -22,3 +21,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MessagesList);
+
+// messages: Object.keys(messages).map(id => messages[id].body),
+// messagesAuthorId: Object.keys(messages).map(id => messages[id].author_id),
+// users: Object.keys(users).map(id => ({ [users[id].id]: users[id].username }))

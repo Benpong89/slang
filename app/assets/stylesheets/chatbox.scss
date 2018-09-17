@@ -8,36 +8,25 @@
 }
 
 .messages_list_container {
-}
-
-.messages_list_container {
-  margin-top: auto;
-  display: flex;
-  height: auto;
-  width: auto;
-}
-
-.messages_list {
+  overflow: hidden;
+  overflow: scroll;
   list-style: none;
-  margin: 10px 5px 5px 5px;
+}
+
+.message_container {
+  display: flex;
+  margin: 5px;
 }
 
 .default_user_img {
   height: 35px;
   border-radius: 4px;
+  margin: 5px;
 }
 
-.message_authors_list {
-  height: 100%;
-  width: 300px;
-}
-
-.messages_authors {
-  display: flex;
-  font-weight: lighter;
+.message_author {
   list-style: none;
-  margin: 25px 10px 10px 10px;
-  padding: 0px;
+  margin: 5px 5px 3px 0;
 }
 
 .messages_author {
@@ -45,27 +34,20 @@
   padding: 0px;
 }
 
+.message_body {
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  margin: px 10px 0px 10px;
+  padding: 0px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .messages_time {
   font-family: "Montserrat", sans-serif;
   color: #ab9ba9;
   font-size: 11px;
-  padding: 4px 0 0 5px;
-}
-
-.message_body_list {
-  margin-top: auto;
-  margin-left: -240px;
-  height: 100%;
-  width: 100%;
-}
-
-.message_body {
-  font-family: "Roboto", sans-serif;
-  list-style: none;
-  display: flex;
-  font-weight: lighter;
-  margin: 40px 10px 10px 10px;
-  padding: 0px;
+  padding: 5px 0 0 5px;
 }
 
 .message-input {
