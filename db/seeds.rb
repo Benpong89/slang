@@ -11,7 +11,8 @@ Message.destroy_all
 Channel.destroy_all
 
 users = User.create([
-  {username: 'guest', password: '123456' },
+  {id: 1, username: 'Slang Bot', password: '123456' },
+  {id: 2, username: 'Guest', password: '123456' },
   {username: 'Vincent Vega', password: '123456' },
   {username: 'Jules Winnfield', password: '123456' },
 ])
@@ -21,4 +22,9 @@ channels = Channel.create([
   {name: 'Fox News', description: 'channel1' },
   {name: 'Comedy Central', description: 'channel2' },
   {name: 'Cartoon Network', description: 'channel3' },
+])
+
+messages = Message.create([
+  {body: 'Welcome to Slang!', author_id: 1, messageable_type: 'Channel', messageable_id: 1 },
+  {body: 'Feel free to explore', author_id: 1, messageable_type: 'Channel', messageable_id: 1 },
 ])
