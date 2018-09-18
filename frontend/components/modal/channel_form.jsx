@@ -45,17 +45,36 @@ class ChannelGroups extends React.Component {
 
     return (
       <div className="conversation-container">
+        <h1 className="channel_modal_title">Create a channel</h1>
+        <p className="channel_modal_title_message">
+          Channels are where your members communicate. They are best when
+          organized around a topic.
+        </p>
+
+        <div className="channel_input_title_modal">Name</div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.name}
             onChange={this.update("name")}
-            placeholder="create new channel"
+            placeholder="#channel"
             className="signin-input-modal"
           />
-          <button type="submit" className="create_new_channel_modal" /> Channels
+          <div className="input_post_message">What's this channel name?</div>
+
+          <div className="channel_input_title_modal">Purpose</div>
+          <div className="optional-modal">(optional)</div>
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.update("name")}
+            className="signin-input-modal"
+          />
+          <div className="input_post_message">What's this channel about?</div>
+          <button type="submit" className="new_channel_button_modal">
+            Create channel
+          </button>
         </form>
-        <ul className="conversation-ul">{channels}</ul>
       </div>
     );
   }

@@ -75,22 +75,7 @@
   color: #ab9ba9;
 }
 
-.create_new_channel_modal {
-  margin: 0;
-  padding: 0px;
-  background: none;
-  border: none;
-  font-size: 22px;
-  color: #ab9ba9;
-}
-
-.signin-input-modal {
-  text-align: left;
-  min-width: 75%;
-  padding: 10px;
-  margin: 5px 0 5px 0px;
-  border-radius: 4px;
-  border-style: solid;
-  border: thin solid lightgray;
-  font-size: 15px;
+.create_new_channel:hover {
+  cursor: pointer;
+  color: rgb(202, 196, 201);
 }

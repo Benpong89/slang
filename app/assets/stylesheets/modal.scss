@@ -4,7 +4,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: white;
   z-index: 10;
 }
 
@@ -13,4 +13,54 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.channel_modal_title {
+  font-family: "Lato", sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+.channel_modal_title_message {
+  font-size: 14px;
+  color: #6d6f7b;
+}
+
+.signin-input-modal {
+  text-align: left;
+  min-width: 100%;
+  padding: 10px;
+  margin: 5px 0 5px 0px;
+  border-radius: 4px;
+  border-style: solid;
+  border: thin solid lightgray;
+  font-size: 15px;
+}
+
+.optional-modal {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.channel_input_title_modal {
+  color: black;
+  display: inline-block;
+  margin: 20px 0 0 0;
+}
+
+.new_channel_button_modal {
+  font-family: "Lato", sans-serif;
+  float: right;
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  background: lightgray;
+  color: #5b5e6d;
+  border-radius: 4px;
+}
+
+.input_post_message {
+  font-size: 12px;
+  color: #6d6f7b;
 }

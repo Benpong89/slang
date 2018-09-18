@@ -10,6 +10,7 @@ class Chatbox extends React.Component {
   render() {
     return (
       <div className="chatbox">
+        # Channel Name
         <MessagesList />
         <AddMessageForm />
       </div>
