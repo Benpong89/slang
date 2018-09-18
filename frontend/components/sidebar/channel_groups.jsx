@@ -33,7 +33,7 @@ class ChannelGroups extends React.Component {
     const channels = this.props.channels.map((channel, idx) => {
       return (
         <li>
-          <Link to="/main" key={idx} className="conversation-li">
+          <Link to={"/main"} key={idx} className="conversation-li">
             # {channel}
           </Link>
         </li>

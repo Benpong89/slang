@@ -29,11 +29,11 @@
 .signin-input-modal {
   text-align: left;
   min-width: 100%;
-  padding: 10px;
+  padding: 13px 15px 13px 15px;
   margin: 5px 0 5px 0px;
   border-radius: 4px;
   border-style: solid;
-  border: thin solid lightgray;
+  border: thin solid gray;
   font-size: 15px;
 }
 
@@ -47,6 +47,8 @@
   color: black;
   display: inline-block;
   margin: 20px 0 0 0;
+  font-family: "Lato", sans-serif;
+  color: #2c2d30;
 }
 
 .new_channel_button_modal {

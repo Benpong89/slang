@@ -66,8 +66,8 @@ class ChannelGroups extends React.Component {
           <div className="optional-modal">(optional)</div>
           <input
             type="text"
-            value={this.state.name}
-            onChange={this.update("name")}
+            value={this.state.description}
+            onChange={this.update("description")}
             className="signin-input-modal"
           />
           <div className="input_post_message">What's this channel about?</div>

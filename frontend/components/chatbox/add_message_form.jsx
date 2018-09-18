@@ -9,7 +9,7 @@ class AddMessageForm extends React.Component {
     this.state = {
       body: "",
       author_id: this.props.currentUser.id,
-      messageable_type: "main test channel",
+      messageable_type: "Channel",
       messageable_id: 7
     };
 
@@ -39,7 +39,7 @@ class AddMessageForm extends React.Component {
     this.setState({
       body: "",
       author_id: this.props.currentUser.id,
-      messageable_type: "main test channel",
+      messageable_type: "Channel",
       messageable_id: 7
     });
   }

@@ -6,6 +6,7 @@ import Timestamp from "react-timestamp";
 class MessagesList extends React.Component {
   constructor(props) {
     super(props);
+    this.myRef = React.createRef();
   }
 
   componentWillMount() {
@@ -33,12 +34,17 @@ class MessagesList extends React.Component {
         }
       }
     );
+    this.myRef.current.scrollIntoView();
+  }
+
+  componentDidUpdate() {
+    this.myRef.current.scrollIntoView();
   }
 
   render() {
     const messages = this.props.messages.map((message, idx) => {
       return (
-        <li key={idx} className="message_container">
+        <li id="messages-holder" key={idx} className="message_container">
           <img className="default_user_img" src={window.userURL} />
           <div>
             <div className="message_author">
@@ -55,7 +61,12 @@ class MessagesList extends React.Component {
       );
     });
 
-    return <div className="messages_list_container">{messages}</div>;
+    return (
+      <div className="messages_list_container">
+        <div className="messages_list_container">{messages}</div>
+        <div ref={this.myRef}> </div>
+      </div>
+    );
   }
 }
 
