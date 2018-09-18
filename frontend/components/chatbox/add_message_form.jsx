@@ -25,7 +25,13 @@ class AddMessageForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const message = merge({}, this.state);
+    // const message = merge({}, this.state);
+    const message = {
+      body: this.state.body,
+      author_id: this.props.currentUser.id,
+      messageable_type: "Channel",
+      messageable_id: this.props.currentChannel[0]
+    };
     App.cable.subscriptions.subscriptions[0].speak(message);
 
     this.setState({

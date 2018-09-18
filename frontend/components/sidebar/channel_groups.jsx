@@ -11,12 +11,9 @@ class ChannelGroups extends React.Component {
       description: ""
     };
 
+    this.props.requestAllChannels();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setCurrentChannel = this.setCurrentChannel.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.requestAllChannels();
   }
 
   update(field) {

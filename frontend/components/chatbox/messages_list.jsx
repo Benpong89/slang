@@ -42,7 +42,11 @@ class MessagesList extends React.Component {
   }
 
   render() {
-    const messages = this.props.messages.map((message, idx) => {
+    const messages = this.props.messages.filter(
+      message => message.messageable_id === this.props.currentChannel[0].id
+    );
+
+    const currentMessages = messages.map((message, idx) => {
       return (
         <li id="messages-holder" key={idx} className="message_container">
           <img className="default_user_img" src={window.userURL} />
@@ -66,7 +70,7 @@ class MessagesList extends React.Component {
     return (
       <div className="messages_list_container">
         # {currentChannel}
-        <div className="messages_list_container">{messages}</div>
+        <div className="messages_list_container">{currentMessages}</div>
         <div ref={this.myRef}> </div>
       </div>
     );
