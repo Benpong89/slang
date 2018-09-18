@@ -51,10 +51,10 @@ class ChannelGroups extends React.Component {
             type="text"
             value={this.state.name}
             onChange={this.update("name")}
-            placeholder="channel name goes here"
+            placeholder="create new channel"
+            className="signin-input"
           />
-          <button type="submit" className="create_new_channel" />Create new
-          Channel
+          <button type="submit" className="create_new_channel" />Channels
         </form>
         <ul className="conversation-ul">{channels}</ul>
       </div>

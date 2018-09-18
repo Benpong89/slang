@@ -6,6 +6,14 @@ class Api::UsersController < ApplicationController
   end
 
   def create
+  # default_pics = []
+  #   if @user.imgURL.empty?
+  #     @user.imgURL = default_pics.random
+  #   end
+    # Save pics to assets image
+    #  Need to source in into window for Heroku
+    # how to return random default value..
+
     @user = User.new(user_params)
 
     if @user.save

@@ -5,14 +5,18 @@
   min-width: 210px;
 }
 
-.img-logo-sidebar {
-  background: purple;
-}
-
 .sidebar-title {
   color: #fff;
   margin: 11px 0 0 14px;
   font-size: 16px;
+}
+
+.green-dot {
+  position: absolute;
+  top: 29px;
+  left: 14px;
+  color: #38978d;
+  font-size: 18px;
 }
 
 .sidebar-username {
@@ -22,6 +26,18 @@
   font-size: 12px;
 }
 
+.sidebar-signout {
+  font-family: "Montserrat", sans-serif;
+  color: #ab9ba9;
+  margin: 2px -5px 0 30px;
+  font-size: 12px;
+}
+
+.sidebar-signout:hover {
+  cursor: pointer;
+  color: rgb(202, 196, 201);
+}
+
 .conversation-container {
   color: rgb(202, 196, 201);
   font-family: "PT Sans", sans-serif;
@@ -29,18 +45,32 @@
 }
 
 .conversation-ul {
+  font-family: "Montserrat", sans-serif;
+  list-style: none;
   padding: 0 0 0 0;
-  margin: 10px 0 0 15px;
+  margin: 0 0 0 15px;
   color: #ab9ba9;
 }
 
 .conversation-li {
+  color: #ab9ba9;
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   margin: 4px 0 0 0;
   list-style: none;
+  text-decoration: none;
+}
+
+.conversation-li:hover {
+  cursor: pointer;
+  color: rgb(202, 196, 201);
 }
 
 .create_new_channel {
-  margin: 0 0 0 20px;
+  margin: 0 0 0 90px;
+  padding: 0px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #ab9ba9;
 }

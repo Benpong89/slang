@@ -25,21 +25,17 @@ class ChannelGroups extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.openModal("createChannel");
-    //this snippet below is to create a channel. User inside the modal Not here.
-    // const channel = merge({}, this.state);
-    // this.props.createChannel(channel);
-    //
-    // this.setState({
-    //   name: "",
-    //   description: ""
-    // });
   }
+  // This works for channel link, but empty page. How to create a new blank chatbox for each link??
+  // <Link to={`/${channel}`}
 
   render() {
     const channels = this.props.channels.map((channel, idx) => {
       return (
-        <li key={idx} className="conversation-li">
-          # {channel}
+        <li>
+          <Link to="/main" key={idx} className="conversation-li">
+            # {channel}
+          </Link>
         </li>
       );
     });
@@ -47,17 +43,9 @@ class ChannelGroups extends React.Component {
     return (
       <div className="conversation-container">
         Channels
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={this.update("name")}
-            placeholder="channel name goes here"
-          />
-          <button type="submit" className="create_new_channel">
-            +
-          </button>
-        </form>
+        <button onClick={this.handleSubmit} className="create_new_channel">
+          {"\u2295"}
+        </button>
         <ul className="conversation-ul">{channels}</ul>
       </div>
     );

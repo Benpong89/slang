@@ -14,13 +14,10 @@ class Sidebar extends React.Component {
         <h3 className="sidebar-title">Slang Workspace</h3>
         <div className="greeting-container">
           <h6 className="sidebar-username">
+            <div className="green-dot">{"\u25cf"}</div>
             {this.props.currentUser.username}
           </h6>
-          <Link
-            className="sidebar-username"
-            to="/"
-            onClick={this.props.signout}
-          >
+          <Link className="sidebar-signout" to="/" onClick={this.props.signout}>
             Sign Out
           </Link>
         </div>
