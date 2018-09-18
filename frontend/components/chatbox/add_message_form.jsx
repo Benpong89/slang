@@ -10,11 +10,10 @@ class AddMessageForm extends React.Component {
       body: "",
       author_id: this.props.currentUser.id,
       messageable_type: "Channel",
-      messageable_id: 7
+      messageable_id: this.props.currentChannel[0]
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.updateScroll = this.updateScroll.bind(this);
   }
 
   update(field) {
@@ -24,23 +23,16 @@ class AddMessageForm extends React.Component {
       });
   }
 
-  //to update scroll to the bottom?
-  // updateScroll() {
-  //   var element = document.getElementById("yourDivID");
-  //   element.scrollTop = element.scrollHeight;
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     const message = merge({}, this.state);
-
     App.cable.subscriptions.subscriptions[0].speak(message);
 
     this.setState({
       body: "",
       author_id: this.props.currentUser.id,
       messageable_type: "Channel",
-      messageable_id: 7
+      messageable_id: this.props.currentChannel[0]
     });
   }
 

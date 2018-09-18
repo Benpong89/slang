@@ -3,6 +3,8 @@ class MessageBroadcastJob < ApplicationJob
 
   def perform(message)
     LineChannel.broadcast_to('line_channel', message: render_message(message))
+
+
   end
 
   private

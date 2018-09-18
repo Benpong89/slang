@@ -11,8 +11,12 @@ class ChannelGroups extends React.Component {
       description: ""
     };
 
-    this.props.requestAllChannels();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setCurrentChannel = this.setCurrentChannel.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.requestAllChannels();
   }
 
   update(field) {
@@ -26,16 +30,24 @@ class ChannelGroups extends React.Component {
     e.preventDefault();
     this.props.openModal("createChannel");
   }
-  // This works for channel link, but empty page. How to create a new blank chatbox for each link??
-  // <Link to={`/${channel}`}
+
+  setCurrentChannel(channelId) {
+    return e => {
+      e.preventDefault();
+      this.props.requestCurrentChannel(channelId);
+    };
+  }
 
   render() {
     const channels = this.props.channels.map((channel, idx) => {
       return (
-        <li>
-          <Link to={"/main"} key={idx} className="conversation-li">
-            # {channel}
-          </Link>
+        <li key={idx}>
+          <button
+            onClick={this.setCurrentChannel(channel.id)}
+            className="conversation-li"
+          >
+            # {channel.name}
+          </button>
         </li>
       );
     });

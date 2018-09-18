@@ -61,8 +61,11 @@ class MessagesList extends React.Component {
       );
     });
 
+    const currentChannel = this.props.currentChannel[0].name;
+
     return (
       <div className="messages_list_container">
+        # {currentChannel}
         <div className="messages_list_container">{messages}</div>
         <div ref={this.myRef}> </div>
       </div>

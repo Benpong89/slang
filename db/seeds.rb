@@ -17,6 +17,7 @@ users = User.create([
 ])
 
 channels = Channel.create([
+  {id: 1, name: 'general', description: 'default channel' },
   {name: 'Fox News', description: 'channel1' },
   {name: 'Comedy Central', description: 'channel2' },
   {name: 'Cartoon Network', description: 'channel3' },

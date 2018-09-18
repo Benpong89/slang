@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // //
   // window.requestMessage = requestMessage;
-  window.fetchAllMessages = fetchAllMessages;
-  window.fetchMessage = fetchMessage;
+  // window.fetchAllMessages = fetchAllMessages;
+  // window.fetchMessage = fetchMessage;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

@@ -4,8 +4,13 @@ import { createMessage } from "../../actions/message_actions.js";
 
 //eventually, this will have to map chatbox tpe "channel or DM" and room id
 
-const mapStateToProps = ({ session, entities: { users } }) => ({
-  currentUser: users[session.id]
+const mapStateToProps = ({
+  session,
+  entities: { users },
+  ui: { currentChannel }
+}) => ({
+  currentUser: users[session.id],
+  currentChannel: Object.keys(currentChannel)
 });
 
 const mapDispatchToProps = dispatch => ({
