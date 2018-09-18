@@ -59,6 +59,19 @@
   font-family: "Lato", sans-serif;
 }
 
+.session-submit:hover {
+  cursor: pointer;
+  border-style: inset;
+  min-width: 75%;
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  background: #008952;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+}
+
 .session-submit.hidden {
   display: none;
 }
