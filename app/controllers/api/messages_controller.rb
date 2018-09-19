@@ -22,11 +22,14 @@ class Api::MessagesController < ApplicationController
   end
 
   def destroy
-  @message = Message.find(params[:id])
-  @message.destroy
-
-  render :show
-end
+    @message = Message.find(params[:id])
+    if (@message.author_id == current_user.id)
+      @message.destroy
+      render :show
+    else
+      render json: ["Can't delete someone else's message"], status: 401
+    end
+  end
 
   def message_params
     params.require(:message).permit(:body, :author_id, :messageable_id, :messageable_type)
