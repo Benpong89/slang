@@ -71,7 +71,7 @@ class SessionForm extends React.Component {
 
         <form onSubmit={this.handleSubmit} className="signin-form-box">
           <br />
-          <label className="signin-title">Sign in to your workspace</label>
+          <label className="signin-title">{this.props.formType}</label>
           <label className="session-errors-list">{this.renderErrors()}</label>
           <div className="signin-form">
             <br />
@@ -96,12 +96,14 @@ class SessionForm extends React.Component {
             </label>
             <br />
             <button className="session-submit" type="submit">
-              {this.props.formType}
+              Continue
+              {"\u2192"}
             </button>
+            <br />
             <button
               className={
                 "session-submit" +
-                (this.props.formType === "Sign up \u2192" ? " hidden" : "")
+                (this.props.formType === "Sign up here!" ? " hidden" : "")
               }
               onClick={this.guestSignin}
             >

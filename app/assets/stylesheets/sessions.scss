@@ -21,6 +21,7 @@
 
 .signin-form-box {
   max-width: none;
+  min-width: 240px;
   display: inline-block;
   text-align: center;
   border: 1px solid #e8e8e8;
@@ -33,7 +34,7 @@
 
 .signin-input {
   text-align: right;
-  min-width: 75%;
+  min-width: 242px;
   padding: 10px;
   margin: 5px 0 5px 0px;
   border-radius: 4px;
@@ -49,7 +50,7 @@
 }
 
 .session-submit {
-  min-width: 75%;
+  min-width: 205px;
   font-size: 16px;
   padding: 10px;
   margin: 5px 0 5px 0;
