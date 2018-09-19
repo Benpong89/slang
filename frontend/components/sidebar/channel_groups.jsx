@@ -15,6 +15,7 @@ class ChannelGroups extends React.Component {
     this.openCreateModal = this.openCreateModal.bind(this);
     this.openDetailModal = this.openDetailModal.bind(this);
     this.setCurrentChannel = this.setCurrentChannel.bind(this);
+    this.deleteSubscription = this.deleteSubscription.bind(this);
   }
 
   update(field) {
@@ -40,9 +41,17 @@ class ChannelGroups extends React.Component {
       this.props.requestCurrentChannel(channelId);
     };
   }
-  // const currentSubscriptions = this.props.subscriptions.filter(
-  //   subscription => subscription.user_id === this.props.currentUser.id
-  // );
+
+  deleteSubscription(channelId) {
+    return e => {
+      e.preventDefault();
+      const toDelete = Object.values(this.props.subscriptions).filter(
+        subscription => subscription.subscribeable_id === channelId
+      );
+
+      this.props.deleteSubscription(toDelete[0].id);
+    };
+  }
 
   render() {
     if (this.props.subscriptions === undefined) return null;
@@ -62,6 +71,12 @@ class ChannelGroups extends React.Component {
             className="conversation-li"
           >
             # {channel.name}
+          </button>
+          <button
+            onClick={this.deleteSubscription(channel.id)}
+            className="channel_detail_button"
+          >
+            {"\u2296"}
           </button>
         </li>
       );

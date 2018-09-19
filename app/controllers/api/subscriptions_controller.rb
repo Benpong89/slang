@@ -20,6 +20,13 @@ class Api::SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  def destroy
+  @subscription = Subscription.find(params[:id])
+  @subscription.destroy
+
+  render :show
+end
+
   def subscription_params
     params.require(:subscription).permit(:user_id, :subscribeable_id, :subscribeable_type)
   end

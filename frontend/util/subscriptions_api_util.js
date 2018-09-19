@@ -16,3 +16,9 @@ export const createSubscription = subscription =>
     url: `api/subscriptions/`,
     data: { subscription }
   });
+
+export const deleteSubscription = id =>
+  $.ajax({
+    method: "DELETE",
+    url: `api/subscriptions/${id}`
+  });

@@ -21,6 +21,13 @@ class Api::MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
+  def destroy
+  @message = Message.find(params[:id])
+  @message.destroy
+
+  render :show
+end
+
   def message_params
     params.require(:message).permit(:body, :author_id, :messageable_id, :messageable_type)
   end
