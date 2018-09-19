@@ -7,6 +7,7 @@ class MessagesList extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
+    this.deleteMessage = this.deleteMessage.bind(this);
   }
 
   componentWillMount() {
@@ -41,6 +42,13 @@ class MessagesList extends React.Component {
     this.myRef.current.scrollIntoView();
   }
 
+  deleteMessage(messageId) {
+    return e => {
+      e.preventDefault();
+      this.props.deleteMessage(messageId);
+    };
+  }
+
   render() {
     const messages = this.props.messages.filter(
       message => message.messageable_id === this.props.currentChannel[0].id
@@ -62,6 +70,12 @@ class MessagesList extends React.Component {
             </div>
             <div className="message_body">{message.body}</div>
           </div>
+          <button
+            onClick={this.deleteMessage(message.id)}
+            className="delete_message_button"
+          >
+            X
+          </button>
         </li>
       );
     });

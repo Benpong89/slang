@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import MessagesList from "./messages_list.jsx";
-import { requestAllMessages } from "../../actions/message_actions.js";
+import {
+  requestAllMessages,
+  deleteMessage
+} from "../../actions/message_actions.js";
 import { requestAllUsers } from "../../actions/session_actions.js";
 
 const mapStateToProps = ({
@@ -16,7 +19,8 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   requestAllMessages: messages => dispatch(requestAllMessages(messages)),
-  requestAllUsers: users => dispatch(requestAllUsers(users))
+  requestAllUsers: users => dispatch(requestAllUsers(users)),
+  deleteMessage: message => dispatch(deleteMessage(message))
 });
 
 export default connect(

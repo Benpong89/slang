@@ -40,8 +40,6 @@ class AddMessageForm extends React.Component {
       messageable_id: this.props.currentChannel[0].id,
       currentChannel: this.props.currentChannel[0]
     });
-
-    // something needs to happen here to stop from resetting current channel
   }
 
   render() {

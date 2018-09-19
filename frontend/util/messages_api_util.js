@@ -16,3 +16,9 @@ export const createMessage = message =>
     url: `api/messages/`,
     data: { message }
   });
+
+export const deleteMessage = id =>
+  $.ajax({
+    method: "DELETE",
+    url: `api/messages/${id}`
+  });

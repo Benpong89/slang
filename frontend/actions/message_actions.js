@@ -1,7 +1,7 @@
 import * as MessagesAPIUtil from "../util/messages_api_util";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_ALL_MESSAGES = "RECEIVE_ALL_MESSAGES";
-export const RECEIVE_MESSAGE_ERRORS = "RECEIVE_MESSAGE_ERRORS";
+export const REMOVE_MESSAGE = "REMOVE_MESSAGE";
 
 export const receiveMessage = message => ({
   type: RECEIVE_MESSAGE,
@@ -13,18 +13,22 @@ export const receiveAllMessages = messages => ({
   messages
 });
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_MESSAGE_ERRORS,
-  errors
+export const removeMessage = id => ({
+  type: REMOVE_MESSAGE,
+  id
 });
+
+export const deleteMessage = id => dispatch =>
+  MessagesAPIUtil.deleteMessage(id).then(message =>
+    dispatch(removeMessage(id))
+  );
 
 export const createMessage = message => dispatch =>
   MessagesAPIUtil.createMessage(message);
 
 export const requestMessage = message => dispatch =>
-  MessagesAPIUtil.fetchMessage(message).then(
-    message => dispatch(receiveMessage(message)),
-    err => dispatch(receiveErrors(err.responseJSON))
+  MessagesAPIUtil.fetchMessage(message).then(message =>
+    dispatch(receiveMessage(message))
   );
 
 export const requestAllMessages = () => dispatch =>
