@@ -8,10 +8,15 @@ import {
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
+  session,
   entities: { channels },
+  entities: { users },
+  entities: { subscriptions },
   ui: { currentChannel }
 }) => ({
   channels: Object.values(channels),
+  subscriptions: subscriptions,
+  currentUser: users[session.id],
   currentChannel
 });
 

@@ -70,7 +70,7 @@ class MessagesList extends React.Component {
 
     return (
       <div className="messages_list_container">
-        # {currentChannel}
+        <div className="messages_list_channel_name"> # {currentChannel}</div>
         <div className="messages_list_container">{currentMessages}</div>
         <div ref={this.myRef}> </div>
       </div>

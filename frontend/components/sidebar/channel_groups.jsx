@@ -40,9 +40,21 @@ class ChannelGroups extends React.Component {
       this.props.requestCurrentChannel(channelId);
     };
   }
+  // const currentSubscriptions = this.props.subscriptions.filter(
+  //   subscription => subscription.user_id === this.props.currentUser.id
+  // );
 
   render() {
-    const channels = this.props.channels.map((channel, idx) => {
+    if (this.props.subscriptions === undefined) return null;
+    const channelIds = Object.values(this.props.subscriptions).map(
+      currentSubscription => currentSubscription.subscribeable_id
+    );
+
+    const channels = this.props.channels.filter(channel =>
+      channelIds.includes(channel.id)
+    );
+
+    const currentUserchannels = channels.map((channel, idx) => {
       return (
         <li key={idx}>
           <button
@@ -66,7 +78,7 @@ class ChannelGroups extends React.Component {
         <button onClick={this.openCreateModal} className="create_new_channel">
           {"\u2295"}
         </button>
-        <ul className="conversation-ul">{channels}</ul>
+        <ul className="conversation-ul">{currentUserchannels}</ul>
       </div>
     );
   }

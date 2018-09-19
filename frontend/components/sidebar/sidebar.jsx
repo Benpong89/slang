@@ -6,6 +6,8 @@ import DMGroups from "./dm_groups_container.jsx";
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.props.requestAllSubscriptions();
   }
 
   render() {

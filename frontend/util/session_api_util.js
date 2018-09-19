@@ -26,3 +26,10 @@ export const signout = () => {
     url: "/api/session"
   });
 };
+
+// export const addChannelSubscription = (user) => {
+//   return $.ajax ({
+//     method: "PATCH",
+//     url: `/api/user/${user.id}`
+//   })
+// }

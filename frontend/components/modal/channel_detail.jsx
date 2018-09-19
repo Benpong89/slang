@@ -10,8 +10,6 @@ class ChannelDetail extends React.Component {
       name: "",
       description: ""
     };
-
-    this.props.requestAllChannels();
     this.setCurrentChannel = this.setCurrentChannel.bind(this);
   }
 
@@ -25,15 +23,15 @@ class ChannelDetail extends React.Component {
   setCurrentChannel(channelId) {
     return e => {
       e.preventDefault();
+      this.props.createSubscription({
+        user_id: this.props.currentUser.id,
+        subscribeable_id: channelId,
+        subscribeable_type: "Channel"
+      });
       this.props.requestCurrentChannel(channelId);
       this.props.closeModal();
     };
   }
-
-  //will eventually be part of the search for channel function
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  // }
 
   render() {
     const channels = this.props.channels.map((channel, idx) => {

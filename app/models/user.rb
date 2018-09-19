@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :subscriptions, as: :subscribeabe
+  has_many :subscriptions
 
 
   after_initialize :ensure_session_token
