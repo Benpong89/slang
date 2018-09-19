@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { merge } from "lodash";
 
-class ChannelGroups extends React.Component {
+class ChannelForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,12 +26,8 @@ class ChannelGroups extends React.Component {
     e.preventDefault();
 
     const channel = merge({}, this.state);
-    this.props.createChannel(channel).then(this.props.closeModal);
-
-    this.setState({
-      name: "",
-      description: ""
-    });
+    this.props.createChannel(channel);
+    this.props.closeModal();
   }
 
   render() {
@@ -44,7 +40,8 @@ class ChannelGroups extends React.Component {
     });
 
     return (
-      <div className="conversation-container">
+      <div className="modal-channel-container">
+        <button onClick={this.props.closeModal}>X</button>
         <h1 className="channel_modal_title">Create a channel</h1>
         <p className="channel_modal_title_message">
           Channels are where your members communicate. They are best when
@@ -80,4 +77,4 @@ class ChannelGroups extends React.Component {
   }
 }
 
-export default ChannelGroups;
+export default ChannelForm;

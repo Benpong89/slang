@@ -10,7 +10,8 @@ const mapStateToProps = ({
   ui: { currentChannel }
 }) => ({
   currentUser: users[session.id],
-  currentChannel: Object.keys(currentChannel)
+  currentChannel: Object.values(currentChannel),
+  currentChannelDetails: currentChannel
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -16,11 +16,17 @@ const currentChannelReducer = (state = default_state, action) => {
     case RECEIVE_CURRENT_CHANNEL:
       return merge({}, { [action.channel.id]: action.channel });
     default:
-      return default_state;
+      return state;
   }
 };
 
 export default currentChannelReducer;
+
+// case RECEIVE_MESSAGE:
+//   return merge({}, { [action.messageable_id]: action.currentChannel });
+
+// case RECEIVE_MESSAGE:
+//   return merge({}, { id: action.message.messageable_id });
 
 // return merge({}, state, {
 //   [action.currentChannel.id]: action.currentChannel

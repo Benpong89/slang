@@ -10,26 +10,33 @@
 
 .modal-child {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-channel-container {
+  width: 100%;
 }
 
 .channel_modal_title {
   font-family: "Lato", sans-serif;
   color: black;
   font-weight: bold;
+  margin: 0;
 }
 
 .channel_modal_title_message {
   font-size: 14px;
   color: #6d6f7b;
+  font-family: "PT Sans", sans-serif;
+  margin: 0;
 }
 
 .signin-input-modal {
   text-align: left;
-  min-width: 100%;
-  padding: 13px 15px 13px 15px;
+  width: 97.5%;
+  padding: 13px 3px 13px 3px;
   margin: 5px 0 5px 0px;
   border-radius: 4px;
   border-style: solid;
@@ -51,12 +58,20 @@
   color: #2c2d30;
 }
 
+.subscribe_input_title_modal {
+  color: black;
+  display: inline-block;
+  margin: 65px 0 0 0;
+  font-family: "Lato", sans-serif;
+  color: #2c2d30;
+}
+
 .new_channel_button_modal {
   font-family: "Lato", sans-serif;
   float: right;
   font-size: 18px;
   padding: 10px;
-  margin: 10px 0 10px 0;
+  margin: 10px 0 10px 0px;
   background: lightgray;
   color: #5b5e6d;
   border-radius: 4px;
@@ -65,4 +80,5 @@
 .input_post_message {
   font-size: 12px;
   color: #6d6f7b;
+  min-width: inherit;
 }

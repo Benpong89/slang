@@ -8,6 +8,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  imgURL          :string
 #
 
 class User < ApplicationRecord
@@ -16,8 +17,8 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :links
-  has_many :comments
+  has_many :subscriptions, as: :subscribeabe
+
 
   after_initialize :ensure_session_token
 

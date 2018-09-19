@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { merge } from "lodash";
 
-class ChannelGroups extends React.Component {
+class ChannelDetail extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,8 +12,6 @@ class ChannelGroups extends React.Component {
     };
 
     this.props.requestAllChannels();
-    this.openCreateModal = this.openCreateModal.bind(this);
-    this.openDetailModal = this.openDetailModal.bind(this);
     this.setCurrentChannel = this.setCurrentChannel.bind(this);
   }
 
@@ -24,22 +22,18 @@ class ChannelGroups extends React.Component {
       });
   }
 
-  openCreateModal(e) {
-    e.preventDefault();
-    this.props.openModal("createChannel");
-  }
-
-  openDetailModal(e) {
-    e.preventDefault();
-    this.props.openModal("detailChannel");
-  }
-
   setCurrentChannel(channelId) {
     return e => {
       e.preventDefault();
       this.props.requestCurrentChannel(channelId);
+      this.props.closeModal();
     };
   }
+
+  //will eventually be part of the search for channel function
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  // }
 
   render() {
     const channels = this.props.channels.map((channel, idx) => {
@@ -56,20 +50,25 @@ class ChannelGroups extends React.Component {
     });
 
     return (
-      <div className="conversation-container">
-        <button
-          onClick={this.openDetailModal}
-          className="channel_detail_button"
-        >
-          Channels
-        </button>
-        <button onClick={this.openCreateModal} className="create_new_channel">
-          {"\u2295"}
-        </button>
-        <ul className="conversation-ul">{channels}</ul>
+      <div className="modal-channel-container">
+        <button onClick={this.props.closeModal}>X</button>
+        <h1 className="channel_modal_title">Check out one of our Channels!</h1>
+        <ul className="conversation-li">{channels}</ul>
       </div>
     );
   }
 }
 
-export default ChannelGroups;
+export default ChannelDetail;
+
+//WILL EVENTUALLY BE FORM TO SEARCH FOR CHANNELS
+// <form onSubmit={this.handleSubmit}>
+//   <input
+//     type="text"
+//     value={this.state.name}
+//     onChange={this.update("name")}
+//     placeholder="#search for channel?"
+//     className="signin-input-modal"
+//   />
+//   <button type="submit" className="new_channel_button_modal" />
+// </form>

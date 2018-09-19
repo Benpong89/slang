@@ -47,6 +47,7 @@ class MessagesList extends React.Component {
     );
 
     const currentMessages = messages.map((message, idx) => {
+      if (this.props.users[message.author_id] === undefined) return null;
       return (
         <li id="messages-holder" key={idx} className="message_container">
           <img className="default_user_img" src={window.userURL} />
