@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { merge } from "lodash";
 import SearchInput, { createFilter } from "react-search-input";
 
-// const KEYS_TO_FILTERS = ["channel.name", "channel.description"];
+const KEYS_TO_FILTERS = ["name", "description"];
 
 class ChannelDetail extends React.Component {
   constructor(props) {
@@ -41,18 +41,9 @@ class ChannelDetail extends React.Component {
   }
 
   render() {
-    const channels = this.props.channels.map((channel, idx) => {
-      return (
-        <li key={idx}>
-          <button
-            onClick={this.setCurrentChannel(channel.id)}
-            className="conversation-li"
-          >
-            # {channel.name}
-          </button>
-        </li>
-      );
-    });
+    const filteredChannels = this.props.channels.filter(
+      createFilter(this.state.searchTerm, KEYS_TO_FILTERS)
+    );
 
     return (
       <div className="modal-channel-container">
@@ -61,51 +52,24 @@ class ChannelDetail extends React.Component {
         </button>
         <h1 className="channel_modal_title">Check out one of our Channels!</h1>
         <SearchInput className="search-input" onChange={this.searchUpdated} />
-        <ul className="conversation-li">{channels}</ul>
+        {filteredChannels.map(channel => {
+          return (
+            <div className="mail" key={channel.id}>
+              <button
+                onClick={this.setCurrentChannel(channel.id)}
+                className="channel-detail-li-name"
+              >
+                # {channel.name}
+              </button>
+              <div className="channel-detail-li-description">
+                {channel.description}
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }
 }
 
 export default ChannelDetail;
-
-//WILL EVENTUALLY BE FORM TO SEARCH FOR CHANNELS
-
-// import React, {Component} from 'react'
-// import SearchInput, {createFilter} from 'react-search-input'
-//
-// import emails from './mails'
-//
-// const KEYS_TO_FILTERS = ['user.name', 'subject', 'dest.name']
-//
-// class App extends Component {
-//   constructor (props) {
-//     super(props)
-//     this.state = {
-//       searchTerm: ''
-//     }
-//     this.searchUpdated = this.searchUpdated.bind(this)
-//   }
-
-//   render () {
-//     const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-//
-//     return (
-//       <div>
-//         <SearchInput className="search-input" onChange={this.searchUpdated} />
-//         {filteredEmails.map(email => {
-//           return (
-//             <div className="mail" key={email.id}>
-//               <div className="from">{email.user.name}</div>
-//               <div className="subject">{email.subject}</div>
-//             </div>
-//           )
-//         })}
-//       </div>
-//     )
-//   }
-//
-//   searchUpdated (term) {
-//     this.setState({searchTerm: term})
-//   }
-// }

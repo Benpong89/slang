@@ -99,3 +99,20 @@
   cursor: pointer;
   color: #2c2d30;
 }
+
+.channel-detail-li-name {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #ab9ba9;
+}
+
+.channel-detail-li-name:hover {
+  cursor: pointer;
+  color: rgb(202, 196, 201);
+}
+
+.channel-detail-li-description {
+  font-size: 12px;
+  color: #6d6f7b;
+}

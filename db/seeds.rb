@@ -22,13 +22,13 @@ users = User.create([
 ])
 
 channels = Channel.create([
-  {id: 1, name: 'general', description: 'default channel' },
-  {name: 'Fox News', description: 'channel1' },
-  {name: 'Comedy Central', description: 'channel2' },
-  {name: 'Cartoon Network', description: 'channel3' },
-  {name: 'What is life?', description: 'channel4' },
-  {name: 'Sports Talk', description: 'channel5' },
-  {name: 'Celebrity Gossip', description: 'channel6' },
+  {id: 1, name: 'general', description: 'Share all of your general Slang here!' },
+  {name: 'Fox News', description: 'This is the best news!' },
+  {name: 'Comedy Central', description: 'Slang something funny for the world!' },
+  {name: 'Cartoon Network', description: 'Tell me all your favorite cartoons' },
+  {name: 'What is life?', description: 'Existential Slang' },
+  {name: 'Sports Talk', description: "It's Football season Bruh" },
+  {name: 'Celebrity Gossip', description: 'Slang rumors here' },
 ])
 
 messages = Message.create([
