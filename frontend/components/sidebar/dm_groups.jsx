@@ -69,18 +69,12 @@ class DMGroups extends React.Component {
         </li>
       );
     });
-
+    // onClick={this.openDetailModal}
+    // onClick={this.openDetailModal}
     return (
       <div className="conversation-container">
-        <button
-          onClick={this.openDetailModal}
-          className="channel_detail_button"
-        >
-          Direct Messages
-        </button>
-        <button onClick={this.openDetailModal} className="create_new_dm">
-          {"\u2295"}
-        </button>
+        <button className="channel_detail_button">Direct Messages</button>
+        <button className="create_new_dm">{"\u2295"}</button>
         <ul className="conversation-ul">{currentUserchannels}</ul>
       </div>
     );

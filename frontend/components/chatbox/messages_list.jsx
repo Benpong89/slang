@@ -85,6 +85,7 @@ class MessagesList extends React.Component {
     return (
       <div className="messages_list_container">
         <div className="messages_list_channel_name"> # {currentChannel}</div>
+        <nav className="messages_list_nav" />
         <div className="messages_list_container">{currentMessages}</div>
         <div className="blank" ref={this.myRef}>
           {" "}
@@ -95,29 +96,3 @@ class MessagesList extends React.Component {
 }
 
 export default MessagesList;
-
-// <ul>{authors}</ul>
-// <ul>{messages}</ul>
-//
-// <div className="message_authors_list">{authors}</div>
-// <div className="message_body_list">{messages}</div>
-
-// debugger;
-
-// const usernames = this.props.messagesAuthorId.map(id => {
-//   return this.props.users.map(user => user[id]);
-// });
-
-// const authors = usernames.map((username, idx) => {
-//   return (
-//     <li key={idx} className="messages_authors">
-//       <img className="default_user_img" src={window.userURL} />
-//       <label className="messages_author">{username}</label>
-//       <Timestamp
-//         className="messages_time"
-//         time={Date.now()}
-//         format="time"
-//       />
-//     </li>
-//   );
-// });

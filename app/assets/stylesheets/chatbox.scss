@@ -14,6 +14,14 @@
   list-style: none;
 }
 
+.messages_list_nav {
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  border-bottom: thin solid lightgray;
+  margin: 0 0 0 -18px;
+}
+
 .message_container {
   display: flex;
   margin: 5px;
@@ -68,7 +76,7 @@
 
 .messages_list_channel_name {
   position: absolute;
-  top: 3px;
+  top: 10px;
 }
 
 .delete_message_button {
