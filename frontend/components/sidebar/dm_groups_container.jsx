@@ -8,13 +8,17 @@ import { deleteSubscription } from "../../actions/subscription_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
+  session,
+  entities: { users },
   entities: { channels },
   entities: { subscriptions },
   ui: { currentChannel }
 }) => ({
+  users: Object.values(users),
   channels: Object.values(channels),
   subscriptions: subscriptions,
-  currentChannel
+  currentChannel,
+  currentUser: users[session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

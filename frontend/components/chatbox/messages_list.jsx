@@ -10,12 +10,9 @@ class MessagesList extends React.Component {
     this.deleteMessage = this.deleteMessage.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.requestAllUsers();
     this.props.requestAllMessages();
-  }
-
-  componentDidMount() {
     App.cable.subscriptions.create(
       { channel: "LineChannel", room: "Test Room" },
       {
@@ -40,6 +37,21 @@ class MessagesList extends React.Component {
 
   componentDidUpdate() {
     this.myRef.current.scrollIntoView();
+    if (this.props.currentUser === undefined) return null;
+    if (this.props.channels.length < 1) return null;
+    if (
+      this.props.channels.filter(
+        channel => channel.name === this.props.currentUser.username
+      ).length === 0
+    )
+      return null;
+    this.props.createSubscription({
+      user_id: this.props.currentUser.id,
+      subscribeable_id: this.props.channels.filter(
+        channel => channel.name === this.props.currentUser.username
+      )[0].id,
+      subscribeable_type: "Channel"
+    });
   }
 
   deleteMessage(messageId) {

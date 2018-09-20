@@ -1,7 +1,7 @@
 class Api::SubscriptionsController < ApplicationController
-
+    # @subscriptions = current_user.subscriptions
   def index
-    @subscriptions = current_user.subscriptions
+    @subscriptions = Subscription.all
     if (@subscriptions.pluck(:subscribeable_id).include?(1))
       render :index
     else

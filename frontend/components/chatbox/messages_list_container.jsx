@@ -5,14 +5,18 @@ import {
   deleteMessage
 } from "../../actions/message_actions.js";
 import { requestAllUsers } from "../../actions/session_actions.js";
+import { createSubscription } from "../../actions/subscription_actions";
 
 const mapStateToProps = ({
   session,
   entities: { users },
   entities: { messages },
+  entities: { channels },
   ui: { currentChannel }
 }) => ({
   users,
+  currentUser: users[session.id],
+  channels: Object.values(channels),
   currentChannel: Object.values(currentChannel),
   messages: Object.values(messages)
 });
@@ -20,7 +24,8 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   requestAllMessages: messages => dispatch(requestAllMessages(messages)),
   requestAllUsers: users => dispatch(requestAllUsers(users)),
-  deleteMessage: message => dispatch(deleteMessage(message))
+  deleteMessage: message => dispatch(deleteMessage(message)),
+  createSubscription: subscription => dispatch(createSubscription(subscription))
 });
 
 export default connect(

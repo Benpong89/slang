@@ -38,20 +38,54 @@ class DMGroups extends React.Component {
     };
   }
 
+  //I have it so it shows all the people I am subscribed to,
+  //Now I have to show all of the people that are subscribed to My channel
+
   render() {
     if (this.props.subscriptions === undefined) return null;
-
-    const channelIds = Object.values(this.props.subscriptions).map(
-      channel => channel.subscribeable_id
+    //this code filters out all the subscriptions and only returns the subscriptions of the current user
+    const currentUserSubscriptions = Object.values(
+      this.props.subscriptions
+    ).filter(
+      subscription => subscription.user_id === this.props.currentUser.id
     );
 
+    //these two blocks of code returns all the subscriptions that other users have to the current user's channel
+    const currentUserChannel = this.props.channels.filter(
+      channel => channel.name === this.props.currentUser.username
+    );
+    if (currentUserChannel.length === 0) return null;
+    const subscribedToCurrentUser = Object.values(
+      this.props.subscriptions
+    ).filter(
+      subscription => subscription.subscribeable_id === currentUserChannel[0].id
+    );
+
+    const otherUsersIds = subscribedToCurrentUser.map(
+      subscription => subscription.user_id
+    );
+
+    const otherUsers = this.props.users
+      .filter(user => otherUsersIds.includes(user.id))
+      .map(user => user.username);
+
+    const otherUserChannelIds = this.props.channels
+      .filter(channel => otherUsers.includes(channel.name))
+      .map(channel => channel.id);
+
+    //this code maps through the combined subscriptions and only returns the subscribeable_ids as an array
+    const currentUserIds = currentUserSubscriptions.map(
+      subscription => subscription.subscribeable_id
+    );
+
+    const combinedIds = currentUserIds.concat(otherUserChannelIds);
+    //this code takes all the channels the user is subscribed to and filters out the DM's
     const filteredChannels = this.props.channels.filter(
-      channel => channelIds.includes(channel.id) && channel.description === "DM"
+      channel =>
+        combinedIds.includes(channel.id) && channel.description === "DM"
     );
 
-    const uniqueChannels = filteredChannels;
-
-    const currentUserchannels = uniqueChannels.map((channel, idx) => {
+    const currentUserchannels = filteredChannels.map((channel, idx) => {
       return (
         <li key={idx}>
           <button
@@ -69,12 +103,18 @@ class DMGroups extends React.Component {
         </li>
       );
     });
-    // onClick={this.openDetailModal}
-    // onClick={this.openDetailModal}
+
     return (
       <div className="conversation-container">
-        <button className="channel_detail_button">Direct Messages</button>
-        <button className="create_new_dm">{"\u2295"}</button>
+        <button
+          onClick={this.openDetailModal}
+          className="channel_detail_button"
+        >
+          Direct Messages
+        </button>
+        <button onClick={this.openDetailModal} className="create_new_dm">
+          {"\u2295"}
+        </button>
         <ul className="conversation-ul">{currentUserchannels}</ul>
       </div>
     );

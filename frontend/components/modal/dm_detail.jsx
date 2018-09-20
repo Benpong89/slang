@@ -23,12 +23,6 @@ class DMDetail extends React.Component {
       });
   }
 
-  // if (
-  //   this.props.channels.filter(channel => channel.name === username)
-  //   .length === 0
-  // )
-  // return null;
-
   setCurrentDM(username) {
     return e => {
       e.preventDefault();
