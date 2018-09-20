@@ -14,8 +14,11 @@ Subscription.destroy_all
 users = User.create([
   {id: 1, username: 'Slang Bot', password: '123456' },
   {id: 2, username: 'Guest', password: '123456' },
-  {username: 'Vincent Vega', password: '123456' },
-  {username: 'Jules Winnfield', password: '123456' },
+  {username: 'Tony Stark', password: '123456' },
+  {username: 'Steve Rogers', password: '123456' },
+  {username: 'Natasha Romanoff', password: '123456' },
+  {username: 'Clint Barton', password: '123456' },
+  {username: 'Nick Fury', password: '123456' },
 ])
 
 channels = Channel.create([
@@ -23,6 +26,9 @@ channels = Channel.create([
   {name: 'Fox News', description: 'channel1' },
   {name: 'Comedy Central', description: 'channel2' },
   {name: 'Cartoon Network', description: 'channel3' },
+  {name: 'What is life?', description: 'channel4' },
+  {name: 'Sports Talk', description: 'channel5' },
+  {name: 'Celebrity Gossip', description: 'channel6' },
 ])
 
 messages = Message.create([

@@ -1,14 +1,17 @@
 class Api::SubscriptionsController < ApplicationController
 
-# if @subscriptions doesn't include subscribeable_id 1 (aka general) then create it?
-
   def index
     @subscriptions = current_user.subscriptions
-    render :index
+    if (@subscriptions.pluck(:subscribeable_id).include?(1))
+      render :index
+    else
+      Subscription.create({"user_id"=>current_user.id, "subscribeable_id"=>"1", "subscribeable_type"=>"Channel"})
+    end
   end
 
   def create
     @subscription = Subscription.new(subscription_params)
+    debugger
     if @subscription.save
       render :show
     else
