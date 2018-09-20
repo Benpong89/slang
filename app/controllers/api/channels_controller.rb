@@ -1,7 +1,11 @@
 class Api::ChannelsController < ApplicationController
   def index
     @channels = Channel.all
-    render :index
+    if @channels.pluck(:name).include?(current_user.username)
+      render :index
+    else
+      Channel.create({"name"=>current_user.username, "description"=>"DM"})
+    end
   end
 
   def create
