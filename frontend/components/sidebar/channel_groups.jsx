@@ -1,16 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { merge } from "lodash";
 
 class ChannelGroups extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      name: "",
-      description: ""
-    };
-
     this.props.requestAllChannels();
     this.openCreateModal = this.openCreateModal.bind(this);
     this.openDetailModal = this.openDetailModal.bind(this);
@@ -55,15 +48,16 @@ class ChannelGroups extends React.Component {
 
   render() {
     if (this.props.subscriptions === undefined) return null;
+
     const channelIds = Object.values(this.props.subscriptions).map(
-      currentSubscription => currentSubscription.subscribeable_id
+      channel => channel.subscribeable_id
     );
 
-    const channels = this.props.channels.filter(channel =>
-      channelIds.includes(channel.id)
+    const filteredChannels = this.props.channels.filter(
+      channel => channelIds.includes(channel.id) && channel.description !== "DM"
     );
 
-    const currentUserchannels = channels.map((channel, idx) => {
+    const currentUserchannels = filteredChannels.map((channel, idx) => {
       return (
         <li key={idx}>
           <button

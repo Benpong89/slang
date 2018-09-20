@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import { merge } from "lodash";
 import SearchInput, { createFilter } from "react-search-input";
 
-const KEYS_TO_FILTERS = ["name", "description"];
+const KEYS_TO_FILTERS = ["username"];
 
-class ChannelDetail extends React.Component {
+class DMDetail extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       searchTerm: ""
     };
-    this.setCurrentChannel = this.setCurrentChannel.bind(this);
+    this.setCurrentDM = this.setCurrentDM.bind(this);
     this.searchUpdated = this.searchUpdated.bind(this);
   }
 
@@ -23,15 +23,23 @@ class ChannelDetail extends React.Component {
       });
   }
 
-  setCurrentChannel(channelId) {
+  // if (
+  //   this.props.channels.filter(channel => channel.name === username)
+  //   .length === 0
+  // )
+  // return null;
+
+  setCurrentDM(username) {
     return e => {
       e.preventDefault();
+      this.props.createChannel({ name: username, description: "DM" });
       this.props.createSubscription({
         user_id: this.props.currentUser.id,
-        subscribeable_id: channelId,
+        subscribeable_id: this.props.channels.filter(
+          channel => channel.name === username
+        )[0].id,
         subscribeable_type: "Channel"
       });
-      this.props.requestCurrentChannel(channelId);
       this.props.closeModal();
     };
   }
@@ -41,11 +49,7 @@ class ChannelDetail extends React.Component {
   }
 
   render() {
-    const filteredDMs = this.props.channels.filter(
-      channel => channel.description != "DM"
-    );
-
-    const filteredChannels = filteredDMs.filter(
+    const filteredUsers = this.props.users.filter(
       createFilter(this.state.searchTerm, KEYS_TO_FILTERS)
     );
 
@@ -54,21 +58,19 @@ class ChannelDetail extends React.Component {
         <button className="x-button" onClick={this.props.closeModal}>
           {"\u24e7"}
         </button>
-        <h1 className="channel_modal_title">Check out one of our Channels!</h1>
-        <SearchInput className="search-input" onChange={this.searchUpdated} />
 
-        {filteredChannels.map(channel => {
+        <h1 className="channel_modal_title">Livechat with a friend!</h1>
+
+        <SearchInput className="search-input" onChange={this.searchUpdated} />
+        {filteredUsers.map(user => {
           return (
-            <div className="mail" key={channel.id}>
+            <div className="mail" key={user.id}>
               <button
-                onClick={this.setCurrentChannel(channel.id)}
+                onClick={this.setCurrentDM(user.username)}
                 className="channel-detail-li-name"
               >
-                # {channel.name}
+                # {user.username}
               </button>
-              <div className="channel-detail-li-description">
-                {channel.description}
-              </div>
             </div>
           );
         })}
@@ -77,4 +79,4 @@ class ChannelDetail extends React.Component {
   }
 }
 
-export default ChannelDetail;
+export default DMDetail;
