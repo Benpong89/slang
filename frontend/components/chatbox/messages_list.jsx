@@ -86,7 +86,9 @@ class MessagesList extends React.Component {
       <div className="messages_list_container">
         <div className="messages_list_channel_name"> # {currentChannel}</div>
         <div className="messages_list_container">{currentMessages}</div>
-        <div ref={this.myRef}> </div>
+        <div className="blank" ref={this.myRef}>
+          {" "}
+        </div>
       </div>
     );
   }

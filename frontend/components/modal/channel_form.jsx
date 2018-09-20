@@ -41,7 +41,9 @@ class ChannelForm extends React.Component {
 
     return (
       <div className="modal-channel-container">
-        <button onClick={this.props.closeModal}>X</button>
+        <button className="x-button" onClick={this.props.closeModal}>
+          {"\u24e7"}
+        </button>
         <h1 className="channel_modal_title">Create a channel</h1>
         <p className="channel_modal_title_message">
           Channels are where your members communicate. They are best when

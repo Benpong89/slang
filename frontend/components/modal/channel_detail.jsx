@@ -49,7 +49,9 @@ class ChannelDetail extends React.Component {
 
     return (
       <div className="modal-channel-container">
-        <button onClick={this.props.closeModal}>X</button>
+        <button className="x-button" onClick={this.props.closeModal}>
+          {"\u24e7"}
+        </button>
         <h1 className="channel_modal_title">Check out one of our Channels!</h1>
         <ul className="conversation-li">{channels}</ul>
       </div>

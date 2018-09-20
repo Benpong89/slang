@@ -1,9 +1,9 @@
 class Api::SubscriptionsController < ApplicationController
-  # Make it so it doesn't return all the Channels, but only for the specific user that I want.
+
+# if @subscriptions doesn't include subscribeable_id 1 (aka general) then create it?
 
   def index
     @subscriptions = current_user.subscriptions
-    # @subscriptions = Subscription.all
     render :index
   end
 
@@ -22,9 +22,12 @@ class Api::SubscriptionsController < ApplicationController
 
   def destroy
   @subscription = Subscription.find(params[:id])
-  @subscription.destroy
-
-  render :show
+    if (@subscription.subscribeable_id == 1)
+      render json: ["Can't delete general Channel"], status: 401
+    else
+      @subscription.destroy
+      render :show
+    end
 end
 
   def subscription_params

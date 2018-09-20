@@ -13,6 +13,7 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-height: 380px;
 }
 
 .modal-channel-container {
@@ -81,4 +82,20 @@
   font-size: 12px;
   color: #6d6f7b;
   min-width: inherit;
+}
+
+.x-button {
+  position: absolute;
+  top: -50px;
+  right: -300px;
+  background: none;
+  border: none;
+  color: #5b5e6d;
+  font-size: 30px;
+  outline: none;
+}
+
+.x-button:hover {
+  cursor: pointer;
+  color: #2c2d30;
 }
