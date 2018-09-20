@@ -26,7 +26,7 @@ class DMDetail extends React.Component {
   setCurrentDM(username) {
     return e => {
       e.preventDefault();
-      this.props.createChannel({ name: username, description: "DM" });
+      // this.props.createChannel({ name: username, description: "DM" });
       this.props.createSubscription({
         user_id: this.props.currentUser.id,
         subscribeable_id: this.props.channels.filter(

@@ -35,14 +35,20 @@ class MessagesList extends React.Component {
     this.myRef.current.scrollIntoView();
   }
 
-  componentDidUpdate() {
+  componentWillUpdate() {
     this.myRef.current.scrollIntoView();
     if (this.props.currentUser === undefined) return null;
-    if (this.props.channels.length < 1) return null;
+    if (this.props.channels.length === 0) return null;
     if (
       this.props.channels.filter(
         channel => channel.name === this.props.currentUser.username
       ).length === 0
+    )
+      return null;
+    if (
+      this.props.channels.filter(
+        channel => channel.name === this.props.currentUser.username
+      )[0].name === this.props.currentUser.username
     )
       return null;
     this.props.createSubscription({
@@ -50,7 +56,7 @@ class MessagesList extends React.Component {
       subscribeable_id: this.props.channels.filter(
         channel => channel.name === this.props.currentUser.username
       )[0].id,
-      subscribeable_type: "Channel"
+      subscribeable_type: "DirectMessage"
     });
   }
 

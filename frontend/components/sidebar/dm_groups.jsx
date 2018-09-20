@@ -38,9 +38,6 @@ class DMGroups extends React.Component {
     };
   }
 
-  //I have it so it shows all the people I am subscribed to,
-  //Now I have to show all of the people that are subscribed to My channel
-
   render() {
     if (this.props.subscriptions === undefined) return null;
     //this code filters out all the subscriptions and only returns the subscriptions of the current user
