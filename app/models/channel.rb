@@ -13,4 +13,5 @@ class Channel < ApplicationRecord
   validates :name, presence: true
 
   has_many :messages, as: :messageable
+  has_many :users, as: :subscribeable
 end
