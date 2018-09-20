@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { merge } from "lodash";
+import SearchInput, { createFilter } from "react-search-input";
+
+// const KEYS_TO_FILTERS = ["channel.name", "channel.description"];
 
 class ChannelDetail extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "",
-      description: ""
+      searchTerm: ""
     };
     this.setCurrentChannel = this.setCurrentChannel.bind(this);
+    this.searchUpdated = this.searchUpdated.bind(this);
   }
 
   update(field) {
@@ -33,6 +36,10 @@ class ChannelDetail extends React.Component {
     };
   }
 
+  searchUpdated(term) {
+    this.setState({ searchTerm: term });
+  }
+
   render() {
     const channels = this.props.channels.map((channel, idx) => {
       return (
@@ -53,6 +60,7 @@ class ChannelDetail extends React.Component {
           {"\u24e7"}
         </button>
         <h1 className="channel_modal_title">Check out one of our Channels!</h1>
+        <SearchInput className="search-input" onChange={this.searchUpdated} />
         <ul className="conversation-li">{channels}</ul>
       </div>
     );
@@ -62,13 +70,42 @@ class ChannelDetail extends React.Component {
 export default ChannelDetail;
 
 //WILL EVENTUALLY BE FORM TO SEARCH FOR CHANNELS
-// <form onSubmit={this.handleSubmit}>
-//   <input
-//     type="text"
-//     value={this.state.name}
-//     onChange={this.update("name")}
-//     placeholder="#search for channel?"
-//     className="signin-input-modal"
-//   />
-//   <button type="submit" className="new_channel_button_modal" />
-// </form>
+
+// import React, {Component} from 'react'
+// import SearchInput, {createFilter} from 'react-search-input'
+//
+// import emails from './mails'
+//
+// const KEYS_TO_FILTERS = ['user.name', 'subject', 'dest.name']
+//
+// class App extends Component {
+//   constructor (props) {
+//     super(props)
+//     this.state = {
+//       searchTerm: ''
+//     }
+//     this.searchUpdated = this.searchUpdated.bind(this)
+//   }
+
+//   render () {
+//     const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+//
+//     return (
+//       <div>
+//         <SearchInput className="search-input" onChange={this.searchUpdated} />
+//         {filteredEmails.map(email => {
+//           return (
+//             <div className="mail" key={email.id}>
+//               <div className="from">{email.user.name}</div>
+//               <div className="subject">{email.subject}</div>
+//             </div>
+//           )
+//         })}
+//       </div>
+//     )
+//   }
+//
+//   searchUpdated (term) {
+//     this.setState({searchTerm: term})
+//   }
+// }

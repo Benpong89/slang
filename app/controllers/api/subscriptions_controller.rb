@@ -11,7 +11,6 @@ class Api::SubscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.new(subscription_params)
-    debugger
     if @subscription.save
       render :show
     else
