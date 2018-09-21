@@ -46,11 +46,37 @@ class DirectMessageGroups extends React.Component {
   }
 
   render() {
-    if (this.props.subscriptions === undefined) return null;
-    const currentUserDirectMessages = this.props.direct_messages.filter(
-      direct_message =>
-        direct_message.names.includes(this.props.currentUser.username)
-    );
+    let currentUserDirectMessages;
+
+    if (
+      this.props.subscriptions === undefined ||
+      Object.values(this.props.direct_messages).length === 0
+    ) {
+      currentUserDirectMessages = [];
+    } else {
+      const currentUserSubscriptions = Object.values(
+        this.props.subscriptions
+      ).filter(
+        subscription =>
+          subscription.user_id === this.props.currentUser.id &&
+          subscription.subscribeable_type === "DirectMessage"
+      );
+      currentUserDirectMessages = currentUserSubscriptions.map(
+        subscription =>
+          this.props.direct_messages[subscription.subscribeable_id]
+      );
+    }
+
+    // let currentChannel;
+    //
+    // if (typeof this.props.currentChannel[0].name === "string") {
+    //   currentChannel = this.props.currentChannel[0].name;
+    // } else {
+    //   const names = this.props.currentChannel[0].names;
+    //   currentChannel = names.filter(
+    //     name => name !== this.props.currentUser.username
+    //   );
+    // }
 
     const listUsernames = currentUserDirectMessages.map(
       (direct_message, idx) => {
@@ -60,7 +86,10 @@ class DirectMessageGroups extends React.Component {
               onClick={this.setCurrentDirectMessage(direct_message)}
               className="conversation-li"
             >
-              # {direct_message.names[0]}
+              #{" "}
+              {direct_message.names.filter(
+                name => name !== this.props.currentUser.username
+              )}
             </button>
             <button
               onClick={this.deleteSubscription(direct_message)}
@@ -91,3 +120,42 @@ class DirectMessageGroups extends React.Component {
 }
 
 export default DirectMessageGroups;
+
+// const currentUserDirectMessages = this.props.direct_messages.filter(
+//   direct_message =>
+//     direct_message.names.includes(this.props.currentUser.username)
+// );
+
+// const currentUserDirectMessages = this.props.direct_messages.filter(
+//   direct_message => {
+//     let userIds = direct_message.subs.map(
+//       subscription => subscription.user_id
+//     );
+//     return userIds.includes(this.props.currentUser.id);
+//   }
+// );
+
+// const directMessageIds = Object.values(this.props.subscriptions).map(
+//   subscription => subscription.subscribeable_id ===
+// );
+
+// const listUsernames = currentUserDirectMessages.map(
+//   (direct_message, idx) => {
+//     return (
+//       <li key={idx}>
+//         <button
+//           onClick={this.setCurrentDirectMessage(direct_message)}
+//           className="conversation-li"
+//         >
+//           # {direct_message.names[0]}
+//         </button>
+//         <button
+//           onClick={this.deleteSubscription(direct_message)}
+//           className="channel_detail_button"
+//         >
+//           {"\u2296"}
+//         </button>
+//       </li>
+//     );
+//   }
+// );

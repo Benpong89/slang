@@ -18,6 +18,10 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :subscriptions
+  has_many :direct_messages,
+    through: :subscriptions, 
+    source: :subscribeable,
+    source_type: "DirectMessage"
 
 
   after_initialize :ensure_session_token

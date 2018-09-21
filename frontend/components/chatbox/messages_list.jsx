@@ -103,7 +103,10 @@ class MessagesList extends React.Component {
     if (typeof this.props.currentChannel[0].name === "string") {
       currentChannel = this.props.currentChannel[0].name;
     } else {
-      currentChannel = this.props.currentChannel[0].names[0];
+      const names = this.props.currentChannel[0].names;
+      currentChannel = names.filter(
+        name => name !== this.props.currentUser.username
+      );
     }
     //for when it's a DM this.props.currentChannel[0].names[0]
 

@@ -24,12 +24,12 @@ class DirectMessageDetail extends React.Component {
     return e => {
       e.preventDefault();
 
-      const currentUserDirectMessages = this.props.direct_messages.filter(
-        direct_message =>
-          direct_message.names.includes(this.props.currentUser.username)
-      );
+      // const currentUserDirectMessages = this.props.direct_messages.filter(
+      //   direct_message =>
+      //     direct_message.names.includes(this.props.currentUser.username)
+      // );
 
-      const pairUsernames = currentUserDirectMessages.map(
+      const pairUsernames = this.props.direct_messages.map(
         currentUserDirectMessage => currentUserDirectMessage.names
       );
 
@@ -41,23 +41,24 @@ class DirectMessageDetail extends React.Component {
         this.props.closeModal();
         return null;
       } else {
-        this.props.createDirectMessage(user.username);
+        this.props.createDirectMessage(user.id);
+        //
+        // this.props.createSubscription({
+        //   user_id: this.props.currentUser.id,
+        //   subscribeable_id: this.props.direct_messages[
+        //     this.props.direct_messages.length - 1
+        //   ].id,
+        //   subscribeable_type: "DirectMessage"
+        // });
+        //
+        // this.props.createSubscription({
+        //   user_id: user.id,
+        //   subscribeable_id: this.props.direct_messages[
+        //     this.props.direct_messages.length - 1
+        //   ].id,
+        //   subscribeable_type: "DirectMessage"
+        // });
 
-        this.props.createSubscription({
-          user_id: this.props.currentUser.id,
-          subscribeable_id: this.props.direct_messages[
-            this.props.direct_messages.length - 1
-          ].id,
-          subscribeable_type: "DirectMessage"
-        });
-
-        this.props.createSubscription({
-          user_id: user.id,
-          subscribeable_id: this.props.direct_messages[
-            this.props.direct_messages.length - 1
-          ].id,
-          subscribeable_type: "DirectMessage"
-        });
         this.props.requestAllDirectMessages();
         this.props.closeModal();
       }

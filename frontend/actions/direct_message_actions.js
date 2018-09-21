@@ -3,9 +3,10 @@ export const RECEIVE_DIRECTMESSAGE = "RECEIVE_DIRECTMESSAGE";
 export const RECEIVE_ALL_DIRECTMESSAGES = "RECEIVE_ALL_DIRECTMESSAGES";
 export const RECEIVE_CURRENT_DIRECTMESSAGE = "RECEIVE_CURRENT_DIRECTMESSAGE";
 
-export const receiveDirectMessage = direct_message => ({
+export const receiveDirectMessage = ({ direct_message, subscription }) => ({
   type: RECEIVE_DIRECTMESSAGE,
-  direct_message
+  direct_message,
+  subscription
 });
 
 export const receiveCurrentDirectMessage = direct_message => ({
@@ -23,9 +24,9 @@ export const requestCurrentDirectMessage = id => dispatch =>
     dispatch(receiveCurrentDirectMessage(currentDirectMessageId))
   );
 
-export const createDirectMessage = direct_message => dispatch =>
-  DirectMessagesAPIUtil.createDirectMessage(direct_message).then(
-    direct_message => dispatch(receiveDirectMessage(direct_message))
+export const createDirectMessage = userId => dispatch =>
+  DirectMessagesAPIUtil.createDirectMessage(userId).then(payload =>
+    dispatch(receiveDirectMessage(payload))
   );
 
 export const requestDirectMessage = direct_message => dispatch =>

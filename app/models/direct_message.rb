@@ -20,3 +20,6 @@ end
 
     # self.users.map {|user| user.username == current_user.username }
     # self.users.map {|user| [user.id, user.username]}
+
+    # other_users = self.users.select{|user| user != current_user}
+    # other_users.map {|user| user.username}.join(', ')

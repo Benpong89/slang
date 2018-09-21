@@ -10,9 +10,9 @@ export const fetchAllDirectMessages = () =>
     url: `api/direct_messages`
   });
 
-export const createDirectMessage = direct_message =>
+export const createDirectMessage = userId =>
   $.ajax({
     method: "POST",
     url: `api/direct_messages/`,
-    data: { direct_message }
+    data: { userId }
   });

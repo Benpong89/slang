@@ -8,7 +8,7 @@ const direct_messagesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_DIRECTMESSAGE:
-      const newState = merge({}, state);
+      let newState = merge({}, state);
       newState[action.direct_message.id] = action.direct_message;
       return newState;
     case RECEIVE_ALL_DIRECTMESSAGES:

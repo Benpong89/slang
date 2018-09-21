@@ -13,7 +13,7 @@ const mapStateToProps = ({
   entities: { direct_messages },
   entities: { subscriptions }
 }) => ({
-  direct_messages: Object.values(direct_messages),
+  direct_messages: direct_messages,
   subscriptions: subscriptions,
   currentUser: users[session.id]
 });

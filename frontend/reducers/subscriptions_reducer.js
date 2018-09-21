@@ -3,6 +3,7 @@ import {
   RECEIVE_ALL_SUBSCRIPTIONS,
   REMOVE_SUBSCRIPTION
 } from ".././actions/subscription_actions";
+import { RECEIVE_DIRECTMESSAGE } from ".././actions/direct_message_actions";
 import { merge } from "lodash";
 
 const subscriptionsReducer = (state = {}, action) => {
@@ -17,6 +18,10 @@ const subscriptionsReducer = (state = {}, action) => {
     case REMOVE_SUBSCRIPTION:
       newState = merge({}, state);
       delete newState[action.id];
+      return newState;
+    case RECEIVE_DIRECTMESSAGE:
+      newState = merge({}, state);
+      newState[action.subscription.id] = action.subscription;
       return newState;
     default:
       return state;
