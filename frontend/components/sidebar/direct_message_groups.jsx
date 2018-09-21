@@ -72,7 +72,7 @@ class DirectMessageGroups extends React.Component {
       <div className="conversation-container">
         <button
           onClick={this.openDetailModal}
-          className="direct_message_detail_button"
+          className="channel_detail_button"
         >
           Direct Messages
         </button>
