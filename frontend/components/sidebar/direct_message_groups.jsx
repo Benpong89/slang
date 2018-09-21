@@ -60,7 +60,7 @@ class DirectMessageGroups extends React.Component {
               onClick={this.setCurrentDirectMessage(direct_message)}
               className="conversation-li"
             >
-              # {direct_message.names.map(usernames => usernames)}
+              # {direct_message.names[0]}
             </button>
             <button
               onClick={this.deleteSubscription(direct_message)}
