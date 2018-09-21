@@ -16,7 +16,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="root-container">
         <Modal />
         <Switch>
           <Route exact path="/" component={Splash} />

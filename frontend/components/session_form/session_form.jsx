@@ -30,8 +30,29 @@ class SessionForm extends React.Component {
 
   guestSignin(e) {
     e.preventDefault();
-    const user = { username: "Guest", password: "123456" };
-    this.props.processForm(user);
+    const randomUsers = [
+      { username: "Tony Stark", password: "123456" },
+      { username: "Steve Rogers", password: "123456" },
+      { username: "Natasha Romanoff", password: "123456" },
+      { username: "Clint Barton", password: "123456" },
+      { username: "Nick Fury", password: "123456" },
+      { username: "Aquaman", password: "123456" },
+      { username: "The Hulk", password: "123456" },
+      { username: "Batman", password: "123456" },
+      { username: "Wonder Woman", password: "123456" },
+      { username: "Static Shock", password: "123456" },
+      { username: "The Flash", password: "123456" },
+      { username: "Green Lantern", password: "123456" },
+      { username: "Robin", password: "123456" },
+      { username: "Superman", password: "123456" },
+      { username: "Cat Woman", password: "123456" },
+      { username: "Cyborg", password: "123456" }
+    ];
+
+    const randomUser =
+      randomUsers[Math.floor(Math.random() * randomUsers.length)];
+
+    this.props.processForm(randomUser);
   }
 
   resetErrors() {

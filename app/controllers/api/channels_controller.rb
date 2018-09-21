@@ -3,16 +3,16 @@ class Api::ChannelsController < ApplicationController
     @channels = Channel.all
   end
 
-  # @channels = Channel.all
-  # if @channels.pluck(:name).include?(current_user.username)
-  #   render :index
-  # else
-  #   Channel.create({"name"=>current_user.username, "description"=>"DM"})
-  # end
-
   def create
     @channel = Channel.new(channel_params)
     if @channel.save
+
+    @subscription = Subscription.create({
+      user_id: current_user.id,
+      subscribeable_id: @channel.id,
+      subscribeable_type: "Channel"
+       })
+
       render :show
     else
       render json: ["invalid channel"], status: 401
@@ -28,3 +28,14 @@ class Api::ChannelsController < ApplicationController
   end
 
 end
+
+
+
+
+
+# @channels = Channel.all
+# if @channels.pluck(:name).include?(current_user.username)
+#   render :index
+# else
+#   Channel.create({"name"=>current_user.username, "description"=>"DM"})
+# end

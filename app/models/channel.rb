@@ -10,7 +10,7 @@
 #
 
 class Channel < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: { maximum: 16 }
 
   has_many :messages, as: :messageable
   has_many :subscriptions, as: :subscribeable

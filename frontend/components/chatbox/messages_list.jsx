@@ -14,7 +14,7 @@ class MessagesList extends React.Component {
     this.props.requestAllUsers();
     this.props.requestAllMessages();
     App.cable.subscriptions.create(
-      { channel: "LineChannel", room: "Test Room" },
+      { channel: "LineChannel", room: "Line Room" },
       {
         received: data => {
           dispatch(

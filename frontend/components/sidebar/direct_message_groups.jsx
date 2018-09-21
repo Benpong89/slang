@@ -67,17 +67,6 @@ class DirectMessageGroups extends React.Component {
       );
     }
 
-    // let currentChannel;
-    //
-    // if (typeof this.props.currentChannel[0].name === "string") {
-    //   currentChannel = this.props.currentChannel[0].name;
-    // } else {
-    //   const names = this.props.currentChannel[0].names;
-    //   currentChannel = names.filter(
-    //     name => name !== this.props.currentUser.username
-    //   );
-    // }
-
     const listUsernames = currentUserDirectMessages.map(
       (direct_message, idx) => {
         return (
@@ -86,16 +75,9 @@ class DirectMessageGroups extends React.Component {
               onClick={this.setCurrentDirectMessage(direct_message)}
               className="conversation-li"
             >
-              #{" "}
               {direct_message.names.filter(
                 name => name !== this.props.currentUser.username
               )}
-            </button>
-            <button
-              onClick={this.deleteSubscription(direct_message)}
-              className="channel_detail_button"
-            >
-              {"\u2296"}
             </button>
           </li>
         );
