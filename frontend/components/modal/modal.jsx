@@ -3,7 +3,7 @@ import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
 import ChannelFormContainer from "./channel_form_container";
 import ChannelDetailContainer from "./channel_detail_container";
-import DMDetailContainer from "./dm_detail_container";
+import DirectMessageDetailContainer from "./direct_message_detail_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -17,8 +17,8 @@ function Modal({ modal, closeModal }) {
     case "detailChannel":
       component = <ChannelDetailContainer />;
       break;
-    case "detailDM":
-      component = <DMDetailContainer />;
+    case "detailDirectMessage":
+      component = <DirectMessageDetailContainer />;
       break;
     default:
       return null;

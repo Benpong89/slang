@@ -9,7 +9,7 @@ class AddMessageForm extends React.Component {
     this.state = {
       body: "",
       author_id: this.props.currentUser.id,
-      messageable_type: "Channel",
+      messageable_type: this.props.currentChannel[0].type,
       messageable_id: this.props.currentChannel[0]
     };
 
@@ -28,7 +28,7 @@ class AddMessageForm extends React.Component {
     const message = {
       body: this.state.body,
       author_id: this.props.currentUser.id,
-      messageable_type: "Channel",
+      messageable_type: this.props.currentChannel[0].type,
       messageable_id: this.props.currentChannel[0].id
     };
     App.cable.subscriptions.subscriptions[0].speak(message);
@@ -36,7 +36,7 @@ class AddMessageForm extends React.Component {
     this.setState({
       body: "",
       author_id: this.props.currentUser.id,
-      messageable_type: "Channel",
+      messageable_type: this.props.currentChannel[0].type,
       messageable_id: this.props.currentChannel[0].id,
       currentChannel: this.props.currentChannel[0]
     });

@@ -5,15 +5,12 @@ import SearchInput, { createFilter } from "react-search-input";
 
 const KEYS_TO_FILTERS = ["username"];
 
-class DMDetail extends React.Component {
+class DirectMessageDetail extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      searchTerm: ""
-    };
-    this.setCurrentDM = this.setCurrentDM.bind(this);
+    this.state = { searchTerm: "" };
     this.searchUpdated = this.searchUpdated.bind(this);
+    this.createDirectMessage = this.createDirectMessage.bind(this);
   }
 
   update(field) {
@@ -23,17 +20,27 @@ class DMDetail extends React.Component {
       });
   }
 
-  setCurrentDM(username) {
+  createDirectMessage(user) {
     return e => {
       e.preventDefault();
-      // this.props.createChannel({ name: username, description: "DM" });
+      this.props.createDirectMessage(user.username);
+
       this.props.createSubscription({
         user_id: this.props.currentUser.id,
-        subscribeable_id: this.props.channels.filter(
-          channel => channel.name === username
-        )[0].id,
-        subscribeable_type: "Channel"
+        subscribeable_id: this.props.direct_messages[
+          this.props.direct_messages.length - 1
+        ].id,
+        subscribeable_type: "DirectMessage"
       });
+
+      this.props.createSubscription({
+        user_id: user.id,
+        subscribeable_id: this.props.direct_messages[
+          this.props.direct_messages.length - 1
+        ].id,
+        subscribeable_type: "DirectMessage"
+      });
+      this.props.requestAllDirectMessages();
       this.props.closeModal();
     };
   }
@@ -60,7 +67,7 @@ class DMDetail extends React.Component {
           return (
             <div className="mail" key={user.id}>
               <button
-                onClick={this.setCurrentDM(user.username)}
+                onClick={this.createDirectMessage(user)}
                 className="channel-detail-li-name"
               >
                 # {user.username}
@@ -73,4 +80,4 @@ class DMDetail extends React.Component {
   }
 }
 
-export default DMDetail;
+export default DirectMessageDetail;

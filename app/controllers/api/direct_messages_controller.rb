@@ -1,24 +1,21 @@
 class Api::DirectMessagesController < ApplicationController
   def index
-    @directmessages = DirectMessage.all
+    @direct_messages = DirectMessage.all
     render :index
   end
 
   def create
-    @directmessage = DirectMessage.new(directmessage_params)
-    if @directmessage.save
+    @direct_message = DirectMessage.new()
+    if @direct_message.save
       render :show
     else
-      render json: ["invalid directmessage"], status: 401
+      render json: ["invalid direct_message"], status: 401
     end
   end
 
   def show
-    @directmessage = DirectMessage.find(params[:id])
+    @direct_message = DirectMessage.find(params[:id])
   end
 
-  def directmessage_params
-    params.require(:directmessage).permit()
-  end
 
 end

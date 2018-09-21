@@ -6,12 +6,6 @@ class ChannelForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: "",
-      description: ""
-    };
-
-    this.props.requestAllChannels();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -24,7 +18,6 @@ class ChannelForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     const channel = merge({}, this.state);
     this.props.createChannel(channel);
     this.props.closeModal();

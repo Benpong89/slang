@@ -98,7 +98,14 @@ class MessagesList extends React.Component {
       );
     });
 
-    const currentChannel = this.props.currentChannel[0].name;
+    let currentChannel;
+
+    if (typeof this.props.currentChannel[0].name === "string") {
+      currentChannel = this.props.currentChannel[0].name;
+    } else {
+      currentChannel = this.props.currentChannel[0].names[0];
+    }
+    //for when it's a DM this.props.currentChannel[0].names[0]
 
     return (
       <div className="messages_list_container">

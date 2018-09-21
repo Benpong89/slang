@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ChannelGroups from "./channel_groups_container.jsx";
-import DMGroups from "./dm_groups_container.jsx";
+import DirectMessageGroups from "./direct_message_groups_container.jsx";
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Sidebar extends React.Component {
           </Link>
         </div>
         <ChannelGroups />
-        <DMGroups />
+        <DirectMessageGroups />
       </div>
     );
   }

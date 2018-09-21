@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class DMGroups extends React.Component {
+class DirectMessageGroups extends React.Component {
   constructor(props) {
     super(props);
     this.openCreateModal = this.openCreateModal.bind(this);
@@ -12,12 +12,12 @@ class DMGroups extends React.Component {
 
   openCreateModal(e) {
     e.preventDefault();
-    this.props.openModal("createDM");
+    this.props.openModal("createDirectMessage");
   }
 
   openDetailModal(e) {
     e.preventDefault();
-    this.props.openModal("detailDM");
+    this.props.openModal("detailDirectMessage");
   }
 
   setCurrentChannel(channelId) {
@@ -76,10 +76,10 @@ class DMGroups extends React.Component {
     );
 
     const combinedIds = currentUserIds.concat(otherUserChannelIds);
-    //this code takes all the channels the user is subscribed to and filters out the DM's
+    //this code takes all the channels the user is subscribed to and filters out the DirectMessage's
     const filteredChannels = this.props.channels.filter(
       channel =>
-        combinedIds.includes(channel.id) && channel.description === "DM"
+        combinedIds.includes(channel.id) && channel.description === "DirectMessage"
     );
 
     const currentUserchannels = filteredChannels.map((channel, idx) => {
@@ -118,4 +118,16 @@ class DMGroups extends React.Component {
   }
 }
 
-export default DMGroups;
+export default DirectMessageGroups;
+
+32:
+id: 32
+names: Array(2)
+0: "Nick Fury"
+1: "Thor"
+length: 2
+__proto__: Array(0)
+subs: Array(2)
+0: {id: 380, user_id: 161, subscribeable_id: 32, subscribeable_type: "DirectMessage", created_at: "2018-09-21T00:13:31.615Z", …}
+1: {id: 381, user_id: 159, subscribeable_id: 32, subscribeable_type: "DirectMessage", created_at: "2018-09-21T00:13:31.621Z", …}
+length: 2

@@ -1,34 +1,33 @@
 import { connect } from "react-redux";
-import DMDetail from "./dm_detail.jsx";
+import DirectMessageDetail from "./direct_message_detail.jsx";
 import { createSubscription } from "../../actions/subscription_actions";
 import {
-  requestCurrentChannel,
-  createChannel
-} from "../../actions/channel_actions.js";
+  createDirectMessage,
+  requestAllDirectMessages
+} from "../../actions/direct_message_actions.js";
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
   session,
   entities: { users },
-  entities: { channels },
-  ui: { currentChannel }
+  entities: { direct_messages },
+  ui: { currentDirectMessages }
 }) => ({
-  channels: Object.values(channels),
-  currentChannel,
+  direct_messages: Object.values(direct_messages),
   currentUser: users[session.id],
   users: Object.values(users)
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestCurrentChannel: channelId =>
-    dispatch(requestCurrentChannel(channelId)),
   closeModal: () => dispatch(closeModal()),
   createSubscription: subscription =>
     dispatch(createSubscription(subscription)),
-  createChannel: channel => dispatch(createChannel(channel))
+  createDirectMessage: username => dispatch(createDirectMessage(username)),
+  requestAllDirectMessages: direct_messages =>
+    dispatch(requestAllDirectMessages(direct_messages))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DMDetail);
+)(DirectMessageDetail);

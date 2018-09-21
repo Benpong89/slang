@@ -13,5 +13,11 @@ class Channel < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   has_many :messages, as: :messageable
-  has_many :users, as: :subscribeable
+  has_many :subscriptions, as: :subscribeable
+  has_many :users, through: :subscriptions
+
+  def type
+    "Channel"
+  end
+
 end
