@@ -46,7 +46,16 @@ class SessionForm extends React.Component {
       { username: "Robin", password: "123456" },
       { username: "Superman", password: "123456" },
       { username: "Cat Woman", password: "123456" },
-      { username: "Cyborg", password: "123456" }
+      { username: "Thor", password: "123456" },
+      { username: "Moon Knight", password: "123456" },
+      { username: "Freakazoid", password: "123456" },
+      { username: "Cpt. Jack Sparrow", password: "123456" },
+      { username: "Black Panther", password: "123456" },
+      { username: "Venom", password: "123456" },
+      { username: "Carnage", password: "123456" },
+      { username: "Dr. Strange", password: "123456" },
+      { username: "Captain Marvel", password: "123456" },
+      { username: "Tom Brady", password: "123456" }
     ];
 
     const randomUser =
