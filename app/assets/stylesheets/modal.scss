@@ -6,6 +6,10 @@
   left: 0;
   background: white;
   z-index: 10;
+  margin-top: auto;
+  overflow: hidden;
+  overflow: scroll;
+  list-style: none;
 }
 
 .modal-child {
