@@ -60,10 +60,7 @@ class DirectMessageDetail extends React.Component {
 
         <h1 className="channel_modal_title">Livechat with a friend!</h1>
 
-        <SearchInput
-          className="signin-input-modal"
-          onChange={this.searchUpdated}
-        />
+        <SearchInput className="searchInput" onChange={this.searchUpdated} />
         {filteredUsers.map(user => {
           return (
             <div className="mail" key={user.id}>
