@@ -1,1 +1,1 @@
-json.extract! direct_message, :id, :names, :subs, :type
+json.extract! direct_message, :id, :names, :type, :subs

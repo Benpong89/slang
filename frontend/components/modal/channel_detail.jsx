@@ -55,7 +55,10 @@ class ChannelDetail extends React.Component {
           {"\u24e7"}
         </button>
         <h1 className="channel_modal_title">Check out one of our Channels!</h1>
-        <SearchInput className="search-input" onChange={this.searchUpdated} />
+        <SearchInput
+          className="signin-input-modal"
+          onChange={this.searchUpdated}
+        />
 
         {filteredChannels.map(channel => {
           return (

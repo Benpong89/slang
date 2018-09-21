@@ -23,25 +23,44 @@ class DirectMessageDetail extends React.Component {
   createDirectMessage(user) {
     return e => {
       e.preventDefault();
-      this.props.createDirectMessage(user.username);
 
-      this.props.createSubscription({
-        user_id: this.props.currentUser.id,
-        subscribeable_id: this.props.direct_messages[
-          this.props.direct_messages.length - 1
-        ].id,
-        subscribeable_type: "DirectMessage"
-      });
+      const currentUserDirectMessages = this.props.direct_messages.filter(
+        direct_message =>
+          direct_message.names.includes(this.props.currentUser.username)
+      );
 
-      this.props.createSubscription({
-        user_id: user.id,
-        subscribeable_id: this.props.direct_messages[
-          this.props.direct_messages.length - 1
-        ].id,
-        subscribeable_type: "DirectMessage"
-      });
-      this.props.requestAllDirectMessages();
-      this.props.closeModal();
+      const pairUsernames = currentUserDirectMessages.map(
+        currentUserDirectMessage => currentUserDirectMessage.names
+      );
+
+      if (
+        pairUsernames
+          .map(pairUsername => pairUsername.includes(user.username))
+          .includes(true)
+      ) {
+        this.props.closeModal();
+        return null;
+      } else {
+        this.props.createDirectMessage(user.username);
+
+        this.props.createSubscription({
+          user_id: this.props.currentUser.id,
+          subscribeable_id: this.props.direct_messages[
+            this.props.direct_messages.length - 1
+          ].id,
+          subscribeable_type: "DirectMessage"
+        });
+
+        this.props.createSubscription({
+          user_id: user.id,
+          subscribeable_id: this.props.direct_messages[
+            this.props.direct_messages.length - 1
+          ].id,
+          subscribeable_type: "DirectMessage"
+        });
+        this.props.requestAllDirectMessages();
+        this.props.closeModal();
+      }
     };
   }
 
@@ -62,7 +81,10 @@ class DirectMessageDetail extends React.Component {
 
         <h1 className="channel_modal_title">Livechat with a friend!</h1>
 
-        <SearchInput className="search-input" onChange={this.searchUpdated} />
+        <SearchInput
+          className="signin-input-modal"
+          onChange={this.searchUpdated}
+        />
         {filteredUsers.map(user => {
           return (
             <div className="mail" key={user.id}>

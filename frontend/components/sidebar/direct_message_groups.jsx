@@ -21,9 +21,16 @@ class DirectMessageGroups extends React.Component {
     this.props.openModal("detailDirectMessage");
   }
 
-  deleteSubscription(direct_messageId) {
+  deleteSubscription(direct_message) {
     return e => {
       e.preventDefault();
+      const toDelete = Object.values(this.props.subscriptions).filter(
+        subscription => subscription.subscribeable_id === direct_message.id
+      );
+      if (toDelete[0] === undefined) return null;
+      this.props.deleteSubscription(toDelete[0].id);
+      if (toDelete[1] === undefined) return null;
+      this.props.deleteSubscription(toDelete[1].id);
     };
   }
 
@@ -34,18 +41,16 @@ class DirectMessageGroups extends React.Component {
     };
   }
 
-  render() {
+  ComponentDidMount() {
     if (this.props.direct_messages.length === 0) return null;
+  }
+
+  render() {
+    if (this.props.subscriptions === undefined) return null;
     const currentUserDirectMessages = this.props.direct_messages.filter(
       direct_message =>
         direct_message.names.includes(this.props.currentUser.username)
     );
-
-    const otherUsernames = currentUserDirectMessages.map(direct_message =>
-      direct_message.names.filter(
-        username => username != this.props.currentUser.username
-      )
-    )[0][0];
 
     const listUsernames = currentUserDirectMessages.map(
       (direct_message, idx) => {
@@ -55,10 +60,10 @@ class DirectMessageGroups extends React.Component {
               onClick={this.setCurrentDirectMessage(direct_message)}
               className="conversation-li"
             >
-              # {otherUsernames}
+              # {direct_message.names.map(usernames => usernames)}
             </button>
             <button
-              onClick={this.deleteSubscription(direct_message.id)}
+              onClick={this.deleteSubscription(direct_message)}
               className="channel_detail_button"
             >
               {"\u2296"}

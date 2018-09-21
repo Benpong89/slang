@@ -10,6 +10,7 @@ User.destroy_all
 Message.destroy_all
 Channel.destroy_all
 Subscription.destroy_all
+DirectMessage.destroy_all
 
 users = User.create([
   {id: 1, username: 'Slang Bot', password: '123456' },
