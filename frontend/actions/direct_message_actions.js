@@ -2,6 +2,7 @@ import * as DirectMessagesAPIUtil from "../util/direct_messages_api_util";
 export const RECEIVE_DIRECTMESSAGE = "RECEIVE_DIRECTMESSAGE";
 export const RECEIVE_ALL_DIRECTMESSAGES = "RECEIVE_ALL_DIRECTMESSAGES";
 export const RECEIVE_CURRENT_DIRECTMESSAGE = "RECEIVE_CURRENT_DIRECTMESSAGE";
+export const REMOVE_DIRECTMESSAGE = "REMOVE_DIRECTMESSAGE";
 
 export const receiveDirectMessage = ({ direct_message, subscription }) => ({
   type: RECEIVE_DIRECTMESSAGE,
@@ -18,6 +19,16 @@ export const receiveAllDirectMessages = direct_messages => ({
   type: RECEIVE_ALL_DIRECTMESSAGES,
   direct_messages
 });
+
+export const removeDirectMessage = id => ({
+  type: REMOVE_DIRECTMESSAGE,
+  id
+});
+
+export const deleteDirectMessage = id => dispatch =>
+  DirectMessagesAPIUtil.deleteDirectMessage(id).then(direct_message =>
+    dispatch(removeDirectMessage(id))
+  );
 
 export const requestCurrentDirectMessage = id => dispatch =>
   DirectMessagesAPIUtil.fetchDirectMessage(id).then(currentDirectMessageId =>

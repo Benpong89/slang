@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import DirectMessageGroups from "./direct_message_groups.jsx";
 import {
   requestAllDirectMessages,
-  requestCurrentDirectMessage
+  requestCurrentDirectMessage,
+  deleteDirectMessage
 } from "../../actions/direct_message_actions.js";
-import { deleteSubscription } from "../../actions/subscription_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
@@ -22,8 +22,8 @@ const mapDispatchToProps = dispatch => ({
   requestAllDirectMessages: direct_messages =>
     dispatch(requestAllDirectMessages(direct_messages)),
   openModal: modal => dispatch(openModal(modal)),
-  deleteSubscription: subscription =>
-    dispatch(deleteSubscription(subscription)),
+  deleteDirectMessage: direct_message =>
+    dispatch(deleteDirectMessage(direct_message)),
   requestCurrentDirectMessage: direct_message =>
     dispatch(requestCurrentDirectMessage(direct_message))
 });

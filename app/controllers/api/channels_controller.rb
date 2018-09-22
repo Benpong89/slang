@@ -7,15 +7,15 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     if @channel.save
 
-    @subscription = Subscription.create({
-      user_id: current_user.id,
-      subscribeable_id: @channel.id,
-      subscribeable_type: "Channel"
-       })
+      @subscription = Subscription.create(
+        user_id: current_user.id,
+        subscribeable_id: @channel.id,
+        subscribeable_type: 'Channel'
+      )
 
       render :show
     else
-      render json: ["invalid channel"], status: 401
+      render json: ['invalid channel'], status: 401
     end
   end
 
@@ -26,16 +26,4 @@ class Api::ChannelsController < ApplicationController
   def channel_params
     params.require(:channel).permit(:id, :name, :description)
   end
-
 end
-
-
-
-
-
-# @channels = Channel.all
-# if @channels.pluck(:name).include?(current_user.username)
-#   render :index
-# else
-#   Channel.create({"name"=>current_user.username, "description"=>"DM"})
-# end

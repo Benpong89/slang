@@ -25,6 +25,7 @@ class ChannelForm extends React.Component {
     const channel = merge({}, this.state);
     this.props.createChannel(channel);
     this.props.closeModal();
+    this.props.requestCurrentChannel(channel.id);
   }
 
   render() {

@@ -16,3 +16,9 @@ export const createDirectMessage = userId =>
     url: `api/direct_messages/`,
     data: { userId }
   });
+
+export const deleteDirectMessage = id =>
+  $.ajax({
+    method: "DELETE",
+    url: `api/direct_messages/${id}`
+  });

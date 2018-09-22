@@ -1,6 +1,7 @@
 import {
   RECEIVE_DIRECTMESSAGE,
-  RECEIVE_ALL_DIRECTMESSAGES
+  RECEIVE_ALL_DIRECTMESSAGES,
+  REMOVE_DIRECTMESSAGE
 } from ".././actions/direct_message_actions";
 import { merge } from "lodash";
 
@@ -13,6 +14,10 @@ const direct_messagesReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_ALL_DIRECTMESSAGES:
       return merge({}, action.direct_messages);
+    case REMOVE_DIRECTMESSAGE:
+      newState = merge({}, state);
+      delete newState[action.id];
+      return newState;
     default:
       return state;
   }

@@ -17,15 +17,7 @@ class MessagesList extends React.Component {
       { channel: "LineChannel", room: "Line Room" },
       {
         received: data => {
-          dispatch(
-            receiveMessage({
-              id: data.id,
-              body: data.body,
-              author_id: data.author_id,
-              messageable_type: data.messageable_type,
-              messageable_id: data.messageable_id
-            })
-          );
+          dispatch(receiveMessage(data));
         },
         speak: function(data) {
           return this.perform("speak", data);
@@ -108,7 +100,6 @@ class MessagesList extends React.Component {
         name => name !== this.props.currentUser.username
       );
     }
-    //for when it's a DM this.props.currentChannel[0].names[0]
 
     return (
       <div className="messages_list_container">

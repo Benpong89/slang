@@ -8,7 +8,7 @@ class DirectMessageGroups extends React.Component {
     this.openCreateModal = this.openCreateModal.bind(this);
     this.openDetailModal = this.openDetailModal.bind(this);
     this.setCurrentDirectMessage = this.setCurrentDirectMessage.bind(this);
-    this.deleteSubscription = this.deleteSubscription.bind(this);
+    this.deleteDirectMessage = this.deleteDirectMessage.bind(this);
   }
 
   openCreateModal(e) {
@@ -21,16 +21,10 @@ class DirectMessageGroups extends React.Component {
     this.props.openModal("detailDirectMessage");
   }
 
-  deleteSubscription(direct_message) {
+  deleteDirectMessage(direct_message) {
     return e => {
       e.preventDefault();
-      const toDelete = Object.values(this.props.subscriptions).filter(
-        subscription => subscription.subscribeable_id === direct_message.id
-      );
-      if (toDelete[0] === undefined) return null;
-      this.props.deleteSubscription(toDelete[0].id);
-      if (toDelete[1] === undefined) return null;
-      this.props.deleteSubscription(toDelete[1].id);
+      this.props.deleteDirectMessage(direct_message.id);
     };
   }
 
@@ -66,23 +60,28 @@ class DirectMessageGroups extends React.Component {
           this.props.direct_messages[subscription.subscribeable_id]
       );
     }
-
-    const listUsernames = currentUserDirectMessages.map(
-      (direct_message, idx) => {
-        return (
-          <li key={idx}>
-            <button
-              onClick={this.setCurrentDirectMessage(direct_message)}
-              className="conversation-li"
-            >
-              {direct_message.names.filter(
-                name => name !== this.props.currentUser.username
-              )}
-            </button>
-          </li>
-        );
-      }
-    );
+    //needs to remove null direct messages from array after they've been deleted
+    const currentDirectMessages = currentUserDirectMessages.filter(n => n);
+    const listUsernames = currentDirectMessages.map((direct_message, idx) => {
+      return (
+        <li key={idx}>
+          <button
+            onClick={this.setCurrentDirectMessage(direct_message)}
+            className="conversation-li"
+          >
+            {direct_message.names.filter(
+              name => name !== this.props.currentUser.username
+            )}
+          </button>
+          <button
+            onClick={this.deleteDirectMessage(direct_message)}
+            className="channel_detail_button"
+          >
+            {"\u2296"}
+          </button>
+        </li>
+      );
+    });
 
     return (
       <div className="conversation-container">

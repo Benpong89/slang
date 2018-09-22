@@ -6,7 +6,6 @@ import DirectMessageGroups from "./direct_message_groups_container.jsx";
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
-
     this.props.requestAllSubscriptions();
   }
 
