@@ -16,8 +16,15 @@ class Channel < ApplicationRecord
   has_many :subscriptions, as: :subscribeable
   has_many :users, through: :subscriptions
 
-  def type
-    "Channel"
+  def names
+    users.map(&:username)
   end
 
+  def subs
+    subscriptions
+  end
+
+  def type
+    'Channel'
+  end
 end

@@ -4,7 +4,7 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 import ChannelForm from "./channel_form";
 import {
   createChannel,
-  requestCurrentChannel
+  requestAllChannels
 } from "../../actions/channel_actions.js";
 
 const mapStateToProps = ({ errors, entities: { channels } }) => {
@@ -25,8 +25,7 @@ const mapDispatchToProps = dispatch => {
     ),
     closeModal: () => dispatch(closeModal()),
     createChannel: channel => dispatch(createChannel(channel)),
-    requestCurrentChannel: channelId =>
-      dispatch(requestCurrentChannel(channelId))
+    requestAllChannels: channels => dispatch(requestAllChannels(channels))
   };
 };
 

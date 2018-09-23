@@ -37,7 +37,6 @@ class DirectMessageDetail extends React.Component {
         return null;
       } else {
         this.props.createDirectMessage(user.id);
-        this.props.requestAllDirectMessages();
         this.props.closeModal();
       }
     };

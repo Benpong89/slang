@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ChannelGroups from "./channel_groups.jsx";
+import ChannelGroup from "./channel_group.jsx";
 import {
   requestAllChannels,
   requestCurrentChannel
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChannelGroups);
+)(ChannelGroup);

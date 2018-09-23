@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ChannelGroups from "./channel_groups_container.jsx";
-import DirectMessageGroups from "./direct_message_groups_container.jsx";
+import ChannelGroup from "./channel_group_container.jsx";
+import DirectMessageGroup from "./direct_message_group_container.jsx";
+import StarredGroup from "./starred_group_container.jsx";
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -22,8 +23,9 @@ class Sidebar extends React.Component {
             Sign Out
           </Link>
         </div>
-        <ChannelGroups />
-        <DirectMessageGroups />
+        <StarredGroup />
+        <ChannelGroup />
+        <DirectMessageGroup />
       </div>
     );
   }

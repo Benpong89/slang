@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class ChannelGroups extends React.Component {
+class ChannelGroup extends React.Component {
   constructor(props) {
     super(props);
     this.props.requestAllChannels();
@@ -96,4 +96,4 @@ class ChannelGroups extends React.Component {
   }
 }
 
-export default ChannelGroups;
+export default ChannelGroup;

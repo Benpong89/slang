@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class DirectMessageGroups extends React.Component {
+class DirectMessageGroup extends React.Component {
   constructor(props) {
     super(props);
     this.props.requestAllDirectMessages();
@@ -100,7 +100,7 @@ class DirectMessageGroups extends React.Component {
   }
 }
 
-export default DirectMessageGroups;
+export default DirectMessageGroup;
 
 // const currentUserDirectMessages = this.props.direct_messages.filter(
 //   direct_message =>

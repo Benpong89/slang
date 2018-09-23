@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import DirectMessageGroups from "./direct_message_groups.jsx";
+import DirectMessageGroup from "./direct_message_group.jsx";
 import {
   requestAllDirectMessages,
   requestCurrentDirectMessage,
@@ -31,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DirectMessageGroups);
+)(DirectMessageGroup);

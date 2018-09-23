@@ -3,9 +3,10 @@ export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELS";
 export const RECEIVE_CURRENT_CHANNEL = "RECEIVE_CURRENT_CHANNEL";
 
-export const receiveChannel = channel => ({
+export const receiveChannel = ({ channel, subscription }) => ({
   type: RECEIVE_CHANNEL,
-  channel
+  channel,
+  subscription
 });
 
 export const receiveCurrentChannel = channel => ({

@@ -13,7 +13,7 @@ class Api::ChannelsController < ApplicationController
         subscribeable_type: 'Channel'
       )
 
-      render :show
+      render :create
     else
       render json: ['invalid channel'], status: 401
     end

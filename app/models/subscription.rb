@@ -11,8 +11,7 @@
 #
 
 class Subscription < ApplicationRecord
-
-  validates :user_id, uniqueness: { scope: [:subscribeable_id, :subscribeable_type]}
+  validates :user_id, uniqueness: { scope: %i[subscribeable_id subscribeable_type] }
 
   belongs_to :subscribeable, polymorphic: true
   belongs_to :user

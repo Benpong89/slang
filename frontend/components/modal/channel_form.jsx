@@ -25,18 +25,9 @@ class ChannelForm extends React.Component {
     const channel = merge({}, this.state);
     this.props.createChannel(channel);
     this.props.closeModal();
-    this.props.requestCurrentChannel(channel.id);
   }
 
   render() {
-    const channels = this.props.channels.map((channel, idx) => {
-      return (
-        <li key={idx} className="conversation-li">
-          # {channel}
-        </li>
-      );
-    });
-
     return (
       <div className="modal-channel-container">
         <button className="x-button" onClick={this.props.closeModal}>
@@ -54,10 +45,12 @@ class ChannelForm extends React.Component {
             type="text"
             value={this.state.name}
             onChange={this.update("name")}
-            placeholder="#channel"
+            placeholder="#channel name"
             className="signin-input-modal"
           />
-          <div className="input_post_message">What's this channel name?</div>
+          <div className="input_post_message">
+            *Channels must be under 16 characters.
+          </div>
 
           <div className="channel_input_title_modal">Purpose</div>
           <div className="optional-modal">(optional)</div>
@@ -65,9 +58,9 @@ class ChannelForm extends React.Component {
             type="text"
             value={this.state.description}
             onChange={this.update("description")}
+            placeholder="What's this channel about?"
             className="signin-input-modal"
           />
-          <div className="input_post_message">What's this channel about?</div>
           <button type="submit" className="new_channel_button_modal">
             Create channel
           </button>
