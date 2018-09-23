@@ -68,7 +68,10 @@ class ChannelGroups extends React.Component {
           </button>
           <button
             onClick={this.deleteSubscription(channel.id)}
-            className="channel_detail_button"
+            className={
+              "channel_delete_button" +
+              (channel.name === "general" ? " hidden" : "")
+            }
           >
             {"\u2296"}
           </button>

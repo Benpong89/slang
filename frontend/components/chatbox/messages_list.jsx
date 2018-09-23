@@ -14,7 +14,7 @@ class MessagesList extends React.Component {
     this.props.requestAllUsers();
     this.props.requestAllMessages();
     App.cable.subscriptions.create(
-      { channel: "LineChannel", room: "Line Room" },
+      { channel: "LineChannel", room: "LineRoom" },
       {
         received: data => {
           dispatch(receiveMessage(data));
@@ -29,27 +29,6 @@ class MessagesList extends React.Component {
 
   componentWillUpdate() {
     this.myRef.current.scrollIntoView();
-    if (this.props.currentUser === undefined) return null;
-    if (this.props.channels.length === 0) return null;
-    if (
-      this.props.channels.filter(
-        channel => channel.name === this.props.currentUser.username
-      ).length === 0
-    )
-      return null;
-    if (
-      this.props.channels.filter(
-        channel => channel.name === this.props.currentUser.username
-      )[0].name === this.props.currentUser.username
-    )
-      return null;
-    this.props.createSubscription({
-      user_id: this.props.currentUser.id,
-      subscribeable_id: this.props.channels.filter(
-        channel => channel.name === this.props.currentUser.username
-      )[0].id,
-      subscribeable_type: "DirectMessage"
-    });
   }
 
   deleteMessage(messageId) {
@@ -82,7 +61,10 @@ class MessagesList extends React.Component {
           </div>
           <button
             onClick={this.deleteMessage(message.id)}
-            className="delete_message_button"
+            className={
+              "delete_message_button" +
+              (this.props.currentUser.id === message.author_id ? "" : " hidden")
+            }
           >
             X
           </button>
@@ -106,12 +88,32 @@ class MessagesList extends React.Component {
         <div className="messages_list_channel_name"> # {currentChannel}</div>
         <nav className="messages_list_nav" />
         <div className="messages_list_container">{currentMessages}</div>
-        <div className="blank" ref={this.myRef}>
-          {" "}
-        </div>
+        <div className="blank" ref={this.myRef} />
       </div>
     );
   }
 }
 
 export default MessagesList;
+
+// if (this.props.currentUser === undefined) return null;
+// if (this.props.channels.length === 0) return null;
+// if (
+//   this.props.channels.filter(
+//     channel => channel.name === this.props.currentUser.username
+//   ).length === 0
+// )
+//   return null;
+// if (
+//   this.props.channels.filter(
+//     channel => channel.name === this.props.currentUser.username
+//   )[0].name === this.props.currentUser.username
+// )
+//   return null;
+// this.props.createSubscription({
+//   user_id: this.props.currentUser.id,
+//   subscribeable_id: this.props.channels.filter(
+//     channel => channel.name === this.props.currentUser.username
+//   )[0].id,
+//   subscribeable_type: "DirectMessage"
+// });
