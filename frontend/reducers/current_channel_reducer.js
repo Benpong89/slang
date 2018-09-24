@@ -7,7 +7,8 @@ const default_state = {
   1: {
     id: 1,
     name: "general",
-    description: "default channel"
+    description: "default channel",
+    type: "Channel"
   }
 };
 

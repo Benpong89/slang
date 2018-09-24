@@ -32,7 +32,7 @@ class MessagesList extends React.Component {
     this.myRef.current.scrollIntoView();
   }
 
-  componentWillUpdate() {
+  componentDidUpdate() {
     this.myRef.current.scrollIntoView();
   }
 
@@ -110,27 +110,3 @@ class MessagesList extends React.Component {
 }
 
 export default MessagesList;
-
-//unicode for gold star U+2B50
-
-// if (this.props.currentUser === undefined) return null;
-// if (this.props.channels.length === 0) return null;
-// if (
-//   this.props.channels.filter(
-//     channel => channel.name === this.props.currentUser.username
-//   ).length === 0
-// )
-//   return null;
-// if (
-//   this.props.channels.filter(
-//     channel => channel.name === this.props.currentUser.username
-//   )[0].name === this.props.currentUser.username
-// )
-//   return null;
-// this.props.createSubscription({
-//   user_id: this.props.currentUser.id,
-//   subscribeable_id: this.props.channels.filter(
-//     channel => channel.name === this.props.currentUser.username
-//   )[0].id,
-//   subscribeable_type: "DirectMessage"
-// });

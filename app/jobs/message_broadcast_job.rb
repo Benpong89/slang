@@ -3,12 +3,11 @@ class MessageBroadcastJob < ApplicationJob
 
   def perform(message)
     LineChannel.broadcast_to('line_channel', message: render_message(message))
-
-
   end
 
   private
-    def render_message(message)
-      ApplicationController.renderer.render(partial: "api/messages/message", locals: {message: message})
-    end
+
+  def render_message(message)
+    ApplicationController.renderer.render(partial: 'api/messages/message', locals: { message: message })
+  end
 end
