@@ -5,14 +5,16 @@
   height: auto;
   background-color: #fff;
   margin: 20px 15px 20px 18px;
+  overflow: hidden;
 }
 
 .messages_list_container {
   margin-top: auto;
-  padding: 15px 0 0 0;
-  overflow: hidden;
-  overflow: scroll;
-  list-style: none;
+  padding: 25px 0 0 0;
+  overflow-y: scroll;
+}
+
+.message_list {
 }
 
 .favicon {
@@ -36,6 +38,7 @@
 .message_container {
   display: flex;
   margin: 5px;
+  overflow: hidden;
 }
 
 .default_user_img {
@@ -70,7 +73,7 @@
 }
 
 .message-input {
-  width: 99%;
+  width: 95%;
   height: 35px;
   border: 2px solid rgba(145, 145, 147, 0.7);
   border-radius: 4px;

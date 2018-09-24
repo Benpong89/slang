@@ -102,7 +102,7 @@ class MessagesList extends React.Component {
           {this.state.fav ? "\u2B52" : "\u2B50"}
         </button>
         <nav className="messages_list_nav" />
-        <div className="messages_list_container">{currentMessages}</div>
+        <div className="message_list">{currentMessages}</div>
         <div className="blank" ref={this.myRef} />
       </div>
     );
