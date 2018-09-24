@@ -1,4 +1,4 @@
-![alt text](/Users/ben/Desktop/fullstack_projects/slang/app/assets/images/newlogo7.png)
+![alt text](/slang/app/assets/images/newlogo7.png)
 
 [Live demo!](https://slangg.herokuapp.com/#/)
 
