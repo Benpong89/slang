@@ -1,4 +1,4 @@
-![alt text](/slang/app/assets/images/newlogo7.png)
+![alt text](https://github.com/Benpong89/slang/blob/master/app/assets/images/newlogo7.png)
 
 [Live demo!](https://slangg.herokuapp.com/#/)
 
