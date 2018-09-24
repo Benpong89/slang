@@ -8,7 +8,6 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
 
-      LineChannel.broadcast_to('line_channel', @message)
       render :show
     else
       render json: ['invalid message'], status: 401
