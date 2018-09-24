@@ -116,6 +116,10 @@
   color: rgb(202, 196, 201);
 }
 
+.channel-detail-li-name.hidden {
+  display: none;
+}
+
 .channel-detail-li-description {
   font-size: 12px;
   color: #6d6f7b;

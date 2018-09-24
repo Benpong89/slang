@@ -7,9 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('newlogo.png'), :rel => 'icon', :type =>  'image/png' %>
 
     <script type="text/javascript">
       window.logoURL = "<%= image_url('slack_logo.jpg') %>"
+      window.newlogoURL = "<%= image_url('newlogo.png') %>"
       window.splashPhotoURL = "<%= image_url('splash_photo2.jpg') %>"
       window.chatURL = "<%= image_url('chats.png') %>"
       window.searchURL = "<%= image_url('search.png') %>"

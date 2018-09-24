@@ -65,7 +65,12 @@ class DirectMessageDetail extends React.Component {
             <div className="mail" key={user.id}>
               <button
                 onClick={this.createDirectMessage(user)}
-                className="channel-detail-li-name"
+                className={
+                  "channel-detail-li-name" +
+                  (user.username === this.props.currentUser.username
+                    ? " hidden"
+                    : "")
+                }
               >
                 # {user.username}
               </button>

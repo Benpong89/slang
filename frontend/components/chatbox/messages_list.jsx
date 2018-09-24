@@ -8,6 +8,11 @@ class MessagesList extends React.Component {
     super(props);
     this.myRef = React.createRef();
     this.deleteMessage = this.deleteMessage.bind(this);
+    this.state = {
+      fav: false
+    };
+
+    this.handleFavIcon = this.handleFavIcon.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +41,13 @@ class MessagesList extends React.Component {
       e.preventDefault();
       this.props.deleteMessage(messageId);
     };
+  }
+
+  handleFavIcon(e) {
+    e.preventDefault();
+    this.setState({
+      fav: !this.state.fav
+    });
   }
 
   render() {
@@ -86,6 +98,9 @@ class MessagesList extends React.Component {
     return (
       <div className="messages_list_container">
         <div className="messages_list_channel_name"> # {currentChannel}</div>
+        <button className="favicon" onClick={this.handleFavIcon}>
+          {this.state.fav ? "\u2B52" : "\u2B50"}
+        </button>
         <nav className="messages_list_nav" />
         <div className="messages_list_container">{currentMessages}</div>
         <div className="blank" ref={this.myRef} />
@@ -95,6 +110,8 @@ class MessagesList extends React.Component {
 }
 
 export default MessagesList;
+
+//unicode for gold star U+2B50
 
 // if (this.props.currentUser === undefined) return null;
 // if (this.props.channels.length === 0) return null;

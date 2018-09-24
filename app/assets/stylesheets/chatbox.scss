@@ -14,6 +14,14 @@
   list-style: none;
 }
 
+.favicon {
+  position: absolute;
+  top: 30px;
+  z-index: 9;
+  background: none;
+  border: none;
+}
+
 .messages_list_nav {
   width: 80%;
   position: absolute;

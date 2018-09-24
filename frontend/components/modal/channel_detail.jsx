@@ -66,6 +66,7 @@ class ChannelDetail extends React.Component {
               >
                 # {channel.name}
               </button>
+
               <div className="channel-detail-li-description">
                 {channel.description}
               </div>

@@ -49,7 +49,7 @@ class Splash extends React.Component {
         <header className="splash-header">
           <div className="logo-nav">
             <Link to="/">
-              <img className="img-logo" src={window.logoURL} />
+              <img className="img-logo" src={window.newlogoURL} />
             </Link>
             <Link className="text-logo" to="/">
               <h1 className="text-logo">slang</h1>
