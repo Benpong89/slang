@@ -7,11 +7,11 @@ import { createMessage } from "../../actions/message_actions.js";
 const mapStateToProps = ({
   session,
   entities: { users },
-  ui: { currentChannel }
+  ui: { currentRoom }
 }) => ({
   currentUser: users[session.id],
-  currentChannel: Object.values(currentChannel),
-  currentChannelDetails: currentChannel
+  currentRoom: Object.values(currentRoom),
+  currentRoomDetails: currentRoom
 });
 
 const mapDispatchToProps = dispatch => ({

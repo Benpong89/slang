@@ -52,7 +52,7 @@ class MessagesList extends React.Component {
 
   render() {
     const messages = this.props.messages.filter(
-      message => message.messageable_id === this.props.currentChannel[0].id
+      message => message.messageable_id === this.props.currentRoom[0].id
     );
 
     const currentMessages = messages.map((message, idx) => {
@@ -86,10 +86,10 @@ class MessagesList extends React.Component {
 
     let currentChannel;
 
-    if (typeof this.props.currentChannel[0].name === "string") {
-      currentChannel = this.props.currentChannel[0].name;
+    if (typeof this.props.currentRoom[0].name === "string") {
+      currentChannel = this.props.currentRoom[0].name;
     } else {
-      const names = this.props.currentChannel[0].names;
+      const names = this.props.currentRoom[0].names;
       currentChannel = names.filter(
         name => name !== this.props.currentUser.username
       );

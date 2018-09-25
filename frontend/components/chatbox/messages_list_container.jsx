@@ -12,12 +12,12 @@ const mapStateToProps = ({
   entities: { users },
   entities: { messages },
   entities: { channels },
-  ui: { currentChannel }
+  ui: { currentRoom }
 }) => ({
   users,
   currentUser: users[session.id],
   channels: Object.values(channels),
-  currentChannel: Object.values(currentChannel),
+  currentRoom: Object.values(currentRoom),
   messages: Object.values(messages)
 });
 
