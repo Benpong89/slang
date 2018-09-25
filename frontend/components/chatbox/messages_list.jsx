@@ -84,23 +84,25 @@ class MessagesList extends React.Component {
       );
     });
 
-    let currentChannel;
+    let currentRoom;
 
     if (typeof this.props.currentRoom[0].name === "string") {
-      currentChannel = this.props.currentRoom[0].name;
+      currentRoom = this.props.currentRoom[0].name;
     } else {
       const names = this.props.currentRoom[0].names;
-      currentChannel = names.filter(
+      currentRoom = names.filter(
         name => name !== this.props.currentUser.username
       );
     }
 
     return (
       <div className="messages_list_container">
-        <div className="messages_list_channel_name"> # {currentChannel}</div>
+        <div className="messages_list_channel_name"> # {currentRoom}</div>
         <button className="favicon" onClick={this.handleFavIcon}>
           {this.state.fav ? "\u2B52" : "\u2B50"}
         </button>
+        <img className="usericon" src={window.userCountURL} />
+        <div className="usercount">{this.props.currentRoom[0].subs.length}</div>
         <nav className="messages_list_nav" />
         <div className="message_list">{currentMessages}</div>
         <div className="blank" ref={this.myRef} />

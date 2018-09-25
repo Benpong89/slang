@@ -24,6 +24,29 @@
   z-index: 9;
   background: none;
   border: none;
+  color: #5b5e6d;
+}
+
+.usericon {
+  position: absolute;
+  top: 35px;
+  left: 295px;
+  z-index: 9;
+  background: none;
+  border: none;
+  height: 10px;
+  color: #5b5e6d;
+}
+
+.usercount {
+  position: absolute;
+  top: 33px;
+  left: 315px;
+  z-index: 9;
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #5b5e6d;
 }
 
 .messages_list_nav {

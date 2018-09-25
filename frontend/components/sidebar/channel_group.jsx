@@ -28,10 +28,10 @@ class ChannelGroup extends React.Component {
     this.props.openModal("detailChannel");
   }
 
-  setCurrentChannel(channelId) {
+  setCurrentChannel(channel) {
     return e => {
       e.preventDefault();
-      this.props.requestCurrentChannel(channelId);
+      this.props.requestCurrentChannel(channel.id);
     };
   }
 
@@ -44,10 +44,6 @@ class ChannelGroup extends React.Component {
 
       this.props.deleteSubscription(toDelete[0].id);
     };
-  }
-
-  ComponentDidMount() {
-    if (this.props.channels.length === 0) return null;
   }
 
   render() {
@@ -73,7 +69,7 @@ class ChannelGroup extends React.Component {
       return (
         <li key={idx}>
           <button
-            onClick={this.setCurrentChannel(channel.id)}
+            onClick={this.setCurrentChannel(channel)}
             className="conversation-li"
           >
             # {channel.name}

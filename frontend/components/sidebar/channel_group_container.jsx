@@ -4,7 +4,10 @@ import {
   requestAllChannels,
   requestCurrentChannel
 } from "../../actions/channel_actions.js";
-import { deleteSubscription } from "../../actions/subscription_actions";
+import {
+  deleteSubscription,
+  createSubscription
+} from "../../actions/subscription_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
@@ -24,7 +27,9 @@ const mapDispatchToProps = dispatch => ({
   requestAllChannels: channels => dispatch(requestAllChannels(channels)),
   requestCurrentChannel: channel => dispatch(requestCurrentChannel(channel)),
   openModal: modal => dispatch(openModal(modal)),
-  deleteSubscription: subscription => dispatch(deleteSubscription(subscription))
+  deleteSubscription: subscription =>
+    dispatch(deleteSubscription(subscription)),
+  createSubscription: subscription => dispatch(createSubscription(subscription))
 });
 
 export default connect(

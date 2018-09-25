@@ -8,7 +8,8 @@ const default_state = {
     id: 1,
     name: "general",
     description: "default channel",
-    type: "Channel"
+    type: "Channel",
+    subs: [1]
   }
 };
 
