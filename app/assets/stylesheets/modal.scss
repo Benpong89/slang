@@ -9,7 +9,6 @@
   margin-top: auto;
   overflow: hidden;
   overflow: scroll;
-  list-style: none;
 }
 
 .modal-child {
@@ -18,6 +17,41 @@
   left: 30%;
   min-width: 450px;
   min-height: 380px;
+}
+
+.modal-room-container {
+  height: 400px;
+  width: 200px;
+  border-radius: 4px;
+}
+
+.room-detail-background {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  border: thin solid black;
+  z-index: 10;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: inline;
+  border-radius: 4px;
+}
+
+.room-detail-child {
+  top: 10px;
+  left: 30%;
+  border-radius: 4px;
+}
+
+.room-detail-users-list {
+  display: inline;
+  list-style: none;
+  max-width: 100px;
+}
+
+.usericon-room {
+  height: 20px;
 }
 
 .modal-channel-container {
@@ -100,6 +134,22 @@
 }
 
 .x-button:hover {
+  cursor: pointer;
+  color: #2c2d30;
+}
+
+.x-button-room-detail {
+  position: absolute;
+  top: 0px;
+  left: 175px;
+  background: none;
+  border: none;
+  color: #5b5e6d;
+  font-size: 16px;
+  outline: none;
+}
+
+.x-button-room-detail:hover {
   cursor: pointer;
   color: #2c2d30;
 }

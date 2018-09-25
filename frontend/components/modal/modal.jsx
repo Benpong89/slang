@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import ChannelFormContainer from "./channel_form_container";
 import ChannelDetailContainer from "./channel_detail_container";
 import DirectMessageDetailContainer from "./direct_message_detail_container";
+import RoomDetailContainer from "./room_detail_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -20,16 +21,30 @@ function Modal({ modal, closeModal }) {
     case "detailDirectMessage":
       component = <DirectMessageDetailContainer />;
       break;
+    case "roomDetail":
+      component = <RoomDetailContainer />;
+      break;
     default:
       return null;
   }
-  return (
-    <div className="modal-background">
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        {component}
+
+  if (modal === "roomDetail") {
+    return (
+      <div className="room-detail-background">
+        <div className="room-detail-child" onClick={e => e.stopPropagation()}>
+          {component}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="modal-background">
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          {component}
+        </div>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {

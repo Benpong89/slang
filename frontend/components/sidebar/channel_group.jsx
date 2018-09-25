@@ -46,6 +46,10 @@ class ChannelGroup extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.requestCurrentChannel(1);
+  }
+
   render() {
     if (this.props.subscriptions === undefined) return null;
 

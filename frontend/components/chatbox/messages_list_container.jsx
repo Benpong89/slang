@@ -6,6 +6,7 @@ import {
 } from "../../actions/message_actions.js";
 import { requestAllUsers } from "../../actions/session_actions.js";
 import { createSubscription } from "../../actions/subscription_actions";
+import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
   session,
@@ -25,7 +26,9 @@ const mapDispatchToProps = dispatch => ({
   requestAllMessages: messages => dispatch(requestAllMessages(messages)),
   requestAllUsers: users => dispatch(requestAllUsers(users)),
   deleteMessage: message => dispatch(deleteMessage(message)),
-  createSubscription: subscription => dispatch(createSubscription(subscription))
+  createSubscription: subscription =>
+    dispatch(createSubscription(subscription)),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(

@@ -12,7 +12,8 @@ class MessagesList extends React.Component {
       fav: false
     };
 
-    this.handleFavIcon = this.handleFavIcon.bind(this);
+    this.handleStarIcon = this.handleStarIcon.bind(this);
+    this.openRoomDetailModal = this.openRoomDetailModal.bind(this);
   }
 
   componentDidMount() {
@@ -43,11 +44,16 @@ class MessagesList extends React.Component {
     };
   }
 
-  handleFavIcon(e) {
+  handleStarIcon(e) {
     e.preventDefault();
     this.setState({
       fav: !this.state.fav
     });
+  }
+
+  openRoomDetailModal(e) {
+    e.preventDefault();
+    this.props.openModal("roomDetail");
   }
 
   render() {
@@ -98,11 +104,20 @@ class MessagesList extends React.Component {
     return (
       <div className="messages_list_container">
         <div className="messages_list_channel_name"> # {currentRoom}</div>
-        <button className="favicon" onClick={this.handleFavIcon}>
-          {this.state.fav ? "\u2B52" : "\u2B50"}
-        </button>
-        <img className="usericon" src={window.userCountURL} />
-        <div className="usercount">{this.props.currentRoom[0].subs.length}</div>
+        <div className="message_list_nav_buttons">
+          <button className="staricon" onClick={this.handleStarIcon}>
+            {this.state.fav ? "\u2B52" : "\u2B50"}
+          </button>
+          <button
+            onClick={this.openRoomDetailModal}
+            className="usericon-button"
+          >
+            <img className="usericon" src={window.userCountURL} />
+            <div className="usericon_count">
+              {this.props.currentRoom[0].subs.length}
+            </div>
+          </button>
+        </div>
         <nav className="messages_list_nav" />
         <div className="message_list">{currentMessages}</div>
         <div className="blank" ref={this.myRef} />
