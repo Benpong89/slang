@@ -21,6 +21,10 @@ class Api::SubscriptionsController < ApplicationController
   def show
     @subscription = Subscription.find(params[:id])
   end
+  #
+  # def update
+  #   @subscription = Subscription.find(params[:id])
+  # end
 
   def destroy
     @subscription = Subscription.find(params[:id])

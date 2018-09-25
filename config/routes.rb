@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :messages, only: %i[create index show destroy]
     resources :channels, only: %i[create index show destroy]
     resources :direct_messages, only: %i[create index show destroy]
-    resources :subscriptions, only: %i[create index show destroy]
+    resources :subscriptions
   end
 
   mount ActionCable.server, at: '/cable'

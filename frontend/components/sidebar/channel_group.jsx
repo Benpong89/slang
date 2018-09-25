@@ -46,18 +46,27 @@ class ChannelGroup extends React.Component {
     };
   }
 
+  ComponentDidMount() {
+    if (this.props.channels.length === 0) return null;
+  }
+
   render() {
     if (this.props.subscriptions === undefined) return null;
 
-    const channelIds = Object.values(this.props.subscriptions).map(
+    const currentUserSubscriptions = Object.values(
+      this.props.subscriptions
+    ).filter(
+      subscription =>
+        subscription.subscribeable_id === 1 ||
+        subscription.user_id === this.props.currentUser.id
+    );
+
+    const channelIds = currentUserSubscriptions.map(
       channel => channel.subscribeable_id
     );
 
-    const filteredChannels = this.props.channels.filter(
-      channel => channelIds.includes(channel.id)
-      // channel.names.includes(this.props.currentUser.username)
-      //when this conditional is added, it filters through only current user channel(also takes out general)
-      //but it won't update the lsit automatically after the modal closes. Why?
+    const filteredChannels = this.props.channels.filter(channel =>
+      channelIds.includes(channel.id)
     );
 
     const currentUserchannels = filteredChannels.map((channel, idx) => {

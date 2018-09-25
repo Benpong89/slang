@@ -22,3 +22,9 @@ export const deleteSubscription = id =>
     method: "DELETE",
     url: `api/subscriptions/${id}`
   });
+
+export const updateSubscription = id =>
+  $.ajax({
+    method: "PATCH",
+    url: `api/subscriptions/${id}`
+  });

@@ -12,7 +12,7 @@ const default_state = {
   }
 };
 
-const currentChannelReducer = (state = default_state, action) => {
+const currentRoomReducer = (state = default_state, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_CHANNEL:
@@ -24,4 +24,4 @@ const currentChannelReducer = (state = default_state, action) => {
   }
 };
 
-export default currentChannelReducer;
+export default currentRoomReducer;

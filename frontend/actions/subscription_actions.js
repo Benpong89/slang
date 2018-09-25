@@ -23,6 +23,11 @@ export const deleteSubscription = id => dispatch =>
     dispatch(removeSubscription(id))
   );
 
+export const updateSubscription = id => dispatch =>
+  SubscriptionsAPIUtil.updateSubscription(id).then(subscription =>
+    dispatch(receiveSubscription(subscription))
+  );
+
 export const createSubscription = subscription => dispatch =>
   SubscriptionsAPIUtil.createSubscription(subscription).then(subscription =>
     dispatch(receiveSubscription(subscription))

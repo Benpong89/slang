@@ -35,10 +35,6 @@ class DirectMessageGroup extends React.Component {
     };
   }
 
-  ComponentDidMount() {
-    if (this.props.direct_messages.length === 0) return null;
-  }
-
   render() {
     let currentUserDirectMessages;
 
