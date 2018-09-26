@@ -20,6 +20,10 @@ class RoomDetail extends React.Component {
     this.props.closeModal();
   }
 
+  // componentWillUpdate() {
+  //   this.props.closeModal();
+  // }
+
   render() {
     const currentRoomUsers = this.props.currentRoom[0].names.map(
       (usernames, idx) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import GreetingContainer from "./greeting/greeting_container";
 
@@ -102,6 +102,12 @@ class Splash extends React.Component {
               Priceless
             </div>
           </div>
+          <a href="https://github.com/Benpong89">
+            <img className="portfolio-link-img" src={window.githubURL} />
+          </a>
+          <a href="https://www.linkedin.com/in/ben-pongsanarakul-bb21922b">
+            <img className="portfolio-link-img" src={window.linkedinURL} />
+          </a>
           <GreetingContainer />
         </header>
 
