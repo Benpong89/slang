@@ -38,7 +38,9 @@ class RoomDetail extends React.Component {
 
     return (
       <div className="modal-room-container">
-        Channel Details
+        <div className="room-detail-header">
+          {this.props.currentRoom[0].names.length} Members
+        </div>
         <ul className="room-detail-users-list">{currentRoomUsers}</ul>
         <button
           className="x-button-room-detail"

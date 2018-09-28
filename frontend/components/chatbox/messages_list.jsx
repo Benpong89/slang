@@ -105,9 +105,6 @@ class MessagesList extends React.Component {
       <div className="messages_list_container">
         <div className="messages_list_channel_name"> # {currentRoom}</div>
         <div className="message_list_nav_buttons">
-          <button className="staricon" onClick={this.handleStarIcon}>
-            {this.state.fav ? "\u2B52" : "\u2B50"}
-          </button>
           <button
             onClick={this.openRoomDetailModal}
             className="usericon-button"
@@ -127,3 +124,9 @@ class MessagesList extends React.Component {
 }
 
 export default MessagesList;
+
+// Star icons
+//
+// <button className="staricon" onClick={this.handleStarIcon}>
+//   {this.state.fav ? "\u2B52" : "\u2B50"}
+// </button>

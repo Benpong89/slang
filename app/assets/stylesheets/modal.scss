@@ -23,9 +23,19 @@
   height: 400px;
   width: 200px;
   border-radius: 4px;
+  color: black;
+}
+
+.room-detail-header {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: left;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .room-detail-background {
+  padding: 15px;
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -45,13 +55,16 @@
 }
 
 .room-detail-users-list {
+  padding: 5px;
   display: inline;
   list-style: none;
   max-width: 100px;
+  font-family: "Roboto", sans-serif;
 }
 
 .usericon-room {
   height: 20px;
+  margin: 0 5px 0 0;
 }
 
 .modal-channel-container {
@@ -141,7 +154,7 @@
 .x-button-room-detail {
   position: absolute;
   top: 0px;
-  left: 175px;
+  left: 200px;
   background: none;
   border: none;
   color: #5b5e6d;
