@@ -22,7 +22,7 @@ class App extends React.Component {
           <Route exact path="/" component={Splash} />
           <AuthRoute exact path="/signin" component={SignInFormContainer} />
           <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-          <Route exact path="/main" component={MainContainer} />
+          <ProtectedRoute exact path="/main" component={MainContainer} />
         </Switch>
       </div>
     );
