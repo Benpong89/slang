@@ -133,60 +133,12 @@ class Splash extends React.Component {
             </Link>
           </div>
         </div>
-
-        <div className="splash-mid-message-container">
-          <h2 className="splash-mid-title">
-            The hub for your team and your work
-          </h2>
-          <p className="splash-mid-message">
-            Slang is a place where your team comes together to collaborate,
-            important information can be found by the right people, and your
-            tools pipe in information when and where you need it.
-          </p>
+        <div className="bottom_credits">
+          Developed by{" "}
+          <a className="bottom_credits_a" href="https://benpong.com/">
+            Ben Pong
+          </a>
         </div>
-
-        <div className="splash-icons-container">
-          <div className="splash-icon">
-            <img className="splash-icon-img" src={window.chatURL} />
-            <h2 className="splash-icon-title">Channels</h2>
-            <p className="splash-icon-p">
-              Communication in Slang happens in channels, organized by project,
-              topic, team, or whatever makes sense for you.
-            </p>
-          </div>
-
-          <div className="splash-icon">
-            <img className="splash-icon-img" src={window.searchURL} />
-            <h2 className="splash-icon-title">Search</h2>
-            <p className="splash-icon-p">
-              Conversations in Slang are searchable by everyone, so you can tap
-              into company knowledge and find information when you need it.
-            </p>
-          </div>
-
-          <div className="splash-icon">
-            <img className="splash-icon-img" src={window.gearURL} />
-            <h2 className="splash-icon-title">Integrations</h2>
-            <p className="splash-icon-p">
-              Slang works with the tools and services you already use every day.
-              Pipe in information or take action without leaving Slang.
-            </p>
-          </div>
-
-          <div className="splash-icon">
-            <img className="splash-icon-img" src={window.lockURL} />
-            <h2 className="splash-icon-title">Security</h2>
-            <p className="splash-icon-p">
-              We take security seriously at Slang. We offer measures like 2FA
-              and SSO to ensure the safety of your data and protect your
-              organization.
-            </p>
-          </div>
-        </div>
-
-        <Link to="/signup" className="splash-bottom-button">
-          Learn more about Slang features
-        </Link>
       </div>
     );
   }
@@ -203,3 +155,46 @@ export default withRouter(Splash);
 // }
 
 // this.menu1Toggle = this.menu1Toggle.bind(this);
+
+// <div className="splash-icons-container">
+//   <div className="splash-icon">
+//     <img className="splash-icon-img" src={window.chatURL} />
+//     <h2 className="splash-icon-title">Channels</h2>
+//     <p className="splash-icon-p">
+//       Communication in Slang happens in channels, organized by project,
+//       topic, team, or whatever makes sense for you.
+//     </p>
+//   </div>
+//
+//   <div className="splash-icon">
+//     <img className="splash-icon-img" src={window.searchURL} />
+//     <h2 className="splash-icon-title">Search</h2>
+//     <p className="splash-icon-p">
+//       Conversations in Slang are searchable by everyone, so you can tap
+//       into company knowledge and find information when you need it.
+//     </p>
+//   </div>
+//
+//   <div className="splash-icon">
+//     <img className="splash-icon-img" src={window.gearURL} />
+//     <h2 className="splash-icon-title">Integrations</h2>
+//     <p className="splash-icon-p">
+//       Slang works with the tools and services you already use every day.
+//       Pipe in information or take action without leaving Slang.
+//     </p>
+//   </div>
+//
+//   <div className="splash-icon">
+//     <img className="splash-icon-img" src={window.lockURL} />
+//     <h2 className="splash-icon-title">Security</h2>
+//     <p className="splash-icon-p">
+//       We take security seriously at Slang. We offer measures like 2FA
+//       and SSO to ensure the safety of your data and protect your
+//       organization.
+//     </p>
+//   </div>
+// </div>
+//
+// <Link to="/signup" className="splash-bottom-button">
+//   Learn more about Slang features
+// </Link>

@@ -133,3 +133,24 @@
   color: #3f46ad;
   margin: 40px 0 100px 0;
 }
+
+.bottom_credits {
+  font-family: "Chakra Petch", sans-serif;
+  text-align: right;
+  color: #355c7d;
+  font-size: 12px;
+  position: absolute;
+  top: 50px;
+  left: 95px;
+}
+
+.bottom_credits_a {
+  color: #355c7d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bottom_credits_a:hover {
+  cursor: pointer;
+  color: #6c5c7b;
+}
