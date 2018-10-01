@@ -40,8 +40,3 @@ export const signin = user => dispatch =>
 
 export const signout = () => dispatch =>
   APIUtil.signout().then(user => dispatch(signoutCurrentUser()));
-
-// export const addChannelSubscription = channelId => dispatch =>
-//   APIUtil.addChannelSubscription(channelId).then(user =>
-//     dispatch(receiveCurrentUser(user))
-//   );

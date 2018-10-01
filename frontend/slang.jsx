@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./components/root.jsx";
 import configureStore from "./store/store";
-import actionCable from "actioncable";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
