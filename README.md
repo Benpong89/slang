@@ -2,7 +2,7 @@
 
 [Live demo!](https://slangg.herokuapp.com/#/)
 
-Slang is an app clone of Slack. Utilizing a full duplex WebSocket protocol connection, users can enjoy real-time live chat in public Channels and private Direct Messages. Technologies used include, Ruby on Rails, React.js and Redux.
+Slang is a live chat app inspired by Slack. Utilizing a full duplex WebSocket protocol connection, users can enjoy real-time live chat in public Channels and private Direct Messages. Technologies used include, Ruby on Rails, React.js and Redux.
 
 The highlight of Slang, is the establishment of a WebSocket protocol connection that enables real-time live chat. WebSocket is a communication protocol that connects the server with the client. While this operation can be achieved with traditional HTTP protocol, WebSockets allow for a full duplex line of communication that persists. This means that unlike traditional HTTP, the standard request response cycle happens simultaneously and data can be continuously transmitted until the client disconnects.
 
