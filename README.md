@@ -31,8 +31,3 @@ App.cable.subscriptions.create(
 ```
 
 Slang's Live Chat feature is framed around communication through public Channels and private Direct Messages. Users that subscribes to Channels can view prior messages and submit new messages. Direct Messages are specifically between two users and are not visible to any other user. The organization of this interaction between Users, Channels and Direct Messages is based on a polymorphic system of subscriptions, which allow for DRY code through associations. Users subscribe to specific Channels and Direct Messages which allows for efficiency and performant scaling.
-
-Upcoming features include:
-
-1.  Channel member details section to show number of members subscribed to a channel.
-2.  Private Channels that other users can only be subscribed to by invitation.
