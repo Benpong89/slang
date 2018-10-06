@@ -1,5 +1,4 @@
 class Api::SubscriptionsController < ApplicationController
-  # @subscriptions = current_user.subscriptions
   def index
     @subscriptions = Subscription.all
     if @subscriptions.pluck(:subscribeable_id).include?(1)
@@ -21,10 +20,6 @@ class Api::SubscriptionsController < ApplicationController
   def show
     @subscription = Subscription.find(params[:id])
   end
-  #
-  # def update
-  #   @subscription = Subscription.find(params[:id])
-  # end
 
   def destroy
     @subscription = Subscription.find(params[:id])

@@ -31,7 +31,10 @@ class AddMessageForm extends React.Component {
       messageable_type: this.props.currentRoom[0].type,
       messageable_id: this.props.currentRoom[0].id
     };
-    App.cable.subscriptions.subscriptions[0].speak(message);
+
+    if (/\S/.test(message.body)) {
+      App.cable.subscriptions.subscriptions[0].speak(message);
+    }
 
     this.setState({
       body: "",
