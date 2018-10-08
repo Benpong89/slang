@@ -14,7 +14,7 @@ To achieve this WebSocket connect, I utilized the ActionCable feature of Ruby on
 
 The most complex part of this process is initiating the Subscription on the client side, which defines how the client will interact with the ActionCable's Stream of data. In the code below, I have defined those interactions as "received" and "speak". Once the code below is run on the client side, a Subscription to the specified ActionCable's Stream will be established. With this subscription, the client will always be listening for new data sent into the Stream. When the DB Broadcasts data, the client side will immediately receive the data and implement the functions as listed. Conversely, the client side can Speak data into the Stream, and request the DB perform specific functions.
 
-```
+```rb
 App.cable.subscriptions.create(
       { channel: "LineChannel", room: "Line Room" },
       {
