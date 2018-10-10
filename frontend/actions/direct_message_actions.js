@@ -36,9 +36,10 @@ export const requestCurrentDirectMessage = id => dispatch =>
   );
 
 export const createDirectMessage = userId => dispatch =>
-  DirectMessagesAPIUtil.createDirectMessage(userId).then(payload =>
-    dispatch(receiveDirectMessage(payload))
-  );
+  DirectMessagesAPIUtil.createDirectMessage(userId);
+// .then(payload =>
+//   dispatch(receiveDirectMessage(payload))
+// );
 
 export const requestDirectMessage = direct_message => dispatch =>
   DirectMessagesAPIUtil.fetchDirectMessage(direct_message).then(

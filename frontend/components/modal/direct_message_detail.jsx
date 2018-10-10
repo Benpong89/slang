@@ -36,6 +36,7 @@ class DirectMessageDetail extends React.Component {
         this.props.closeModal();
         return null;
       } else {
+        // App.cable.subscriptions.subscriptions[0].speak(message);
         this.props.createDirectMessage(user.id);
         this.props.closeModal();
       }

@@ -1,4 +1,6 @@
 import React from "react";
+// import { receiveMessage } from "../../actions/message_actions";
+// import { receiveDirectMessage } from "../../actions/direct_message_actions";
 import { Link } from "react-router-dom";
 
 class DirectMessageGroup extends React.Component {
@@ -27,10 +29,6 @@ class DirectMessageGroup extends React.Component {
       this.props.deleteDirectMessage(direct_message.id);
     };
   }
-  //
-  // async componentDidMount() {
-  //   await this.props.requestAllDirectMessages();
-  // }
 
   setCurrentDirectMessage(direct_message) {
     return e => {

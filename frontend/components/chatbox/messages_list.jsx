@@ -1,7 +1,6 @@
 import React from "react";
 import Cable from "actioncable";
 import { receiveMessage } from "../../actions/message_actions";
-import { receiveSubscription } from "../../actions/subscription_actions";
 import { receiveDirectMessage } from "../../actions/direct_message_actions";
 import Timestamp from "react-timestamp";
 
@@ -10,11 +9,6 @@ class MessagesList extends React.Component {
     super(props);
     this.myRef = React.createRef();
     this.deleteMessage = this.deleteMessage.bind(this);
-    this.state = {
-      fav: false
-    };
-
-    this.handleStarIcon = this.handleStarIcon.bind(this);
     this.openRoomDetailModal = this.openRoomDetailModal.bind(this);
   }
 
@@ -26,12 +20,13 @@ class MessagesList extends React.Component {
       { channel: "LineChannel", room: "LineRoom" },
       {
         received: data => {
-          data.body
-            ? dispatch(receiveMessage(data))
-            : dispatch(receiveDirectMessage(data));
+          if (data.body) {
+            dispatch(receiveMessage(data));
+          } else {
+            dispatch(receiveDirectMessage(data));
+          }
         },
         speak: function(data) {
-          // debugger;
           return this.perform("speak", data);
         }
       }
@@ -48,13 +43,6 @@ class MessagesList extends React.Component {
       e.preventDefault();
       this.props.deleteMessage(messageId);
     };
-  }
-
-  handleStarIcon(e) {
-    e.preventDefault();
-    this.setState({
-      fav: !this.state.fav
-    });
   }
 
   openRoomDetailModal(e) {
@@ -136,3 +124,16 @@ export default MessagesList;
 // <button className="staricon" onClick={this.handleStarIcon}>
 //   {this.state.fav ? "\u2B52" : "\u2B50"}
 // </button>
+
+// this.state = {
+//   fav: false
+// };
+
+// this.handleStarIcon = this.handleStarIcon.bind(this);
+
+// handleStarIcon(e) {
+//   e.preventDefault();
+//   this.setState({
+//     fav: !this.state.fav
+//   });
+// }

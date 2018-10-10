@@ -11,7 +11,7 @@ class Api::SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     if @subscription.save
-      LineChannel.broadcast_to('line_channel', @subscription)
+      # LineChannel.broadcast_to('line_channel', @subscription)
       render :show
     else
       render json: ['invalid subscription'], status: 401
