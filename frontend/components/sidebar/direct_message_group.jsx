@@ -27,6 +27,10 @@ class DirectMessageGroup extends React.Component {
       this.props.deleteDirectMessage(direct_message.id);
     };
   }
+  //
+  // async componentDidMount() {
+  //   await this.props.requestAllDirectMessages();
+  // }
 
   setCurrentDirectMessage(direct_message) {
     return e => {
@@ -56,6 +60,7 @@ class DirectMessageGroup extends React.Component {
           this.props.direct_messages[subscription.subscribeable_id]
       );
     }
+
     //needs to remove null direct messages from array after they've been deleted
     const currentDirectMessages = currentUserDirectMessages.filter(n => n);
     const listUsernames = currentDirectMessages.map((direct_message, idx) => {

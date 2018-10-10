@@ -1,6 +1,8 @@
 import React from "react";
 import Cable from "actioncable";
 import { receiveMessage } from "../../actions/message_actions";
+import { receiveSubscription } from "../../actions/subscription_actions";
+import { receiveDirectMessage } from "../../actions/direct_message_actions";
 import Timestamp from "react-timestamp";
 
 class MessagesList extends React.Component {
@@ -24,9 +26,12 @@ class MessagesList extends React.Component {
       { channel: "LineChannel", room: "LineRoom" },
       {
         received: data => {
-          dispatch(receiveMessage(data));
+          data.body
+            ? dispatch(receiveMessage(data))
+            : dispatch(receiveDirectMessage(data));
         },
         speak: function(data) {
+          // debugger;
           return this.perform("speak", data);
         }
       }

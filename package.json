@@ -44,6 +44,7 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "regenerator-runtime": "^0.12.1",
     "url-loader": "^1.1.1"
   },
   "repository": {

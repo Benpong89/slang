@@ -19,6 +19,17 @@ class Api::DirectMessagesController < ApplicationController
         subscribeable_id: @direct_message.id,
         subscribeable_type: 'DirectMessage'
       )
+
+      @pair = {
+        direct_message: { id: @direct_message.id,
+                          names: [@direct_message.users[0].username, @direct_message.users[1].username],
+                          type: "Direct Message", 
+                          subs: @direct_message.subscriptions },
+        subscription: @subscription
+      }
+
+      LineChannel.broadcast_to('line_channel', @pair)
+
       render :create
     else
       render json: ['invalid direct_message'], status: 401
