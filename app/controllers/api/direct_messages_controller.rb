@@ -14,21 +14,30 @@ class Api::DirectMessagesController < ApplicationController
         subscribeable_type: 'DirectMessage'
       )
 
-      Subscription.create(
+      @other_subscription = Subscription.create(
         user_id: params[:userId],
         subscribeable_id: @direct_message.id,
         subscribeable_type: 'DirectMessage'
       )
 
-      @pair = {
+      @pair1 = {
         direct_message: { id: @direct_message.id,
                           names: [@direct_message.users[0].username, @direct_message.users[1].username],
-                          type: "Direct Message", 
+                          type: "Direct Message",
                           subs: @direct_message.subscriptions },
         subscription: @subscription
       }
 
-      LineChannel.broadcast_to('line_channel', @pair)
+      @pair2 = {
+        direct_message: { id: @direct_message.id,
+                          names: [@direct_message.users[0].username, @direct_message.users[1].username],
+                          type: "Direct Message",
+                          subs: @direct_message.subscriptions },
+        subscription: @other_subscription
+      }
+
+      LineChannel.broadcast_to('line_channel', @pair1)
+      LineChannel.broadcast_to('line_channel', @pair2)
 
       render :create
     else

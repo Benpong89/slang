@@ -39,7 +39,6 @@ class DirectMessageGroup extends React.Component {
 
   render() {
     let currentUserDirectMessages;
-
     if (
       this.props.subscriptions === undefined ||
       Object.values(this.props.direct_messages).length === 0

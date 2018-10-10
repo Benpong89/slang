@@ -1,6 +1,7 @@
 import React from "react";
 import Cable from "actioncable";
 import { receiveMessage } from "../../actions/message_actions";
+// import { receiveSubscription } from "../../actions/subscription_actions";
 import { receiveDirectMessage } from "../../actions/direct_message_actions";
 import Timestamp from "react-timestamp";
 
@@ -23,7 +24,9 @@ class MessagesList extends React.Component {
           if (data.body) {
             dispatch(receiveMessage(data));
           } else {
-            dispatch(receiveDirectMessage(data));
+            if (data.subscription.user_id === this.props.currentUser.id) {
+              dispatch(receiveDirectMessage(data));
+            }
           }
         },
         speak: function(data) {
