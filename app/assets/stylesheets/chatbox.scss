@@ -143,8 +143,9 @@
 }
 
 #emoji-picker {
+  position: absolute;
   // display: none;
-  // bottom: 100px;
+  bottom: 100px;
 }
 
 #emoji-button {
@@ -159,5 +160,7 @@
 }
 
 #hidden {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  bottom: 100px;
 }
