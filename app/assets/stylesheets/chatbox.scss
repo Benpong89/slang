@@ -115,7 +115,7 @@
   border: 2px solid rgba(145, 145, 147, 0.7);
   border-radius: 4px;
   margin: 20px 0 20px 0;
-  padding: 2px 2px 2px 8px;
+  padding: 2px 2px 2px 40px;
   font-size: 16px;
   font-weight: 100;
 }
@@ -139,5 +139,25 @@
 }
 
 .delete_message_button.hidden {
+  display: none;
+}
+
+#emoji-picker {
+  // display: none;
+  // bottom: 100px;
+}
+
+#emoji-button {
+  border-top: none;
+  background: none;
+  height: 35px;
+  border-bottom: none;
+  font-size: 18px;
+  position: absolute;
+  bottom: 44px;
+  left: 269px;
+}
+
+#hidden {
   display: none;
 }

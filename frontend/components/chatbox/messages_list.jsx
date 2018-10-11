@@ -4,6 +4,7 @@ import { receiveMessage } from "../../actions/message_actions";
 // import { receiveSubscription } from "../../actions/subscription_actions";
 import { receiveDirectMessage } from "../../actions/direct_message_actions";
 import Timestamp from "react-timestamp";
+import { emojify } from "react-emojione";
 
 class MessagesList extends React.Component {
   constructor(props) {
@@ -83,7 +84,9 @@ class MessagesList extends React.Component {
                 format="time"
               />
             </div>
-            <div className="message_body">{message.body}</div>
+            <div className="message_body">
+              {emojify(message.body, { output: "unicode" })}
+            </div>
           </div>
           <button
             onClick={this.deleteMessage(message.id)}

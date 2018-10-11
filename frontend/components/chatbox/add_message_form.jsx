@@ -1,6 +1,8 @@
 import React from "react";
 import { merge } from "lodash";
 import { receiveMessage } from "../../actions/message_actions";
+import { emojify } from "react-emojione";
+import EmojiPicker from "emoji-picker-react";
 
 class AddMessageForm extends React.Component {
   constructor(props) {
@@ -10,10 +12,13 @@ class AddMessageForm extends React.Component {
       body: "",
       author_id: this.props.currentUser.id,
       messageable_type: this.props.currentRoom[0].type,
-      messageable_id: this.props.currentRoom[0]
+      messageable_id: this.props.currentRoom[0],
+      emoji: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleEmoji = this.toggleEmoji.bind(this);
+    this.myCallback = this.myCallback.bind(this);
   }
 
   update(field) {
@@ -42,22 +47,43 @@ class AddMessageForm extends React.Component {
       author_id: this.props.currentUser.id,
       messageable_type: this.props.currentRoom[0].type,
       messageable_id: this.props.currentRoom[0].id,
-      currentRoom: this.props.currentRoom[0]
+      currentRoom: this.props.currentRoom[0],
+      emoji: false
+    });
+  }
+  // {"\u2192"}
+
+  myCallback(code, data) {
+    this.setState({
+      body: this.state.body + ":" + data.name + ":"
+    });
+  }
+
+  toggleEmoji(e) {
+    e.preventDefault(e);
+    this.setState({
+      emoji: !this.state.emoji
     });
   }
 
   render() {
     return (
       <div className="messages_submit_container">
+        <div id={this.state.emoji ? "emoji-picker" : "hidden"}>
+          <EmojiPicker onEmojiClick={this.myCallback} />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            value={this.state.body}
+            value={emojify(this.state.body, { output: "unicode" })}
             onChange={this.update("body")}
             placeholder="your message goes here"
             className="message-input"
           />
           <button type="submit" className="message-submit" />
+          <button onClick={this.toggleEmoji} id="emoji-button">
+            |+|
+          </button>
         </form>
       </div>
     );
