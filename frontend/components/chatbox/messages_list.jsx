@@ -29,9 +29,7 @@ class MessagesList extends React.Component {
               break;
             case "direct_message":
               delete data["socket_type"];
-              if (data.subscription.user_id === this.props.currentUser.id) {
-                dispatch(receiveDirectMessage(data));
-              }
+              dispatch(receiveDirectMessage(data));
               break;
             default:
               break;
@@ -40,10 +38,6 @@ class MessagesList extends React.Component {
         speak: function(data) {
           return this.perform("speak", data);
         }
-        // socket_direct_message: function(data) {
-        //   debugger;
-        //   return this.perform("socket_direct_message", data);
-        // }
       }
     );
     this.myRef.current.scrollIntoView();
