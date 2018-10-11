@@ -21,17 +21,28 @@ class MessagesList extends React.Component {
       { channel: "LineChannel", room: "LineRoom" },
       {
         received: data => {
-          if (data.body) {
-            dispatch(receiveMessage(data));
-          } else {
-            if (data.subscription.user_id === this.props.currentUser.id) {
-              dispatch(receiveDirectMessage(data));
-            }
+          switch (data.socket_type) {
+            case "message":
+              delete data["socket_type"];
+              dispatch(receiveMessage(data.message));
+              break;
+            case "direct_message":
+              delete data["socket_type"];
+              if (data.subscription.user_id === this.props.currentUser.id) {
+                dispatch(receiveDirectMessage(data));
+              }
+              break;
+            default:
+              break;
           }
         },
         speak: function(data) {
           return this.perform("speak", data);
         }
+        // socket_direct_message: function(data) {
+        //   debugger;
+        //   return this.perform("socket_direct_message", data);
+        // }
       }
     );
     this.myRef.current.scrollIntoView();

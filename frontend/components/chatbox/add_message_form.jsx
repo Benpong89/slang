@@ -33,7 +33,8 @@ class AddMessageForm extends React.Component {
     };
 
     if (/\S/.test(message.body)) {
-      App.cable.subscriptions.subscriptions[0].speak(message);
+      const socket_message = { message: message, socket_type: "message" };
+      App.cable.subscriptions.subscriptions[0].speak(socket_message);
     }
 
     this.setState({

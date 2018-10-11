@@ -36,6 +36,9 @@ class Api::DirectMessagesController < ApplicationController
         subscription: @other_subscription
       }
 
+      @pair1['socket_type'] = 'direct_message'
+      @pair2['socket_type'] = 'direct_message'
+
       LineChannel.broadcast_to('line_channel', @pair1)
       LineChannel.broadcast_to('line_channel', @pair2)
 
