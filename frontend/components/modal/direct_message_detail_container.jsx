@@ -1,10 +1,7 @@
 import { connect } from "react-redux";
 import DirectMessageDetail from "./direct_message_detail.jsx";
 import { createSubscription } from "../../actions/subscription_actions";
-import {
-  createDirectMessage,
-  requestAllDirectMessages
-} from "../../actions/direct_message_actions.js";
+import { requestAllDirectMessages } from "../../actions/direct_message_actions.js";
 import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
@@ -22,7 +19,6 @@ const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   createSubscription: subscription =>
     dispatch(createSubscription(subscription)),
-  createDirectMessage: username => dispatch(createDirectMessage(username)),
   requestAllDirectMessages: direct_messages =>
     dispatch(requestAllDirectMessages(direct_messages))
 });

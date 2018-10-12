@@ -11,8 +11,8 @@ class LineChannel < ApplicationCable::Channel
         new_message = Message.create(body: message['body'], author_id: message['author_id'], messageable_type: message['messageable_type'], messageable_id: message['messageable_id'])
 
         @socket_message = {
-          socket_type: 'message',
-          message: new_message
+          message: new_message,
+          socket_type: 'message'
         }
 
         LineChannel.broadcast_to('line_channel', @socket_message)
@@ -37,7 +37,8 @@ class LineChannel < ApplicationCable::Channel
                             names: [@direct_message.users[0].username, @direct_message.users[1].username],
                             type: "Direct Message",
                             subs: @direct_message.subscriptions },
-          subscription: @subscription
+          subscription: @subscription,
+          socket_type: 'direct_message'
         }
 
         @pair2 = {
@@ -45,13 +46,40 @@ class LineChannel < ApplicationCable::Channel
                             names: [@direct_message.users[0].username, @direct_message.users[1].username],
                             type: "Direct Message",
                             subs: @direct_message.subscriptions },
-          subscription: @other_subscription
+          subscription: @other_subscription,
+          socket_type: 'direct_message'
         }
 
-        @pair1['socket_type'] = 'direct_message'
-        @pair2['socket_type'] = 'direct_message'
+        # @pair1['socket_type'] = 'direct_message'
+        # @pair2['socket_type'] = 'direct_message'
+
         LineChannel.broadcast_to('line_channel', @pair1)
         LineChannel.broadcast_to('line_channel', @pair2)
+      when "delete_direct_message"
+        @dm_id = data['direct_message_id']
+
+        @direct_message = DirectMessage.find(@dm_id)
+        @subscription_id1 = Subscription.find(@direct_message.subscriptions[0].id)
+        @subscription_id2 = Subscription.find(@direct_message.subscriptions[1].id)
+
+        @subscription_id1.destroy
+        @subscription_id2.destroy
+        @direct_message.destroy
+
+        @pair3 = {
+          direct_message_id: @dm_id,
+          subscription_id: @subscription_id1,
+          socket_type: 'delete_direct_message'
+        }
+
+        @pair4 = {
+          direct_message_id: @dm_id,
+          subscription_id: @subscription_id2,
+          socket_type: 'delete_direct_message'
+        }
+# invoke remove subscription as well on the frton end
+        LineChannel.broadcast_to('line_channel', @pair3)
+        LineChannel.broadcast_to('line_channel', @pair4)
     end
   end
 # pass in current user from the front...but I do need both current user and sending to user. Pass in both.

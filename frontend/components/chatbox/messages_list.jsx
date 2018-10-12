@@ -1,8 +1,11 @@
 import React from "react";
 import Cable from "actioncable";
 import { receiveMessage } from "../../actions/message_actions";
-// import { receiveSubscription } from "../../actions/subscription_actions";
-import { receiveDirectMessage } from "../../actions/direct_message_actions";
+import { removeSubscription } from "../../actions/subscription_actions";
+import {
+  receiveDirectMessage,
+  removeDirectMessage
+} from "../../actions/direct_message_actions";
 import Timestamp from "react-timestamp";
 import { emojify } from "react-emojione";
 
@@ -30,6 +33,11 @@ class MessagesList extends React.Component {
             case "direct_message":
               delete data["socket_type"];
               dispatch(receiveDirectMessage(data));
+              break;
+            case "delete_direct_message":
+              delete data["socket_type"];
+              dispatch(removeDirectMessage(data.direct_message_id.id));
+              dispatch(removeSubscription(data.subscription_id.id));
               break;
             default:
               break;

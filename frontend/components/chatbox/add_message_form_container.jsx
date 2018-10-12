@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import AddMessageForm from "./add_message_form.jsx";
-import { createMessage } from "../../actions/message_actions.js";
 
 //eventually, this will have to map chatbox tpe "channel or DM" and room id
 
@@ -14,9 +13,7 @@ const mapStateToProps = ({
   currentRoomDetails: currentRoom
 });
 
-const mapDispatchToProps = dispatch => ({
-  createMessage: message => dispatch(createMessage(message))
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,

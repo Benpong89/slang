@@ -23,8 +23,8 @@ export const deleteMessage = id => dispatch =>
     dispatch(removeMessage(id))
   );
 
-export const createMessage = message => dispatch =>
-  MessagesAPIUtil.createMessage(message);
+// export const createMessage = message => dispatch =>
+//   MessagesAPIUtil.createMessage(message);
 
 export const requestMessage = message => dispatch =>
   MessagesAPIUtil.fetchMessage(message).then(message =>

@@ -1,6 +1,4 @@
 import React from "react";
-// import { receiveMessage } from "../../actions/message_actions";
-// import { receiveDirectMessage } from "../../actions/direct_message_actions";
 import { Link } from "react-router-dom";
 
 class DirectMessageGroup extends React.Component {
@@ -27,6 +25,11 @@ class DirectMessageGroup extends React.Component {
     return e => {
       e.preventDefault();
       this.props.deleteDirectMessage(direct_message.id);
+      const socket_direct_message_id = {
+        direct_message_id: direct_message.id,
+        socket_type: "delete_direct_message"
+      };
+      App.cable.subscriptions.subscriptions[0].speak(socket_direct_message_id);
     };
   }
 
