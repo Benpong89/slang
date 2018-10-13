@@ -5,7 +5,10 @@ import {
   deleteMessage
 } from "../../actions/message_actions.js";
 import { requestAllUsers } from "../../actions/session_actions.js";
-import { createSubscription } from "../../actions/subscription_actions";
+import {
+  createSubscription,
+  updateSubscription
+} from "../../actions/subscription_actions";
 import { requestCurrentDirectMessage } from "../../actions/direct_message_actions";
 import { openModal } from "../../actions/modal_actions";
 
@@ -30,6 +33,8 @@ const mapDispatchToProps = dispatch => ({
   requestCurrentDirectMessage: id => dispatch(requestCurrentDirectMessage(id)),
   createSubscription: subscription =>
     dispatch(createSubscription(subscription)),
+  updateSubscription: subscription =>
+    dispatch(updateSubscription(subscription)),
   openModal: modal => dispatch(openModal(modal))
 });
 

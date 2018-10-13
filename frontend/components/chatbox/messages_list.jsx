@@ -15,6 +15,11 @@ class MessagesList extends React.Component {
     this.myRef = React.createRef();
     this.deleteMessage = this.deleteMessage.bind(this);
     this.openRoomDetailModal = this.openRoomDetailModal.bind(this);
+    this.handleStarIcon = this.handleStarIcon.bind(this);
+
+    this.state = {
+      fav: false
+    };
   }
 
   componentDidMount() {
@@ -65,6 +70,14 @@ class MessagesList extends React.Component {
   openRoomDetailModal(e) {
     e.preventDefault();
     this.props.openModal("roomDetail");
+  }
+
+  handleStarIcon(e) {
+    e.preventDefault();
+    // this.props.updateSubscription();
+    this.setState({
+      fav: !this.state.fav
+    });
   }
 
   render() {
@@ -118,6 +131,9 @@ class MessagesList extends React.Component {
       <div className="messages_list_container">
         <div className="messages_list_channel_name"> # {currentRoom}</div>
         <div className="message_list_nav_buttons">
+          <button className="staricon" onClick={this.handleStarIcon}>
+            {this.state.fav ? "\u2B52" : "\u2B50"}
+          </button>
           <button
             onClick={this.openRoomDetailModal}
             className="usericon-button"

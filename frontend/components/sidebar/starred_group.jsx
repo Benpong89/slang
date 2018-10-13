@@ -10,7 +10,20 @@ class StarredGroup extends React.Component {
   }
 
   render() {
-    return <div className="conversation-container" />;
+    return (
+      <div className="conversation-container">
+        <button
+          onClick={this.openDetailModal}
+          className="channel_detail_button"
+        >
+          Favorites
+        </button>
+        <button onClick={this.openCreateModal} className="create_new_channel">
+          {"\u2295"}
+        </button>
+        <ul className="conversation-ul">#test</ul>
+      </div>
+    );
   }
 }
 

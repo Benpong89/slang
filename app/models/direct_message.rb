@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: direct_messages
+#
+#  id         :bigint(8)        not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class DirectMessage < ApplicationRecord
   has_many :messages, as: :messageable
   has_many :subscriptions, as: :subscribeable
@@ -15,9 +24,3 @@ class DirectMessage < ApplicationRecord
     'DirectMessage'
   end
 end
-
-# self.users.map {|user| user.username == current_user.username }
-# self.users.map {|user| [user.id, user.username]}
-
-# other_users = self.users.select{|user| user != current_user}
-# other_users.map {|user| user.username}.join(', ')

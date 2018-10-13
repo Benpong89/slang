@@ -22,6 +22,11 @@ class Api::SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  def update
+    @subscription = Subscription.find(params[:id])
+    render :show
+  end
+
   def destroy
     @subscription = Subscription.find(params[:id])
     if @subscription.subscribeable_id == 1

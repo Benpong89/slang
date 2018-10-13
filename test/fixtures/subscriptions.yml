@@ -8,6 +8,7 @@
 #  subscribeable_type :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  favicon            :boolean          default(FALSE)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
