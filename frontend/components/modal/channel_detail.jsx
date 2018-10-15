@@ -24,9 +24,9 @@ class ChannelDetail extends React.Component {
   }
 
   setCurrentChannel(channelId) {
-    return e => {
+    return async e => {
       e.preventDefault();
-      this.props.createSubscription({
+      await this.props.createSubscription({
         user_id: this.props.currentUser.id,
         subscribeable_id: channelId,
         subscribeable_type: "Channel"

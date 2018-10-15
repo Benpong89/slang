@@ -4,6 +4,7 @@ import { receiveMessage } from "../../actions/message_actions";
 import { removeSubscription } from "../../actions/subscription_actions";
 import {
   receiveDirectMessage,
+  receiveCurrentDirectMessage,
   removeDirectMessage
 } from "../../actions/direct_message_actions";
 import Timestamp from "react-timestamp";
@@ -38,6 +39,7 @@ class MessagesList extends React.Component {
             case "direct_message":
               delete data["socket_type"];
               dispatch(receiveDirectMessage(data));
+              // dispatch(receiveCurrentDirectMessage(data.direct_message));
               break;
             case "delete_direct_message":
               delete data["socket_type"];
@@ -79,18 +81,14 @@ class MessagesList extends React.Component {
     if (this.props.currentRoom[0].type === "Channel") {
       currentRoomSub = Object.values(this.props.currentRoom)[0].subs[0];
     } else {
-      if (this.props.currentRoom[0].subs.length === 1) {
-        currentRoomSub = Object.values(this.props.currentRoom)[0].subs[0];
-      } else {
-        currentRoomSub = Object.values(this.props.currentRoom)[0].subs[1];
-      }
+      currentRoomSub = Object.values(this.props.currentRoom)[0].subs.find(
+        sub => sub.user_id === this.props.currentUser.id
+      );
     }
-
     const subscription = {
       id: currentRoomSub.id,
       favicon: !currentRoomSub.favicon
     };
-
     await this.props.updateSubscription(subscription);
 
     if (this.props.currentRoom[0].type === "Channel") {
@@ -98,6 +96,7 @@ class MessagesList extends React.Component {
     } else {
       this.props.requestCurrentDirectMessage(this.props.currentRoom[0].id);
     }
+
     // this.setState({
     //   fav: !this.state.fav
     // });
