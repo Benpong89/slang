@@ -1,3 +1,7 @@
+button:focus {
+  outline: none;
+}
+
 .chatbox {
   display: flex;
   flex-direction: column;
@@ -23,6 +27,10 @@
   background: none;
   border: none;
   color: #5b5e6d;
+}
+
+.message_list_nav_buttons button:hover {
+  cursor: pointer;
 }
 
 .staricon {

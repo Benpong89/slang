@@ -79,15 +79,7 @@ class StarredGroup extends React.Component {
 
     return (
       <div className="conversation-container">
-        <button
-          onClick={this.openDetailModal}
-          className="channel_detail_button"
-        >
-          Favorites
-        </button>
-        <button onClick={this.openCreateModal} className="create_new_channel">
-          {"\u2295"}
-        </button>
+        <button className="channel_detail_button">Favorites</button>
         <ul className="conversation-ul">{favChannelList}</ul>
         <ul className="conversation-ul">{favDirectMessageList}</ul>
       </div>

@@ -74,7 +74,18 @@ class MessagesList extends React.Component {
 
   async handleStarIcon(e) {
     e.preventDefault();
-    const currentRoomSub = Object.values(this.props.currentRoom)[0].subs[0];
+
+    let currentRoomSub;
+    if (this.props.currentRoom[0].type === "Channel") {
+      currentRoomSub = Object.values(this.props.currentRoom)[0].subs[0];
+    } else {
+      if (this.props.currentRoom[0].subs.length === 1) {
+        currentRoomSub = Object.values(this.props.currentRoom)[0].subs[0];
+      } else {
+        currentRoomSub = Object.values(this.props.currentRoom)[0].subs[1];
+      }
+    }
+
     const subscription = {
       id: currentRoomSub.id,
       favicon: !currentRoomSub.favicon
@@ -144,7 +155,7 @@ class MessagesList extends React.Component {
         <div className="messages_list_channel_name"> # {currentRoom}</div>
         <div className="message_list_nav_buttons">
           <button className="staricon" onClick={this.handleStarIcon}>
-            Star Button
+            {"\u2B50"}
           </button>
           <button
             onClick={this.openRoomDetailModal}

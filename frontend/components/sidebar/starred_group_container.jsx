@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { requestAllSubscriptions } from "../../actions/subscription_actions";
 import { requestCurrentDirectMessage } from "../../actions/direct_message_actions.js";
-import { requestCurrentchannel } from "../../actions/channel_actions.js";
+import { requestCurrentChannel } from "../../actions/channel_actions.js";
 import StarredGroup from "./starred_group.jsx";
 import { openModal } from "../../actions/modal_actions";
 
