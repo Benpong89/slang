@@ -39,9 +39,10 @@ class ChannelGroup extends React.Component {
     return e => {
       e.preventDefault();
       const toDelete = Object.values(this.props.subscriptions).filter(
-        subscription => subscription.subscribeable_id === channelId
+        subscription =>
+          subscription.subscribeable_id === channelId &&
+          subscription.user_id === this.props.currentUser.id
       );
-
       this.props.deleteSubscription(toDelete[0].id);
     };
   }

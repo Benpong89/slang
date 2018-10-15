@@ -11,7 +11,6 @@ class Api::SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     if @subscription.save
-      # LineChannel.broadcast_to('line_channel', @subscription)
       render :show
     else
       render json: ['invalid subscription'], status: 401
@@ -23,8 +22,12 @@ class Api::SubscriptionsController < ApplicationController
   end
 
   def update
-    @subscription = Subscription.find(params[:id])
-    render :show
+    @subscription = Subscription.find(params[:id].to_i)
+    if @subscription.update(subscription_params)
+      render :show
+    else
+      render json: ['cannot update subscription'], status: 422
+    end
   end
 
   def destroy
@@ -38,6 +41,6 @@ class Api::SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    params.require(:subscription).permit(:user_id, :subscribeable_id, :subscribeable_type)
+    params.require(:subscription).permit(:id, :user_id, :subscribeable_id, :subscribeable_type, :favicon)
   end
 end

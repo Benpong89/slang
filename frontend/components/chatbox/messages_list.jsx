@@ -17,9 +17,9 @@ class MessagesList extends React.Component {
     this.openRoomDetailModal = this.openRoomDetailModal.bind(this);
     this.handleStarIcon = this.handleStarIcon.bind(this);
 
-    this.state = {
-      fav: false
-    };
+    // this.state = {
+    //   fav: this.props.currentRoom[0].subs[0].favicon
+    // };
   }
 
   componentDidMount() {
@@ -72,12 +72,24 @@ class MessagesList extends React.Component {
     this.props.openModal("roomDetail");
   }
 
-  handleStarIcon(e) {
+  async handleStarIcon(e) {
     e.preventDefault();
-    // this.props.updateSubscription();
-    this.setState({
-      fav: !this.state.fav
-    });
+    const currentRoomSub = Object.values(this.props.currentRoom)[0].subs[0];
+    const subscription = {
+      id: currentRoomSub.id,
+      favicon: !currentRoomSub.favicon
+    };
+
+    await this.props.updateSubscription(subscription);
+
+    if (this.props.currentRoom[0].type === "Channel") {
+      this.props.requestCurrentChannel(this.props.currentRoom[0].id);
+    } else {
+      this.props.requestCurrentDirectMessage(this.props.currentRoom[0].id);
+    }
+    // this.setState({
+    //   fav: !this.state.fav
+    // });
   }
 
   render() {
@@ -132,7 +144,7 @@ class MessagesList extends React.Component {
         <div className="messages_list_channel_name"> # {currentRoom}</div>
         <div className="message_list_nav_buttons">
           <button className="staricon" onClick={this.handleStarIcon}>
-            {this.state.fav ? "\u2B52" : "\u2B50"}
+            Star Button
           </button>
           <button
             onClick={this.openRoomDetailModal}
@@ -153,6 +165,8 @@ class MessagesList extends React.Component {
 }
 
 export default MessagesList;
+
+// {this.state.fav ? "True" : "False"}
 
 // Star icons
 //

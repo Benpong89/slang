@@ -10,6 +10,7 @@ import {
   updateSubscription
 } from "../../actions/subscription_actions";
 import { requestCurrentDirectMessage } from "../../actions/direct_message_actions";
+import { requestCurrentChannel } from "../../actions/channel_actions";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = ({
@@ -31,6 +32,7 @@ const mapDispatchToProps = dispatch => ({
   requestAllUsers: users => dispatch(requestAllUsers(users)),
   deleteMessage: message => dispatch(deleteMessage(message)),
   requestCurrentDirectMessage: id => dispatch(requestCurrentDirectMessage(id)),
+  requestCurrentChannel: id => dispatch(requestCurrentChannel(id)),
   createSubscription: subscription =>
     dispatch(createSubscription(subscription)),
   updateSubscription: subscription =>
