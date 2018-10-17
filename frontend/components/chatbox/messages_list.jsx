@@ -17,10 +17,6 @@ class MessagesList extends React.Component {
     this.deleteMessage = this.deleteMessage.bind(this);
     this.openRoomDetailModal = this.openRoomDetailModal.bind(this);
     this.handleStarIcon = this.handleStarIcon.bind(this);
-
-    // this.state = {
-    //   fav: this.props.currentRoom[0].subs[0].favicon
-    // };
   }
 
   componentDidMount() {
@@ -96,10 +92,6 @@ class MessagesList extends React.Component {
     } else {
       this.props.requestCurrentDirectMessage(this.props.currentRoom[0].id);
     }
-
-    // this.setState({
-    //   fav: !this.state.fav
-    // });
   }
 
   render() {
@@ -175,24 +167,3 @@ class MessagesList extends React.Component {
 }
 
 export default MessagesList;
-
-// {this.state.fav ? "True" : "False"}
-
-// Star icons
-//
-// <button className="staricon" onClick={this.handleStarIcon}>
-//   {this.state.fav ? "\u2B52" : "\u2B50"}
-// </button>
-
-// this.state = {
-//   fav: false
-// };
-
-// this.handleStarIcon = this.handleStarIcon.bind(this);
-
-// handleStarIcon(e) {
-//   e.preventDefault();
-//   this.setState({
-//     fav: !this.state.fav
-//   });
-// }

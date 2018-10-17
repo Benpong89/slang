@@ -88,20 +88,3 @@ class StarredGroup extends React.Component {
 }
 
 export default StarredGroup;
-
-// const favChannels = this.props.channels.filter(channel => {
-//
-// })
-//
-// // const favChannels = currUserFavSubs.filter(
-// //   subscription => subscription.subscribeable_type === "Channel"
-// // );
-//
-// //Separate by channel and DMs and then print out the right name. DM is user name, Ch is name.
-//
-// const filteredChannels = this.props.channels.filter(channel =>
-//   channelIds.includes(channel.id)
-// );
-
-//Now that I have all the current user favorite subscriptions, need to
-//then list them out by channel or DM room name.

@@ -51,7 +51,6 @@ class AddMessageForm extends React.Component {
       emoji: false
     });
   }
-  // {"\u2192"}
 
   myCallback(code, data) {
     this.setState({

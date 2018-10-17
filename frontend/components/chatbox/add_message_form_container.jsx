@@ -1,8 +1,6 @@
 import { connect } from "react-redux";
 import AddMessageForm from "./add_message_form.jsx";
 
-//eventually, this will have to map chatbox tpe "channel or DM" and room id
-
 const mapStateToProps = ({
   session,
   entities: { users },
