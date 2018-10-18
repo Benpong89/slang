@@ -157,7 +157,7 @@ button:focus {
 }
 
 #hidden {
-  display: none;
+  z-index: -5;
   position: absolute;
   bottom: 100px;
 }
