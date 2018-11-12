@@ -12,8 +12,7 @@
 #
 
 class Message < ApplicationRecord
-  validates :body, presence: true
-  # validates :body, :author_id, :messageable_id, :messageable_type, presence: true
+  validates :body, presence: true, length: { minimum: 1 }
 
   belongs_to :messageable, polymorphic: true
 

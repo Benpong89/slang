@@ -5,15 +5,9 @@ class DirectMessageGroup extends React.Component {
   constructor(props) {
     super(props);
     this.props.requestAllDirectMessages();
-    this.openCreateModal = this.openCreateModal.bind(this);
     this.openDetailModal = this.openDetailModal.bind(this);
     this.setCurrentDirectMessage = this.setCurrentDirectMessage.bind(this);
     this.deleteDirectMessage = this.deleteDirectMessage.bind(this);
-  }
-
-  openCreateModal(e) {
-    e.preventDefault();
-    this.props.openModal("createDirectMessage");
   }
 
   openDetailModal(e) {

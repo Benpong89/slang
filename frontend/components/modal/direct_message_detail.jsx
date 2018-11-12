@@ -41,9 +41,7 @@ class DirectMessageDetail extends React.Component {
           pairUserIds: pairUserIds,
           socket_type: "direct_message"
         };
-        // App.cable.subscriptions.subscriptions[0].speak(message);
         App.cable.subscriptions.subscriptions[0].speak(socket_direct_message);
-        // this.props.createDirectMessage(user.id);
         this.props.closeModal();
       }
     };

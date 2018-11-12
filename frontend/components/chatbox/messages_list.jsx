@@ -1,5 +1,4 @@
 import React from "react";
-import Cable from "actioncable";
 import { receiveMessage } from "../../actions/message_actions";
 import { removeSubscription } from "../../actions/subscription_actions";
 import {
@@ -51,7 +50,6 @@ class MessagesList extends React.Component {
         }
       }
     );
-    this.myRef.current.scrollIntoView();
   }
 
   componentDidUpdate() {

@@ -16,11 +16,11 @@ The most complex part of this process is initiating the Subscription on the clie
 
 ```rb
 App.cable.subscriptions.create(
-      { channel: "LineChannel", room: "Line Room" },
+      { channel: "LineChannel", room: "LineRoom" },
       {
         received: data => {
           dispatch(
-            receiveMessage(message)
+            receiveMessage(data)
           );
         },
         speak: function(data) {
