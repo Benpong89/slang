@@ -49,9 +49,6 @@ class LineChannel < ApplicationCable::Channel
         socket_type: 'direct_message'
       }
 
-      # @pair1['socket_type'] = 'direct_message'
-      # @pair2['socket_type'] = 'direct_message'
-
       LineChannel.broadcast_to('line_channel', @pair1)
       LineChannel.broadcast_to('line_channel', @pair2)
     when 'delete_direct_message'
@@ -76,54 +73,12 @@ class LineChannel < ApplicationCable::Channel
         subscription_id: @subscription_id2,
         socket_type: 'delete_direct_message'
       }
-      # invoke remove subscription as well on the frton end
       LineChannel.broadcast_to('line_channel', @pair3)
       LineChannel.broadcast_to('line_channel', @pair4)
     end
   end
-  # pass in current user from the front...but I do need both current user and sending to user. Pass in both.
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
 end
-
-# def socket_direct_message(data)
-#   debugger
-#   @direct_message = DirectMessage.create
-#
-#   @subscription = Subscription.create(
-#     user_id: data[0].to_i,
-#     subscribeable_id: @direct_message.id,
-#     subscribeable_type: 'DirectMessage'
-#   )
-#
-#   @other_subscription = Subscription.create(
-#     user_id: data[1].to_i,
-#     subscribeable_id: @direct_message.id,
-#     subscribeable_type: 'DirectMessage'
-#   )
-#
-#   @pair1 = {
-#     direct_message: { id: @direct_message.id,
-#                       names: [@direct_message.users[0].username, @direct_message.users[1].username],
-#                       type: "Direct Message",
-#                       subs: @direct_message.subscriptions },
-#     subscription: @subscription
-#   }
-#
-#   @pair2 = {
-#     direct_message: { id: @direct_message.id,
-#                       names: [@direct_message.users[0].username, @direct_message.users[1].username],
-#                       type: "Direct Message",
-#                       subs: @direct_message.subscriptions },
-#     subscription: @other_subscription
-#   }
-#
-#   @pair1['socket_type'] = 'direct_message'
-#   @pair2['socket_type'] = 'direct_message'
-#   debugger
-#
-#   LineChannel.broadcast_to('line_channel', @pair1)
-#   LineChannel.broadcast_to('line_channel', @pair2)
-# end
