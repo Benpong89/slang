@@ -23,7 +23,7 @@ class MessagesList extends React.Component {
     this.props.requestAllMessages();
 
     App.cable.subscriptions.create(
-      { channel: "LineChannel", room: "LineRoom" },
+      { channel: "LineChannel" },
       {
         received: data => {
           switch (data.socket_type) {
@@ -34,7 +34,6 @@ class MessagesList extends React.Component {
             case "direct_message":
               delete data["socket_type"];
               dispatch(receiveDirectMessage(data));
-              // dispatch(receiveCurrentDirectMessage(data.direct_message));
               break;
             case "delete_direct_message":
               delete data["socket_type"];
