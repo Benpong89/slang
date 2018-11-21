@@ -13,12 +13,12 @@ class AddMessageForm extends React.Component {
       author_id: this.props.currentUser.id,
       messageable_type: this.props.currentRoom[0].type,
       messageable_id: this.props.currentRoom[0],
-      emoji: false
+      emojiLibary: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleEmoji = this.toggleEmoji.bind(this);
-    this.myCallback = this.myCallback.bind(this);
+    this.emojiParser = this.emojiParser.bind(this);
   }
 
   update(field) {
@@ -37,14 +37,10 @@ class AddMessageForm extends React.Component {
       messageable_id: this.props.currentRoom[0].id
     };
 
-    const socket_message = { message: message, socket_type: "message" };
-    App.cable.subscriptions.subscriptions[0].speak(socket_message);
-
-    // if (/\S/.test(message.body)) {
-    //   const socket_message = { message: message, socket_type: "message" };
-    //
-    //   App.cable.subscriptions.subscriptions[0].speak(socket_message);
-    // }
+    if (/\S/.test(message.body)) {
+      const socket_message = { message: message, socket_type: "message" };
+      App.cable.subscriptions.subscriptions[0].speak(socket_message);
+    }
 
     this.setState({
       body: "",
@@ -52,11 +48,11 @@ class AddMessageForm extends React.Component {
       messageable_type: this.props.currentRoom[0].type,
       messageable_id: this.props.currentRoom[0].id,
       currentRoom: this.props.currentRoom[0],
-      emoji: false
+      emojiLibary: false
     });
   }
 
-  myCallback(code, data) {
+  emojiParser(code, data) {
     this.setState({
       body: this.state.body + ":" + data.name + ":"
     });
@@ -65,15 +61,15 @@ class AddMessageForm extends React.Component {
   toggleEmoji(e) {
     e.preventDefault(e);
     this.setState({
-      emoji: !this.state.emoji
+      emojiLibary: !this.state.emojiLibary
     });
   }
 
   render() {
     return (
       <div className="messages_submit_container">
-        <div id={this.state.emoji ? "emoji-picker" : "hidden"}>
-          <EmojiPicker onEmojiClick={this.myCallback} />
+        <div id={this.state.emojiLibary ? "emoji-picker" : "hidden"}>
+          <EmojiPicker onEmojiClick={this.emojiParser} />
         </div>
         <form onSubmit={this.handleSubmit}>
           <input
