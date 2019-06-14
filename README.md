@@ -1,6 +1,6 @@
 ![alt text](https://github.com/Benpong89/slang/blob/master/app/assets/images/newlogo7.png)
 
-[Live demo!](https://slang.benpong.com)
+[Live demo!](http://slang.benpong.com)
 
 Slang is a live chat app inspired by Slack. Utilizing a full duplex WebSocket protocol connection, users can enjoy real-time live chat in public Channels and private Direct Messages. Technologies used include, Ruby on Rails, React.js and Redux.
 
